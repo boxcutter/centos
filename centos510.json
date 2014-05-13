@@ -1,8 +1,8 @@
 {
   "variables": {
-    "provisioner": "provisionerless",
-    "provisioner_version": "",
-    "provisioner_set_path": "",
+    "cm": "nocm",
+    "cm_version": "",
+    "cm_set_path": "",
     "iso_url": "http://mirror.stanford.edu/yum/pub/centos/5.10/isos/x86_64/CentOS-5.10-x86_64-bin-DVD-1of2.iso",
     "iso_checksum": "d8403b3fe4972eda3e147ee76d682a4a3beae1e1"
   },
@@ -55,24 +55,23 @@
   "provisioners": [{
     "type": "shell",
     "environment_vars": [
-      "PROVISIONER={{user `provisioner`}}",
-      "PROVISIONER_VERSION={{user `provisioner_version`}}",
-      "PROVISIONER_SET_PATH={{user `provisioner_set_path`}}"
+      "CM={{user `cm`}}",
+      "CM_VERSION={{user `cm_version`}}",
+      "CM_SET_PATH={{user `cm_set_path`}}"
     ],
     "execute_command": "echo 'vagrant' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
     "scripts": [
       "script/fix-slow-dns.sh",
       "script/sshd.sh",
       "script/vagrant.sh",
-      "script/vmtools.sh",
-      "script/provisioner.sh",
-      "script/cleanup.sh",
-      "script/zerodisk.sh"
+      "script/vmtool.sh",
+      "script/cmtool.sh",
+      "script/cleanup.sh"
     ]
   }],
   "post-processors": [{
     "type": "vagrant",
     "keep_input_artifact": false,
-    "output": "../../{{.Provider}}/centos510-{{user `provisioner`}}{{user `provisioner_version`}}.box"
+    "output": "box/{{.Provider}}/centos510-{{user `cm`}}{{user `cm_version`}}.box"
   }]
 }
