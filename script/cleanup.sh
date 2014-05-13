@@ -78,6 +78,7 @@ rm -f /core*
 echo "==> Removing temporary files used to build box"
 rm -rf /tmp/*
 
+<<<<<<< 0c4e7d080523dee321c50441bfcf3fe5008e616a
 echo "==> Rebuild RPM DB"
 rpmdb --rebuilddb
 rm -f /var/lib/rpm/__db*
@@ -103,14 +104,23 @@ echo '==> Zeroing out empty area to save space in the final image'
 # Zero out the free space to save space in the final image.  Contiguous
 # zeroed space compresses down to nothing.
 dd if=/dev/zero of=/EMPTY bs=1M || echo "dd exit code $? is suppressed"
+=======
+echo '==> Zeroing out empty area to save space in the final image'
+# Zero out the free space to save space in the final image.  Contiguous
+# zeroed space compresses down to nothing.
+dd if=/dev/zero of=/EMPTY bs=1M
+>>>>>>> Transforming templates migrated from https://github.com/misheska/basebox-packer to new form
 rm -f /EMPTY
 
 # Block until the empty file has been removed, otherwise, Packer
 # will try to kill the box while the disk is still full and that's bad
 sync
+<<<<<<< 0c4e7d080523dee321c50441bfcf3fe5008e616a
 
 echo "==> Disk usage before cleanup"
 echo ${DISK_USAGE_BEFORE_CLEANUP}
 
 echo "==> Disk usage after cleanup"
 df -h
+=======
+>>>>>>> Transforming templates migrated from https://github.com/misheska/basebox-packer to new form

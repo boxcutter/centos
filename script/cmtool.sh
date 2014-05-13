@@ -27,6 +27,7 @@ install_chef()
     echo "==> Installing Chef"
     if [[ ${CM_VERSION:-} == 'latest' ]]; then
         echo "==> Installing latest Chef version"
+<<<<<<< 0c4e7d080523dee321c50441bfcf3fe5008e616a
         curl -Lk https://www.opscode.com/chef/install.sh | sh
     else
         echo "==> Installing Chef version ${CM_VERSION}"
@@ -47,6 +48,17 @@ install_chefdk()
     echo "==> Adding Chef Development Kit and Ruby to PATH"
     echo 'eval "$(chef shell-init bash)"' >> /home/vagrant/.bash_profile
     chown vagrant /home/vagrant/.bash_profile
+=======
+        curl -L https://www.opscode.com/chef/install.sh | sh
+    else
+        echo "==> Installing Chef version ${CM_VERSION}"
+        curl -L https://www.opscode.com/chef/install.sh | sh -s -- -v ${CM_VERSION}
+    fi
+    if [[ ${CM_SET_PATH:-} == 'true' ]]; then
+      echo "Automatically setting vagrant PATH to Chef Client"
+      echo 'export PATH="/opt/chef/embedded/bin:$PATH"' >> /home/vagrant/.bash_profile
+    fi
+>>>>>>> Transforming templates migrated from https://github.com/misheska/basebox-packer to new form
 }
 
 install_salt()
@@ -87,10 +99,13 @@ case "${CM}" in
     install_chef
     ;;
 
+<<<<<<< 0c4e7d080523dee321c50441bfcf3fe5008e616a
   'chefdk')
     install_chefdk
     ;;
 
+=======
+>>>>>>> Transforming templates migrated from https://github.com/misheska/basebox-packer to new form
   'salt')
     install_salt
     ;;
@@ -100,6 +115,10 @@ case "${CM}" in
     ;;
 
   *)
+<<<<<<< 0c4e7d080523dee321c50441bfcf3fe5008e616a
     echo "==> Building box without baking in a config management tool"
+=======
+    echo "==> Building box without backing in a configuration management tool"
+>>>>>>> Transforming templates migrated from https://github.com/misheska/basebox-packer to new form
     ;;
 esac

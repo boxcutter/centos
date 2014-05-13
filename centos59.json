@@ -3,11 +3,11 @@
     "cm": "nocm",
     "cm_version": "",
     "cm_set_path": "",
-    "iso_url": "http://mirrors.kernel.org/centos/6.5/isos/x86_64/CentOS-6.5-x86_64-bin-DVD1.iso",
-    "iso_checksum": "32c7695b97f7dcd1f59a77a71f64f2957dddf738"
+    "iso_url": "http://mirror.symnds.com/distributions/CentOS-vault/5.9/isos/x86_64/CentOS-5.9-x86_64-bin-DVD-1of2.iso",
+    "iso_checksum": "c12e01b546f00a965b8414abf0860b08d0bba3c9"
   },
   "builders": [{
-    "vm_name": "centos65-docker",
+    "vm_name": "centos59",
     "type": "vmware-iso",
     "guest_os_type": "centos-64",
     "http_directory": "http",
@@ -19,9 +19,9 @@
     "ssh_wait_timeout": "10000s",
     "tools_upload_flavor": "linux",
     "boot_command": [
-      "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/ks6.cfg<enter>"
+      "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/ks5.cfg<enter>"
     ],
-    "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
+    "shutdown_command": "echo 'vagrant'|sudo -S /sbin/shutdown -h now",
     "disk_size": 10140,
     "vmx_data": {
       "memsize": "512",
@@ -30,7 +30,7 @@
     }
   },
   {
-    "vm_name": "centos65-docker",
+    "vm_name": "centos59",
     "type": "virtualbox-iso",
     "http_directory": "http",
     "iso_url": "{{ user `iso_url` }}",
@@ -43,9 +43,9 @@
     "ssh_password": "vagrant",
     "ssh_wait_timeout": "10000s",
     "boot_command": [
-      "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/ks6.cfg<enter>"
+      "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/ks5.cfg<enter>"
     ],
-    "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
+    "shutdown_command": "echo 'vagrant'|sudo -S /sbin/shutdown -h now",
     "disk_size": 10140,
     "vboxmanage": [
       ["modifyvm", "{{.Name}}", "--memory", "512"],
@@ -63,8 +63,6 @@
     "scripts": [
       "script/fix-slow-dns.sh",
       "script/sshd.sh",
-      "script/kernel-docker.sh",
-      "script/docker.sh",
       "script/vagrant.sh",
       "script/vmtool.sh",
       "script/cmtool.sh",
@@ -74,6 +72,6 @@
   "post-processors": [{
     "type": "vagrant",
     "keep_input_artifact": false,
-    "output": "box/{{.Provider}}/centos65-docker-{{user `cm`}}{{user `cm_version`}}.box"
+    "output": "box/{{.Provider}}/centos59-{{user `cm`}}{{user `cm_version`}}.box"
   }]
 }
