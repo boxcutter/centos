@@ -85,6 +85,6 @@ case "${CM}" in
     ;;
 
   *)
-    echo "==> Building box without backing in a configuration management tool"
+    echo "==> Building box without baking in a config management tool"
     ;;
 esac

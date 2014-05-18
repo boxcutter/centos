@@ -3,6 +3,7 @@
     "cm": "nocm",
     "cm_version": "",
     "cm_set_path": "",
+    "cleanup_pause": "",
     "iso_url": "http://mirror.symnds.com/distributions/CentOS-vault/5.9/isos/x86_64/CentOS-5.9-x86_64-bin-DVD-1of2.iso",
     "iso_checksum": "c12e01b546f00a965b8414abf0860b08d0bba3c9"
   },
@@ -57,7 +58,8 @@
     "environment_vars": [
       "CM={{user `cm`}}",
       "CM_VERSION={{user `cm_version`}}",
-      "CM_SET_PATH={{user `cm_set_path`}}"
+      "CM_SET_PATH={{user `cm_set_path`}}",
+      "CLEANUP_PAUSE={{user `cleanup_pause`}}"
     ],
     "execute_command": "echo 'vagrant' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
     "scripts": [

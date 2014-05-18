@@ -25,6 +25,7 @@ if [[ $PACKER_BUILDER_TYPE =~ vmware ]]; then
     rm /home/vagrant/linux.iso
     umount /mnt/cdrom
     rmdir /mnt/cdrom
+    rm -rf /tmp/VMwareTools-*
 fi
 
 if [[ $PACKER_BUILDER_TYPE =~ virtualbox ]]; then
@@ -39,6 +40,7 @@ if [[ $PACKER_BUILDER_TYPE =~ virtualbox ]]; then
     sh /mnt/VBoxLinuxAdditions.run --nox11
     umount /mnt
     rm -rf /home/vagrant/VBoxGuestAdditions_$VBOX_VERSION.iso
+    rm -f /home/vagrnat/.vbox_version
 
     if [[ $VBOX_VERSION = "4.3.10" ]]; then
         ln -s /opt/VBoxGuestAdditions-4.3.10/lib/VBoxGuestAdditions /usr/lib/VBoxGuestAdditions

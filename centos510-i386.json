@@ -3,6 +3,7 @@
     "cm": "nocm",
     "cm_version": "",
     "cm_set_path": "",
+    "cleanup_pause": "",
     "iso_url": "http://mirrors.kernel.org/centos/5.10/isos/i386/CentOS-5.10-i386-bin-DVD-1of2.iso",
     "iso_checksum": "bb4e61210e1c0389fdf55c59bd2dd7bc957dd400"
   },
@@ -57,7 +58,8 @@
     "environment_vars": [ 
       "CM={{user `cm`}}",
       "CM_VERSION={{user `cm_version`}}",
-      "CM_SET_PATH={{user `cm_set_path`}}"
+      "CM_SET_PATH={{user `cm_set_path`}}",
+      "CLEANUP_PAUSE={{user `cleanup_pause`}}"
     ],
     "execute_command": "echo 'vagrant' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
     "scripts": [

@@ -1,6 +1,10 @@
 #!/bin/bash -eux
 
-echo '==> Removing temporary files used to build box'
+#CLEANUP_PAUSE=${CLEANUP_PAUSE:-0}
+#echo "==> Pausing for ${CLEANUP_PAUSE} seconds..."
+#sleep ${CLEANUP_PAUSE}
+
+echo "==> Cleaning up temporary network addresses"
 # Make sure udev doesn't block our network
 if grep -q -i "release 6" /etc/redhat-release ; then
     rm -f /etc/udev/rules.d/70-persistent-net.rules
@@ -11,9 +15,10 @@ rm -rf /dev/.udev/
 sed -i "/^HWADDR/d" /etc/sysconfig/network-scripts/ifcfg-eth0
 sed -i "/^UUID/d" /etc/sysconfig/network-scripts/ifcfg-eth0
 
-echo '==> Cleaning up yum cache of metadata and packages to save space'
+echo "==> Cleaning up yum cache of metadata and packages to save space"
 yum -y clean all
 
+echo "==> Removing temporary files used to build box"
 rm -rf /tmp/*
 
 echo '==> Zeroing out empty area to save space in the final image'

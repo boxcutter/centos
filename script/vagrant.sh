@@ -15,14 +15,13 @@ if ! id -u $VAGRANT_USER >/dev/null 2>&1; then
     echo "${VAGRANT_USER}        ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers
 fi
 
-# Installing vagrant keys
 echo '==> Installing Vagrant SSH key'
-mkdir -pm 700 $VAGRANT_HOME/.ssh
+mkdir -pm 700 ${VAGRANT_HOME}/.ssh
 echo "==> Downloading SSH key from ${VAGRANT_SSH_KEY_URL}"
 echo "==> Saving to ${VAGRANT_HOME}/.ssh/autorized_keys"
-wget --no-check-certificate "${VAGRANT_SSH_KEY_URL}" -O $VAGRANT_HOME/.ssh/authorized_keys
-chmod 0600 $VAGRANT_HOME/.ssh/authorized_keys
-chown -R $VAGRANT_USER:$VAGRANT_USER $VAGRANT_HOME/.ssh
+wget --no-check-certificate "${VAGRANT_SSH_KEY_URL}" -O ${VAGRANT_HOME}/.ssh/authorized_keys
+chmod 0600 ${VAGRANT_HOME}/.ssh/authorized_keys
+chown -R ${VAGRANT_USER}:${VAGRANT_USER} ${VAGRANT_HOME}/.ssh
 
 echo '==> Recording box config date'
 date > /etc/vagrant_box_build_time
