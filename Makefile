@@ -3,7 +3,7 @@ ifneq ("$(wildcard Makefile.local)", "")
 	include Makefile.local
 endif
 
-CENTOS59_X86_64 ?= http://mirror.stanford.edu/yum/pub/centos/5.9/isos/x86_64/CentOS-5.9-x86_64-bin-DVD-1of2.iso
+CENTOS59_X86_64 ?= http://mirror.symnds.com/distributions/CentOS-vault/5.9/isos/x86_64/CentOS-5.9-x86_64-bin-DVD-1of2.iso
 CENTOS59_I386 ?= http://mirror.symnds.com/distributions/CentOS-vault/5.9/isos/i386/CentOS-5.9-i386-bin-DVD-1of2.iso
 CENTOS510_X86_64 ?= http://mirror.stanford.edu/yum/pub/centos/5.10/isos/x86_64/CentOS-5.10-x86_64-bin-DVD-1of2.iso
 CENTOS510_I386 ?= http://mirrors.kernel.org/centos/5.10/isos/i386/CentOS-5.10-i386-bin-DVD-1of2.iso
