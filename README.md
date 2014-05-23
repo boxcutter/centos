@@ -1,5 +1,5 @@
 # Packer templates for CentOS
-[![Build Status](https://box-cutter.ci.cloudbees.com/buildStatus/icon?job=centos-vm)](https://box-cutter.ci.cloudbees.com/job/box-cutter/)
+[![Build Status](https://box-cutter.ci.cloudbees.com/buildStatus/icon?job=centos-vm)](https://box-cutter.ci.cloudbees.com/job/centos-vm/)
 
 ### Overview
 
