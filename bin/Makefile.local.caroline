@@ -1,0 +1,9 @@
+coraline_centos := /Volumes/Storage/CentOS
+CENTOS59_X86_64 := $(coraline_centos)/CentOS-5.9-x86_64-bin-DVD-1of2.iso
+CENTOS59_I386 := $(coraline_centos)/CentOS-5.9-i386-bin-DVD-1of2.iso
+CENTOS510_X86_64 := $(coraline_centos)/CentOS-5.10-x86_64-bin-DVD-1of2.iso
+CENTOS510_I386 := $(coraline_centos)/CentOS-5.10-i386-bin-DVD-1of2.iso
+CENTOS64_X86_64 := $(coraline_centos)/CentOS-6.4-x86_64-bin-DVD1.iso
+CENTOS64_I386 := $(coraline_centos)/CentOS-6.4-i386-bin-DVD1.iso
+CENTOS65_X86_64 := $(coraline_centos)/CentOS-6.5-x86_64-bin-DVD1.iso
+CENTOS65_I386 := $(coraline_centos)/CentOS-6.5-i386-bin-DVD1.iso
