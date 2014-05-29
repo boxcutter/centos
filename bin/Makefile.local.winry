@@ -1,0 +1,17 @@
+winry_centos := file:///Volumes/Storage/Software/CentOS
+CENTOS59_X86_64 := $(winry_centos)/CentOS-5.9-x86_64-bin-DVD-1of2.iso
+CENTOS59_I386 := $(winry_centos)/CentOS-5.9-i386-bin-DVD-1of2.iso
+CENTOS510_X86_64 := $(winry_centos)/CentOS-5.10-x86_64-bin-DVD-1of2.iso
+CENTOS510_I386 := $(winry_centos)/CentOS-5.10-i386-bin-DVD-1of2.iso
+CENTOS64_X86_64 := $(winry_centos)/CentOS-6.4-x86_64-bin-DVD1.iso
+CENTOS64_I386 := $(winry_centos)/CentOS-6.4-i386-bin-DVD1.iso
+CENTOS65_X86_64 := $(winry_centos)/CentOS-6.5-x86_64-bin-DVD1.iso
+CENTOS65_I386 := $(winry_centos)/CentOS-6.5-i386-bin-DVD1.iso
+
+test-vagrantcloud:
+	@for shortcut_target in $(SHORTCUT_TARGETS) ; do \
+		bin/test-vagrantcloud-box.sh box-cutter/$$shortcut_target virtualbox virtualbox $(CURRENT_DIR)/test/*_spec.rb || exit; \
+	done
+	@for shortcut_target in $(SHORTCUT_TARGETS) ; do \
+		bin/test-vagrantcloud-box.sh box-cutter/$$shortcut_target vmware_fusion vmware_desktop $(CURRENT_DIR)/test/*_spec.rb || exit; \
+	done
