@@ -1,4 +1,4 @@
-coraline_centos := /Volumes/Storage/CentOS
+coraline_centos := /Volumes/Thunder/CentOS
 CENTOS59_X86_64 := $(coraline_centos)/CentOS-5.9-x86_64-bin-DVD-1of2.iso
 CENTOS59_I386 := $(coraline_centos)/CentOS-5.9-i386-bin-DVD-1of2.iso
 CENTOS510_X86_64 := $(coraline_centos)/CentOS-5.10-x86_64-bin-DVD-1of2.iso
