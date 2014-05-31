@@ -98,7 +98,7 @@ pointing at pre-downloaded ISOs instead of using the default
 download Internet URLs:
 `CENTOS65_X86_64 := file:///Volumes/CentOS/CentOS-6.5-x86_64-bin-DVD1.iso`
 
-### Contributing
+## Contributing
 
 
 1. Fork and clone the repo.
@@ -111,7 +111,7 @@ download Internet URLs:
 8. Push to your fork and submit a pull request.
 9. Once submitted, a full `make test` run will be performed against your change in the build farm.  You will be notified if the test suite fails.
 
-### Acknowledgments
+## Acknowledgments
 
 [CloudBees](http://www.cloudbees.com) is providing a hosted [Jenkins master](http://box-cutter.ci.cloudbees.com/) through their CloudBees FOSS program. Their [On-Premise Executor](https://developer.cloudbees.com/bin/view/DEV/On-Premise+Executors) feature is used to connect physical machines as build slaves running VirtualBox, VMware Fusion, VMware Workstation, VMware ESXi/vSphere and Hyper-V.
 
