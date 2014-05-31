@@ -23,9 +23,9 @@ ifndef CM_VERSION
 endif
 # Packer does not allow empty variables, so only pass variables that are defined
 ifdef CM_VERSION
-	PACKER_VARS := -var 'cm=$(CM)' -var 'cm_version=$(CM_VERSION)'
+	PACKER_VARS := -var 'cm=$(CM)' -var 'cm_version=$(CM_VERSION)' -var 'cm_set_path=$(CM_SET_PATH)'
 else
-	PACKER_VARS := -var 'cm=$(CM)'
+	PACKER_VARS := -var 'cm=$(CM)' -var 'cm_set_path=$(CM_SET_PATH)'
 endif
 ifeq ($(CM),nocm)
 	BOX_SUFFIX := -$(CM).box
