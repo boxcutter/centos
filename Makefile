@@ -23,9 +23,9 @@ ifndef CM_VERSION
 endif
 # Packer does not allow empty variables, so only pass variables that are defined
 ifdef CM_VERSION
-	PACKER_VARS := -var 'cm=$(CM)' -var 'cm_version=$(CM_VERSION)'
+	PACKER_VARS := -var 'cm=$(CM)' -var 'cm_version=$(CM_VERSION)' -var 'cm_set_path=$(CM_SET_PATH)'
 else
-	PACKER_VARS := -var 'cm=$(CM)'
+	PACKER_VARS := -var 'cm=$(CM)' -var 'cm_set_path=$(CM_SET_PATH)'
 endif
 ifeq ($(CM),nocm)
 	BOX_SUFFIX := -$(CM).box
@@ -60,13 +60,13 @@ vmware/$(1): $(VMWARE_BOX_DIR)/$(1)$(BOX_SUFFIX)
 
 test-vmware/$(1): test-$(VMWARE_BOX_DIR)/$(1)$(BOX_SUFFIX)
 
-ssh-vmware/$(1): test-$(VMWARE_BOX_DIR)/$(1)$(BOX_SUFFIX)
+ssh-vmware/$(1): ssh-$(VMWARE_BOX_DIR)/$(1)$(BOX_SUFFIX)
 
 virtualbox/$(1): $(VIRTUALBOX_BOX_DIR)/$(1)$(BOX_SUFFIX)
 
 test-virtualbox/$(1): test-$(VIRTUALBOX_BOX_DIR)/$(1)$(BOX_SUFFIX)
 
-ssh-virtualbox/$(1): test-$(VIRTUALBOX_BOX_DIR)/$(1)$(BOX_SUFFIX)
+ssh-virtualbox/$(1): ssh-$(VIRTUALBOX_BOX_DIR)/$(1)$(BOX_SUFFIX)
 
 $(1): vmware/$(1) virtualbox/$(1)
 
