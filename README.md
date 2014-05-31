@@ -103,9 +103,9 @@ download Internet URLs:
 
 1. Fork and clone the repo.
 2. Create a new branch, please don't work in your `master` branch directly.
-3. Add new [Serverspec](http://serverspec.org/) or [Bats](https://blog.engineyard.com/2014/bats-test-command-line-tools) tests in the `test/` subtree for the change you want to make.  Run `make test` on a relevant template to see the tests fail (like `make test-centos65`).
-4. Fix stuff.  Use `make ssh` to interactively test your box (like `make ssh-centos65`).
-5. Run `make test` on a relevant template (like `make test-centos65`) to see if the tests pass.  Repeat steps 3-5 until done.
+3. Add new [Serverspec](http://serverspec.org/) or [Bats](https://blog.engineyard.com/2014/bats-test-command-line-tools) tests in the `test/` subtree for the change you want to make.  Run `make test` on a relevant template to see the tests fail (like `make test-virtualbox/centos65`).
+4. Fix stuff.  Use `make ssh` to interactively test your box (like `make ssh-virtualbox/centos65`).
+5. Run `make test` on a relevant template (like `make test-virtualbox/centos65`) to see if the tests pass.  Repeat steps 3-5 until done.
 6. Update `README.md` and `AUTHORS` to reflect any changes.
 7. If you have a large change in mind, it is still preferred that you split them into small commits.  Good commit messages are important.  The git documentatproject has some nice guidelines on [writing descriptive commit messages](http://git-scm.com/book/ch5-2.html#Commit-Guidelines).
 8. Push to your fork and submit a pull request.
