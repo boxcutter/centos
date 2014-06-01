@@ -71,6 +71,7 @@ Possible values for the CM variable are:
 
 * `nocm` - No configuration management tool
 * `chef` - Install Chef
+* `chefdk` - Install Chef Development Kit
 * `puppet` - Install Puppet
 * `salt`  - Install Salt
 
