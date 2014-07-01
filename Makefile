@@ -11,6 +11,7 @@ CENTOS64_X86_64 ?= http://mirror.symnds.com/distributions/CentOS-vault/6.4/isos/
 CENTOS64_I386 ?= http://mirror.symnds.com/distributions/CentOS-vault/6.4/isos/i386/CentOS-6.4-i386-bin-DVD1.iso
 CENTOS65_X86_64 ?= http://mirrors.kernel.org/centos/6.5/isos/x86_64/CentOS-6.5-x86_64-bin-DVD1.iso
 CENTOS65_I386 ?= http://mirrors.kernel.org/centos/6.5/isos/i386/CentOS-6.5-i386-bin-DVD1.iso
+CENTOS70_X86_64 ?= http://buildlogs.centos.org/centos/7/os/x86_64-latest/images/boot.iso
 
 # Possible values for CM: (nocm | chef | chefdk | salt | puppet)
 CM ?= nocm
@@ -74,7 +75,7 @@ test-$(1): test-vmware/$(1) test-virtualbox/$(1)
 
 endef
 
-SHORTCUT_TARGETS := centos65 centos65-desktop centos64 centos64-desktop centos510 centos59 centos65-i386 centos64-i386 centos510-i386 centos59-i386
+SHORTCUT_TARGETS := centos70 centos65 centos65-desktop centos64 centos64-desktop centos510 centos59 centos65-i386 centos64-i386 centos510-i386 centos59-i386
 $(foreach i,$(SHORTCUT_TARGETS),$(eval $(call SHORTCUT,$(i))))
 ###############################################################################
 
@@ -84,6 +85,11 @@ $(foreach i,$(SHORTCUT_TARGETS),$(eval $(call SHORTCUT,$(i))))
 #	rm -rf output-vmware-iso
 #	mkdir -p $(VMWARE_BOX_DIR)
 #	packer build -only=vmware-iso $(PACKER_VARS) $<
+
+$(VMWARE_BOX_DIR)/centos70$(BOX_SUFFIX): centos70.json $(SOURCES) http/ks7.cfg
+	rm -rf $(VMWARE_OUTPUT)
+	mkdir -p $(VMWARE_BOX_DIR)
+	packer build -only=$(VMWARE_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS70_X86_64)" $<
 
 $(VMWARE_BOX_DIR)/centos65$(BOX_SUFFIX): centos65.json $(SOURCES) http/ks6.cfg
 	rm -rf $(VMWARE_OUTPUT)
@@ -142,6 +148,11 @@ $(VMWARE_BOX_DIR)/centos59-i386$(BOX_SUFFIX): centos59-i386.json $(SOURCES) http
 #	mkdir -p $(VIRTUALBOX_BOX_DIR)
 #	packer build -only=virtualbox-iso $(PACKER_VARS) $<
 	
+$(VIRTUALBOX_BOX_DIR)/centos70$(BOX_SUFFIX): centos70.json $(SOURCES) http/ks7.cfg
+	rm -rf $(VIRTUALBOX_OUTPUT)
+	mkdir -p $(VIRTUALBOX_BOX_DIR)
+	packer build -only=$(VIRTUALBOX_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS70_X86_64)" $<
+
 $(VIRTUALBOX_BOX_DIR)/centos65$(BOX_SUFFIX): centos65.json $(SOURCES) http/ks6.cfg
 	rm -rf $(VIRTUALBOX_OUTPUT)
 	mkdir -p $(VIRTUALBOX_BOX_DIR)
