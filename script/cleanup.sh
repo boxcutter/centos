@@ -12,8 +12,10 @@ if grep -q -i "release 6" /etc/redhat-release ; then
     rm /lib/udev/rules.d/75-persistent-net-generator.rules
 fi
 rm -rf /dev/.udev/
-sed -i "/^HWADDR/d" /etc/sysconfig/network-scripts/ifcfg-eth0
-sed -i "/^UUID/d" /etc/sysconfig/network-scripts/ifcfg-eth0
+if [ -f /etc/sysconfig/network-scripts/ifcfg-eth0 ] ; then
+    sed -i "/^HWADDR/d" /etc/sysconfig/network-scripts/ifcfg-eth0
+    sed -i "/^UUID/d" /etc/sysconfig/network-scripts/ifcfg-eth0
+fi
 
 echo "==> Cleaning up yum cache of metadata and packages to save space"
 yum -y clean all
