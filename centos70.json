@@ -4,8 +4,8 @@
     "cm_version": "",
     "cm_set_path": "",
     "cleanup_pause": "",
-    "iso_url": "http://buildlogs.centos.org/centos/7/os/x86_64-latest/images/boot.iso",
-    "iso_checksum": ""
+    "iso_url": "http://mirrors.sonic.net/centos/7.0.1406/isos/x86_64/CentOS-7.0-1406-x86_64-DVD.iso",
+    "iso_checksum": "154ba47b7a37e52e0100310c3aeb8f9d9daf4806"
   },
   "builders": [{
     "vm_name": "centos70",
@@ -14,7 +14,7 @@
     "http_directory": "http",
     "iso_url": "{{ user `iso_url` }}",
     "iso_checksum": "{{ user `iso_checksum` }}",
-    "iso_checksum_type": "none",
+    "iso_checksum_type": "sha1",
     "ssh_username": "vagrant",
     "ssh_password": "vagrant",
     "ssh_wait_timeout": "10000s",
@@ -36,7 +36,7 @@
     "http_directory": "http",
     "iso_url": "{{ user `iso_url` }}",
     "iso_checksum": "{{ user `iso_checksum` }}",
-    "iso_checksum_type": "none",
+    "iso_checksum_type": "sha1",
     "guest_os_type": "RedHat_64",
     "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
     "virtualbox_version_file": ".vbox_version",
