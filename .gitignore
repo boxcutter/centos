@@ -1,3 +1,4 @@
+# Cache objects
 packer_cache/
 output-*
 *.box
@@ -9,6 +10,6 @@ tmp
 *.swp
 Makefile.local
 box/
-.tmpatlas/
 
-.DS_Store
+# For built boxes
+*.box
