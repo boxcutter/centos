@@ -8,5 +8,6 @@ tmp
 .vagrant/
 *.swp
 Makefile.local
+box/
 
 .DS_Store

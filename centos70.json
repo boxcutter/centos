@@ -18,6 +18,7 @@
     "ssh_username": "vagrant",
     "ssh_password": "vagrant",
     "ssh_wait_timeout": "10000s",
+    "floppy_files": ["floppy/vmware9.compat_dcache.h.patch"],
     "tools_upload_flavor": "linux",
     "boot_command": [
       "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/ks7.cfg<enter>"
@@ -74,7 +75,6 @@
   "post-processors": [{
     "type": "vagrant",
     "keep_input_artifact": false,
-    "vagrantfile_template": "tpl/vagrantfile-centos70-no-hgfs.tpl",
     "output": "box/{{.Provider}}/centos70-{{user `cm`}}{{user `cm_version`}}.box"
   }]
 }
