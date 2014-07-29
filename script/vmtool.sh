@@ -36,6 +36,9 @@ install_vmware_tools_centos_70()
     rmdir /mnt/cdrom
     rm -rf /tmp/VMwareTools-*
 
+    echo "==> Removing packages needed for building guest tools"
+    yum -y remove gcc cpp kernel-devel kernel-headers perl
+    
     exit
 }
 
