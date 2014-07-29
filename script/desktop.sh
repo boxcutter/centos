@@ -1,6 +1,13 @@
 #!/bin/bash
 
 USERNAME=vagrant
+
+cat /etc/redhat-release
+if grep -q -i "release 7" /etc/redhat-release ; then
+    # set the graphical.target for systemd so it will run startx on boot
+    ln -sf /lib/systemd/system/graphical.target /etc/systemd/system/default.target
+fi
+
 GDM_CONFIG=/etc/gdm/custom.conf
 
 # Configure gdm autologin.
