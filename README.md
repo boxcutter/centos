@@ -11,6 +11,7 @@ using Packer.
 64-bit boxes:
 
 * [box-cutter/centos70](https://vagrantcloud.com/box-cutter/centos70) - CentOS 7.0 (64-bit), VMware 441MB/VirtualBox 380MB
+* [box-cutter/centos70-desktop](https://vagrantcloud.com/box-cutter/centos70-desktop) - CentOS 7.0 Desktop (64-bit), VMware 1.2GB/VirtualBox 1.1GB
 * [box-cutter/centos65](https://vagrantcloud.com/box-cutter/centos65) - CentOS 6.5 (64-bit), VMware 452MB/VirtualBox 385MB
 * [box-cutter/centos65-desktop](https://vagrantcloud.com/box-cutter/centos65-desktop) - CentOS 6.5 Desktop (64-bit), VMware 1.1GB/VirtualBox 1GB
 * [box-cutter/centos64](https://vagrantcloud.com/box-cutter/centos64) - CentOS 6.4 (64-bit), VMware 423MB/VirtualBox 353MB
