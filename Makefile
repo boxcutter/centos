@@ -227,6 +227,12 @@ list:
 		echo $$shortcut_target ; \
 	done
 
+validate:
+	@for template_filename in $(TEMPLATE_FILENAMES) ; do \
+		echo Checking $$template_filename ; \
+		packer validate $$template_filename ; \
+	done
+
 clean: clean-builders clean-output clean-packer-cache
 		
 clean-builders:
