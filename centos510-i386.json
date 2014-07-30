@@ -6,6 +6,7 @@
     "cleanup_pause": "",
     "iso_url": "http://mirrors.kernel.org/centos/5.10/isos/i386/CentOS-5.10-i386-bin-DVD-1of2.iso",
     "iso_checksum": "bb4e61210e1c0389fdf55c59bd2dd7bc957dd400",
+    "update": "false",
     "http_proxy": "{{env `http_proxy`}}",
     "https_proxy": "{{env `https_proxy`}}",
     "ftp_proxy": "{{env `ftp_proxy`}}",
@@ -65,6 +66,7 @@
       "CM_VERSION={{user `cm_version`}}",
       "CM_SET_PATH={{user `cm_set_path`}}",
       "CLEANUP_PAUSE={{user `cleanup_pause`}}",
+      "UPDATE={{user `update`}}",
       "http_proxy={{user `http_proxy`}}",
       "https_proxy={{user `https_proxy`}}",
       "ftp_proxy={{user `ftp_proxy`}}",
@@ -75,6 +77,7 @@
     "scripts": [
       "script/fix-slow-dns.sh",
       "script/sshd.sh",
+      "script/update.sh",
       "script/vagrant.sh",
       "script/vmtool.sh",
       "script/cmtool.sh",
