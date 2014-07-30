@@ -1,4 +1,4 @@
-winry_centos := file:///Volumes/Storage/Software/CentOS
+winry_centos := file:///Volumes/Storage/software/CentOS
 CENTOS59_X86_64 := $(winry_centos)/CentOS-5.9-x86_64-bin-DVD-1of2.iso
 CENTOS59_I386 := $(winry_centos)/CentOS-5.9-i386-bin-DVD-1of2.iso
 CENTOS510_X86_64 := $(winry_centos)/CentOS-5.10-x86_64-bin-DVD-1of2.iso
