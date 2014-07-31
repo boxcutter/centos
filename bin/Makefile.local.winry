@@ -7,7 +7,7 @@ CENTOS64_X86_64 := $(winry_centos)/CentOS-6.4-x86_64-bin-DVD1.iso
 CENTOS64_I386 := $(winry_centos)/CentOS-6.4-i386-bin-DVD1.iso
 CENTOS65_X86_64 := $(winry_centos)/CentOS-6.5-x86_64-bin-DVD1.iso
 CENTOS65_I386 := $(winry_centos)/CentOS-6.5-i386-bin-DVD1.iso
-CENTOS70_X86_64 := $(winry_centos)/https://CentOS-7.0-1406-x86_64-DVD.iso
+CENTOS70_X86_64 := $(winry_centos)/CentOS-7.0-1406-x86_64-DVD.iso
 
 test-vagrantcloud:
 	@for shortcut_target in $(SHORTCUT_TARGETS) ; do \
