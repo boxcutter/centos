@@ -4,6 +4,7 @@
     "cm_version": "",
     "cm_set_path": "",
     "cleanup_pause": "",
+    "headless": "",
     "iso_url": "http://mirror.symnds.com/distributions/CentOS-vault/5.9/isos/i386/CentOS-5.9-i386-bin-DVD-1of2.iso",
     "iso_checksum": "78f976b190ce44716eb672f71203df978474dfb4",
     "update": "false",
@@ -24,6 +25,7 @@
     "ssh_username": "vagrant",
     "ssh_password": "vagrant",
     "ssh_wait_timeout": "10000s",
+    "headless": "{{ user `headless` }}",
     "tools_upload_flavor": "linux",
     "boot_command": [
       "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/ks5.cfg<enter>"
@@ -49,6 +51,7 @@
     "ssh_username": "vagrant",
     "ssh_password": "vagrant",
     "ssh_wait_timeout": "10000s",
+    "headless": "{{ user `headless` }}",
     "boot_command": [
       "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/ks5.cfg<enter>"
     ],

@@ -4,6 +4,7 @@
     "cm_version": "",
     "cm_set_path": "",
     "cleanup_pause": "",
+    "headless": "",
     "iso_url": "http://mirrors.kernel.org/centos/6.4/isos/x86_64/CentOS-6.4-x86_64-bin-DVD1.iso",
     "iso_checksum": "8672dc087f1b0eda60b9efaa41b82f034f185e24",
     "update": "false",
@@ -24,6 +25,7 @@
     "ssh_username": "vagrant",
     "ssh_password": "vagrant",
     "ssh_wait_timeout": "10000s",
+    "headless": "{{ user `headless` }}",
     "tools_upload_flavor": "linux",
     "boot_command": [
       "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/ks6-desktop.cfg<enter>"
@@ -49,6 +51,7 @@
     "ssh_username": "vagrant",
     "ssh_password": "vagrant",
     "ssh_wait_timeout": "10000s",
+    "headless": "{{ user `headless` }}",
     "boot_command": [
       "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/ks6-desktop.cfg<enter>"
     ],

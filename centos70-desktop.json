@@ -4,6 +4,7 @@
     "cm_version": "",
     "cm_set_path": "",
     "cleanup_pause": "",
+    "headless": "",
     "iso_url": "http://mirrors.sonic.net/centos/7.0.1406/isos/x86_64/CentOS-7.0-1406-x86_64-DVD.iso",
     "iso_checksum": "154ba47b7a37e52e0100310c3aeb8f9d9daf4806",
     "update": "false",
@@ -24,6 +25,7 @@
     "ssh_username": "vagrant",
     "ssh_password": "vagrant",
     "ssh_wait_timeout": "10000s",
+    "headless": "{{ user `headless` }}",
     "floppy_files": ["floppy/vmware9.compat_dcache.h.patch"],
     "tools_upload_flavor": "linux",
     "boot_command": [
@@ -50,6 +52,7 @@
     "ssh_username": "vagrant",
     "ssh_password": "vagrant",
     "ssh_wait_timeout": "10000s",
+    "headless": "{{ user `headless` }}",
     "boot_command": [
       "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/ks7-desktop.cfg<enter>"
     ],
