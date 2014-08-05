@@ -2,7 +2,6 @@
   "variables": {
     "cm": "nocm",
     "cm_version": "",
-    "cm_set_path": "",
     "cleanup_pause": "",
     "headless": "",
     "iso_url": "http://mirrors.sonic.net/centos/7.0.1406/isos/x86_64/CentOS-7.0-1406-x86_64-DVD.iso",
@@ -68,7 +67,6 @@
     "environment_vars": [
       "CM={{user `cm`}}",
       "CM_VERSION={{user `cm_version`}}",
-      "CM_SET_PATH={{user `cm_set_path`}}",
       "CLEANUP_PAUSE={{user `cleanup_pause`}}",
       "http_proxy={{user `http_proxy`}}",
       "https_proxy={{user `https_proxy`}}",
