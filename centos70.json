@@ -68,6 +68,7 @@
       "CM={{user `cm`}}",
       "CM_VERSION={{user `cm_version`}}",
       "CLEANUP_PAUSE={{user `cleanup_pause`}}",
+      "UPDATE={{user `update`}}",
       "http_proxy={{user `http_proxy`}}",
       "https_proxy={{user `https_proxy`}}",
       "ftp_proxy={{user `ftp_proxy`}}",
