@@ -158,6 +158,11 @@ $(VIRTUALBOX_BOX_DIR)/centos70$(BOX_SUFFIX): centos70.json $(SOURCES) http/ks7.c
 	mkdir -p $(VIRTUALBOX_BOX_DIR)
 	packer build -only=$(VIRTUALBOX_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS70_X86_64)" $<
 
+$(VIRTUALBOX_BOX_DIR)/centos70-docker$(BOX_SUFFIX): centos70-docker.json $(SOURCES) script/kernel-docker.sh script/docker.sh
+	rm -rf $(VIRTUALBOX_OUTPUT)
+	mkdir -p $(VIRTUALBOX_BOX_DIR)
+	packer build -only=$(VIRTUALBOX_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS70_X86_64)" $<
+
 $(VIRTUALBOX_BOX_DIR)/centos70-desktop$(BOX_SUFFIX): centos70-desktop.json $(SOURCES) http/ks7-desktop.cfg
 	rm -rf $(VIRTUALBOX_OUTPUT)
 	mkdir -p $(VIRTUALBOX_BOX_DIR)
