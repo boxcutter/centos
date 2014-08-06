@@ -75,7 +75,7 @@ test-$(1): test-vmware/$(1) test-virtualbox/$(1)
 
 endef
 
-SHORTCUT_TARGETS := centos70 centos70-desktop centos65 centos65-desktop centos64 centos64-desktop centos510 centos59 centos65-i386 centos64-i386 centos510-i386 centos59-i386
+SHORTCUT_TARGETS := centos70 centos70-docker centos70-desktop centos65 centos65-docker centos65-desktop centos64 centos64-desktop centos510 centos59 centos65-i386 centos64-i386 centos510-i386 centos59-i386
 $(foreach i,$(SHORTCUT_TARGETS),$(eval $(call SHORTCUT,$(i))))
 ###############################################################################
 
@@ -158,7 +158,7 @@ $(VIRTUALBOX_BOX_DIR)/centos70$(BOX_SUFFIX): centos70.json $(SOURCES) http/ks7.c
 	mkdir -p $(VIRTUALBOX_BOX_DIR)
 	packer build -only=$(VIRTUALBOX_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS70_X86_64)" $<
 
-$(VIRTUALBOX_BOX_DIR)/centos70-docker$(BOX_SUFFIX): centos70-docker.json $(SOURCES) script/kernel-docker.sh script/docker.sh
+$(VIRTUALBOX_BOX_DIR)/centos70-docker$(BOX_SUFFIX): centos70-docker.json $(SOURCES)
 	rm -rf $(VIRTUALBOX_OUTPUT)
 	mkdir -p $(VIRTUALBOX_BOX_DIR)
 	packer build -only=$(VIRTUALBOX_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS70_X86_64)" $<
@@ -178,7 +178,7 @@ $(VIRTUALBOX_BOX_DIR)/centos65-desktop$(BOX_SUFFIX): centos65-desktop.json $(SOU
 	mkdir -p $(VIRTUALBOX_BOX_DIR)
 	packer build -only=$(VIRTUALBOX_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS65_X86_64)" $<
 
-$(VIRTUALBOX_BOX_DIR)/centos65-docker$(BOX_SUFFIX): centos65-docker.json $(SOURCES) script/kernel-docker.sh script/docker.sh
+$(VIRTUALBOX_BOX_DIR)/centos65-docker$(BOX_SUFFIX): centos65-docker.json $(SOURCES)
 	rm -rf $(VIRTUALBOX_OUTPUT)
 	mkdir -p $(VIRTUALBOX_BOX_DIR)
 	packer build -only=$(VIRTUALBOX_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS65_X86_64)" $<
