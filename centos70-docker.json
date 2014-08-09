@@ -1,0 +1,96 @@
+{
+  "variables": {
+    "cm": "nocm",
+    "cm_version": "",
+    "cleanup_pause": "",
+    "headless": "",
+    "iso_url": "http://mirrors.sonic.net/centos/7.0.1406/isos/x86_64/CentOS-7.0-1406-x86_64-DVD.iso",
+    "iso_checksum": "154ba47b7a37e52e0100310c3aeb8f9d9daf4806",
+    "update": "false",
+    "http_proxy": "{{env `http_proxy`}}",
+    "https_proxy": "{{env `https_proxy`}}",
+    "ftp_proxy": "{{env `ftp_proxy`}}",
+    "rsync_proxy": "{{env `rsync_proxy`}}",
+    "no_proxy": "{{env `no_proxy`}}"
+  },
+  "builders": [{
+    "vm_name": "centos70-docker",
+    "type": "vmware-iso",
+    "guest_os_type": "centos-64",
+    "http_directory": "http",
+    "iso_url": "{{ user `iso_url` }}",
+    "iso_checksum": "{{ user `iso_checksum` }}",
+    "iso_checksum_type": "sha1",
+    "ssh_username": "vagrant",
+    "ssh_password": "vagrant",
+    "ssh_wait_timeout": "10000s",
+    "headless": "{{ user `headless` }}",
+    "floppy_files": ["floppy/vmware9.compat_dcache.h.patch"],
+    "tools_upload_flavor": "linux",
+    "boot_command": [
+      "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/ks7.cfg<enter>"
+    ],
+    "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
+    "disk_size": 10140,
+    "vmx_data": {
+      "memsize": "512",
+      "numvcpus": "1",
+      "cpuid.coresPerSocket": "1"
+    }
+  },
+  {
+    "vm_name": "centos70-docker",
+    "type": "virtualbox-iso",
+    "http_directory": "http",
+    "iso_url": "{{ user `iso_url` }}",
+    "iso_checksum": "{{ user `iso_checksum` }}",
+    "iso_checksum_type": "sha1",
+    "guest_os_type": "RedHat_64",
+    "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
+    "virtualbox_version_file": ".vbox_version",
+    "ssh_username": "vagrant",
+    "ssh_password": "vagrant",
+    "ssh_wait_timeout": "10000s",
+    "headless": "{{ user `headless` }}",
+    "boot_command": [
+      "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/ks7.cfg<enter>"
+    ],
+    "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
+    "disk_size": 10140,
+    "vboxmanage": [
+      ["modifyvm", "{{.Name}}", "--memory", "512"],
+      ["modifyvm", "{{.Name}}", "--cpus", "1"]
+    ]
+  }],
+  "provisioners": [{
+    "type": "shell",
+    "environment_vars": [
+      "CM={{user `cm`}}",
+      "CM_VERSION={{user `cm_version`}}",
+      "CLEANUP_PAUSE={{user `cleanup_pause`}}",
+      "UPDATE={{user `update`}}",
+      "http_proxy={{user `http_proxy`}}",
+      "https_proxy={{user `https_proxy`}}",
+      "ftp_proxy={{user `ftp_proxy`}}",
+      "rsync_proxy={{user `rsync_proxy`}}",
+      "no_proxy={{user `no_proxy`}}"
+    ],
+    "execute_command": "echo 'vagrant' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+    "scripts": [
+      "script/fix-slow-dns.sh",
+      "script/sshd.sh",
+      "script/epel.sh",
+      "script/update.sh",
+      "script/vagrant.sh",
+      "script/vmtool.sh",
+      "script/cmtool.sh",
+      "script/docker.sh",
+      "script/cleanup.sh"
+    ]
+  }],
+  "post-processors": [{
+    "type": "vagrant",
+    "keep_input_artifact": false,
+    "output": "box/{{.Provider}}/centos70-docker-{{user `cm`}}{{user `cm_version`}}.box"
+  }]
+}
