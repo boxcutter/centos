@@ -1,14 +1,11 @@
 #!/bin/bash
 
-# Bootstrap EPEL repository
-cat <<EOM >/etc/yum.repos.d/epel-bootstrap.repo
-[epel]
-name=Bootstrap EPEL
-mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=epel-\$releasever&arch=\$basearch
-failovermethod=priority
-enabled=0
-gpgcheck=0
-EOM
-
-yum --enablerepo=epel -y install epel-release
-rm -f /etc/yum.repos.d/epel-bootstrap.repo
+echo "==> Adding EPEL repo"
+cat /etc/redhat-release
+if grep -q -i "release 7" /etc/redhat-release ; then
+    rpm -Uvh http://mirrors.mit.edu/epel/beta/7/x86_64/epel-release-7-0.2.noarch.rpm
+elif grep -q -i "release 6" /etc/redhat-release ; then
+    rpm -Uvh http://fedora-epel.mirror.lstn.net/6/i386/epel-release-6-8.noarch.rpm
+elif grep -q -i "release 5" /etc/redhat-release ; then
+    rpm -Uvh http://mirror.pnl.gov/epel/5/i386/epel-release-5-4.noarch.rpm
+fi
