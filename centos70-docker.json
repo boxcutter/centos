@@ -79,7 +79,6 @@
     "scripts": [
       "script/fix-slow-dns.sh",
       "script/sshd.sh",
-      "script/epel.sh",
       "script/update.sh",
       "script/vagrant.sh",
       "script/vmtool.sh",
