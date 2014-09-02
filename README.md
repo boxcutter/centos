@@ -3,7 +3,7 @@
 
 ### Overview
 
-This repository contains templates for Ubuntu that can create Vagrant boxes
+This repository contains templates for CentOS that can create Vagrant boxes
 using Packer.
 
 ## Current Boxes
@@ -113,7 +113,7 @@ default is to not apply OS updates by default.  When `UPDATE := true`,
 the latest OS updates will be applied.
 
 Another use for `Makefile.local` is to override the default locations
-for the Ubuntu install ISO files.
+for the ISO install files.
 
 For CentOS, the ISO path variables are:
 
