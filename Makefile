@@ -111,6 +111,11 @@ $(VMWARE_BOX_DIR)/centos65-desktop$(BOX_SUFFIX): centos65-desktop.json $(SOURCES
 	mkdir -p $(VMWARE_BOX_DIR)
 	packer build -only=$(VMWARE_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS65_X86_64)" $<
 
+$(VMWARE_BOX_DIR)/centos65-docker$(BOX_SUFFIX): centos65-docker.json $(SOURCES) script/desktop.sh
+	rm -rf $(VMWARE_OUTPUT)
+	mkdir -p $(VMWARE_BOX_DIR)
+	packer build -only=$(VMWARE_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS65_X86_64)" $<
+
 $(VMWARE_BOX_DIR)/centos64$(BOX_SUFFIX): centos64.json $(SOURCES) http/ks6.cfg
 	rm -rf $(VMWARE_OUTPUT)
 	mkdir -p $(VMWARE_BOX_DIR)
