@@ -52,7 +52,7 @@ VIRTUALBOX_BUILDER := virtualbox-iso
 CURRENT_DIR = $(shell pwd)
 SOURCES := script/fix-slow-dns.sh script/sshd.sh script/vagrant.sh script/vmtool.sh script/cmtool.sh script/cleanup.sh
 
-.PHONY: list clean
+.PHONY: list
 
 all: $(BOX_FILES)
 
