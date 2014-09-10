@@ -92,5 +92,15 @@ if [[ $PACKER_BUILDER_TYPE =~ virtualbox ]]; then
     fi
 fi
 
+if [[ $PACKER_BUILDER_TYPE =~ parallels ]]; then
+    echo "==> Installing Parallels tools"
+
+    mount -o loop /home/vagrant/prl-tools-lin.iso /mnt
+    sh /mnt/install --install-unattended-with-deps
+    umount /mnt
+    rm -rf /home/vagrant/prl-tools-lin.iso
+    rm -f /home/vagrant/.prlctl_version
+fi
+
 echo "==> Removing packages needed for building guest tools"
 yum -y remove gcc cpp kernel-devel kernel-headers perl
