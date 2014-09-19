@@ -18,6 +18,12 @@ CENTOS65_X86_64 ?= http://mirrors.kernel.org/centos/6.5/isos/x86_64/CentOS-6.5-x
 CENTOS65_I386 ?= http://mirrors.kernel.org/centos/6.5/isos/i386/CentOS-6.5-i386-bin-DVD1.iso
 CENTOS70_X86_64 ?= http://mirrors.sonic.net/centos/7.0.1406/isos/x86_64/CentOS-7.0-1406-x86_64-DVD.iso
 
+BOX_VERSION ?= $(shell cat VERSION)
+ifeq ($(CM),nocm)
+	BOX_SUFFIX := -$(CM)-$(BOX_VERSION).box
+else
+	BOX_SUFFIX := -$(CM)$(CM_VERSION)-$(BOX_VERSION).box
+endif
 # Possible values for CM: (nocm | chef | chefdk | salt | puppet)
 CM ?= nocm
 # Possible values for CM_VERSION: (latest | x.y.z | x.y)
@@ -32,11 +38,6 @@ ifdef CM_VERSION
 	PACKER_VARS := -var 'cm=$(CM)' -var 'cm_version=$(CM_VERSION)' -var 'headless=$(HEADLESS)' -var 'update=$(UPDATE)'
 else
 	PACKER_VARS := -var 'cm=$(CM)' -var 'headless=$(HEADLESS)' -var 'update=$(UPDATE)'
-endif
-ifeq ($(CM),nocm)
-	BOX_SUFFIX := -$(CM).box
-else
-	BOX_SUFFIX := -$(CM)$(CM_VERSION).box
 endif
 ifdef PACKER_DEBUG
 	PACKER := PACKER_LOG=1 packer --debug
