@@ -9,7 +9,7 @@ CENTOS65_X86_64 := $(winry_centos)/CentOS-6.5-x86_64-bin-DVD1.iso
 CENTOS65_I386 := $(winry_centos)/CentOS-6.5-i386-bin-DVD1.iso
 CENTOS70_X86_64 := $(winry_centos)/CentOS-7.0-1406-x86_64-DVD.iso
 
-VIRTUALBOX_VERSION = $(shell virtualbox --help | head -n 1 | awk '{print $$NF}')
+VIRTUALBOX_VERSION := $(shell virtualbox --help | head -n 1 | awk '{print $$NF}')
 VMWARE_BOX_FILES := $(wildcard box/vmware/*.box)
 VIRTUALBOX_BOX_FILES := $(wildcard box/virtualbox/*.box)
 VMWARE_S3_BUCKET := s3://box-cutter/centos/vmware9.8.3/
