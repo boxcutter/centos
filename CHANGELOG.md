@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.3 (2014-09-21)
+
+* Upgraded VirtualBox Guest Additions to 4.3.16
+* Version information now appended to box file name
+
 ## 1.0.2 (2014-09-04)
 
 * Upgraded VMware Tools to 9.8.3 for VMware Fusion 7
