@@ -18,12 +18,6 @@ CENTOS65_X86_64 ?= http://mirrors.kernel.org/centos/6.5/isos/x86_64/CentOS-6.5-x
 CENTOS65_I386 ?= http://mirrors.kernel.org/centos/6.5/isos/i386/CentOS-6.5-i386-bin-DVD1.iso
 CENTOS70_X86_64 ?= http://mirrors.sonic.net/centos/7.0.1406/isos/x86_64/CentOS-7.0-1406-x86_64-DVD.iso
 
-BOX_VERSION ?= $(shell cat VERSION)
-ifeq ($(CM),nocm)
-	BOX_SUFFIX := -$(CM)-$(BOX_VERSION).box
-else
-	BOX_SUFFIX := -$(CM)$(CM_VERSION)-$(BOX_VERSION).box
-endif
 # Possible values for CM: (nocm | chef | chefdk | salt | puppet)
 CM ?= nocm
 # Possible values for CM_VERSION: (latest | x.y.z | x.y)
@@ -32,6 +26,12 @@ ifndef CM_VERSION
 	ifneq ($(CM),nocm)
 		CM_VERSION = latest
 	endif
+endif
+BOX_VERSION ?= $(shell cat VERSION)
+ifeq ($(CM),nocm)
+	BOX_SUFFIX := -$(CM)-$(BOX_VERSION).box
+else
+	BOX_SUFFIX := -$(CM)$(CM_VERSION)-$(BOX_VERSION).box
 endif
 # Packer does not allow empty variables, so only pass variables that are defined
 ifdef CM_VERSION
