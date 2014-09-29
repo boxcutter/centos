@@ -12,6 +12,8 @@ CENTOS59_X86_64 ?= http://mirror.symnds.com/distributions/CentOS-vault/5.9/isos/
 CENTOS59_I386 ?= http://mirror.symnds.com/distributions/CentOS-vault/5.9/isos/i386/CentOS-5.9-i386-bin-DVD-1of2.iso
 CENTOS510_X86_64 ?= http://mirror.stanford.edu/yum/pub/centos/5.10/isos/x86_64/CentOS-5.10-x86_64-bin-DVD-1of2.iso
 CENTOS510_I386 ?= http://mirrors.kernel.org/centos/5.10/isos/i386/CentOS-5.10-i386-bin-DVD-1of2.iso
+CENTOS511_X86_64 ?= http://mirror.stanford.edu/yum/pub/centos/5.11/isos/x86_64/CentOS-5.11-x86_64-bin-DVD-1of2.iso
+CENTOS511_I386 ?= http://mirrors.kernel.org/centos/5.11/isos/i386/CentOS-5.11-i386-bin-DVD-1of2.iso
 CENTOS64_X86_64 ?= http://mirror.symnds.com/distributions/CentOS-vault/6.4/isos/x86_64/CentOS-6.4-x86_64-bin-DVD1.iso
 CENTOS64_I386 ?= http://mirror.symnds.com/distributions/CentOS-vault/6.4/isos/i386/CentOS-6.4-i386-bin-DVD1.iso
 CENTOS65_X86_64 ?= http://mirrors.kernel.org/centos/6.5/isos/x86_64/CentOS-6.5-x86_64-bin-DVD1.iso
@@ -95,7 +97,7 @@ test-$(1): test-vmware/$(1) test-virtualbox/$(1) test-parallels/$(1)
 
 endef
 
-SHORTCUT_TARGETS := centos70 centos70-docker centos70-desktop centos65 centos65-docker centos65-desktop centos64 centos64-desktop centos510 centos59 centos65-i386 centos64-i386 centos510-i386 centos59-i386
+SHORTCUT_TARGETS := centos70 centos70-docker centos70-desktop centos65 centos65-docker centos65-desktop centos64 centos64-desktop centos511 centos510 centos59 centos65-i386 centos64-i386 centos511-i386 centos510-i386 centos59-i386
 $(foreach i,$(SHORTCUT_TARGETS),$(eval $(call SHORTCUT,$(i))))
 ###############################################################################
 
@@ -146,6 +148,11 @@ $(VMWARE_BOX_DIR)/centos64-desktop$(BOX_SUFFIX): centos64-desktop.json $(SOURCES
 	mkdir -p $(VMWARE_BOX_DIR)
 	$(PACKER) build -only=$(VMWARE_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS64_X86_64)" $<
 
+$(VMWARE_BOX_DIR)/centos511$(BOX_SUFFIX): centos511.json $(SOURCES) http/ks5.cfg
+	rm -rf $(VMWARE_OUTPUT)
+	mkdir -p $(VMWARE_BOX_DIR)
+	$(PACKER) build -only=$(VMWARE_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS511_X86_64)" $<
+
 $(VMWARE_BOX_DIR)/centos510$(BOX_SUFFIX): centos510.json $(SOURCES) http/ks5.cfg
 	rm -rf $(VMWARE_OUTPUT)
 	mkdir -p $(VMWARE_BOX_DIR)
@@ -165,6 +172,11 @@ $(VMWARE_BOX_DIR)/centos64-i386$(BOX_SUFFIX): centos64-i386.json $(SOURCES) http
 	rm -rf $(VMWARE_OUTPUT)
 	mkdir -p $(VMWARE_BOX_DIR)
 	$(PACKER) build -only=$(VMWARE_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS64_I386)" $<
+
+$(VMWARE_BOX_DIR)/centos511-i386$(BOX_SUFFIX): centos511-i386.json $(SOURCES) http/ks5.cfg
+	rm -rf $(VMWARE_OUTPUT)
+	mkdir -p $(VMWARE_BOX_DIR)
+	$(PACKER) build -only=$(VMWARE_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS511_I386)" $<
 
 $(VMWARE_BOX_DIR)/centos510-i386$(BOX_SUFFIX): centos510-i386.json $(SOURCES) http/ks5.cfg
 	rm -rf $(VMWARE_OUTPUT)
@@ -223,6 +235,11 @@ $(VIRTUALBOX_BOX_DIR)/centos64-desktop$(BOX_SUFFIX): centos64-desktop.json $(SOU
 	mkdir -p $(VIRTUALBOX_BOX_DIR)
 	$(PACKER) build -only=$(VIRTUALBOX_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS64_X86_64)" $<
 
+$(VIRTUALBOX_BOX_DIR)/centos511$(BOX_SUFFIX): centos511.json $(SOURCES) http/ks5.cfg
+	rm -rf $(VIRTUALBOX_OUTPUT)
+	mkdir -p $(VIRTUALBOX_BOX_DIR)
+	$(PACKER) build -only=$(VIRTUALBOX_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS511_X86_64)" $<
+
 $(VIRTUALBOX_BOX_DIR)/centos510$(BOX_SUFFIX): centos510.json $(SOURCES) http/ks5.cfg
 	rm -rf $(VIRTUALBOX_OUTPUT)
 	mkdir -p $(VIRTUALBOX_BOX_DIR)
@@ -242,6 +259,11 @@ $(VIRTUALBOX_BOX_DIR)/centos64-i386$(BOX_SUFFIX): centos64-i386.json $(SOURCES) 
 	rm -rf $(VIRTUALBOX_OUTPUT)
 	mkdir -p $(VIRTUALBOX_BOX_DIR)
 	$(PACKER) build -only=$(VIRTUALBOX_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS64_I386)" $<
+
+$(VIRTUALBOX_BOX_DIR)/centos511-i386$(BOX_SUFFIX): centos511-i386.json $(SOURCES) http/ks5.cfg
+	rm -rf $(VIRTUALBOX_OUTPUT)
+	mkdir -p $(VIRTUALBOX_BOX_DIR)
+	$(PACKER) build -only=$(VIRTUALBOX_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS511_I386)" $<
 
 $(VIRTUALBOX_BOX_DIR)/centos510-i386$(BOX_SUFFIX): centos510-i386.json $(SOURCES) http/ks5.cfg
 	rm -rf $(VIRTUALBOX_OUTPUT)
@@ -300,6 +322,11 @@ $(PARALLELS_BOX_DIR)/centos64-desktop$(BOX_SUFFIX): centos64-desktop.json $(SOUR
 	mkdir -p $(PARALLELS_BOX_DIR)
 	$(PACKER) build -only=$(PARALLELS_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS64_X86_64)" $<
 
+$(PARALLELS_BOX_DIR)/centos511$(BOX_SUFFIX): centos511.json $(SOURCES) http/ks5.cfg
+	rm -rf $(PARALLELS_OUTPUT)
+	mkdir -p $(PARALLELS_BOX_DIR)
+	$(PACKER) build -only=$(PARALLELS_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS511_X86_64)" $<
+
 $(PARALLELS_BOX_DIR)/centos510$(BOX_SUFFIX): centos510.json $(SOURCES) http/ks5.cfg
 	rm -rf $(PARALLELS_OUTPUT)
 	mkdir -p $(PARALLELS_BOX_DIR)
@@ -319,6 +346,11 @@ $(PARALLELS_BOX_DIR)/centos64-i386$(BOX_SUFFIX): centos64-i386.json $(SOURCES) h
 	rm -rf $(PARALLELS_OUTPUT)
 	mkdir -p $(PARALLELS_BOX_DIR)
 	$(PACKER) build -only=$(PARALLELS_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS64_I386)" $<
+
+$(PARALLELS_BOX_DIR)/centos511-i386$(BOX_SUFFIX): centos511-i386.json $(SOURCES) http/ks5.cfg
+	rm -rf $(PARALLELS_OUTPUT)
+	mkdir -p $(PARALLELS_BOX_DIR)
+	$(PACKER) build -only=$(PARALLELS_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS511_I386)" $<
 
 $(PARALLELS_BOX_DIR)/centos510-i386$(BOX_SUFFIX): centos510-i386.json $(SOURCES) http/ks5.cfg
 	rm -rf $(PARALLELS_OUTPUT)
