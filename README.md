@@ -18,6 +18,7 @@ using Packer.
 * [box-cutter/centos65-docker](https://vagrantcloud.com/box-cutter/centos65-docker) - CentOS 6.5 with Docker (64-bit), VMware 453MB/VirtualBox 389MB
 * [box-cutter/centos64](https://vagrantcloud.com/box-cutter/centos64) - CentOS 6.4 (64-bit), VMware 431MB/VirtualBox 347MB
 * [box-cutter/centos64-desktop](https://vagrantcloud.com/box-cutter/centos64-desktop) - CentOS 6.4 Desktop (64-bit), VMware 1.1GB/VirtualBox 998MB
+* [box-cutter/centos511](https://vagrantcloud.com/box-cutter/centos511) - CentOS 5.10 (64-bit), VMware 255MB/VirtualBox 180MB
 * [box-cutter/centos510](https://vagrantcloud.com/box-cutter/centos510) - CentOS 5.10 (64-bit), VMware 254MB/VirtualBox 179MB
 * [box-cutter/centos59](https://vagrantcloud.com/box-cutter/centos59) - CentOS 5.9 (64-bit), VMware 252MB/VirtualBox 177MB
 
@@ -25,6 +26,7 @@ using Packer.
 
 * [box-cutter/centos65-i386](https://vagrantcloud.com/box-cutter/centos65-i386) - CentOS 6.5 (32-bit), VMware 423MB/VirtualBox 343MB
 * [box-cutter/centos64-i386](https://vagrantcloud.com/box-cutter/centos64-i386) - CentOS 6.4 (32-bit), VMware 360MB/VirtualBox 314MB
+* [box-cutter/centos511-i386](https://vagrantcloud.com/box-cutter/centos511-i386) - CentOS 5.11 (32-bit), VMware 244MB/VirtualBox 168MB
 * [box-cutter/centos510-i386](https://vagrantcloud.com/box-cutter/centos510-i386) - CentOS 5.10 (32-bit), VMware 244MB/VirtualBox 168MB
 * [box-cutter/centos59-i386](https://vagrantcloud.com/box-cutter/centos59-i386) - CentOS 5.9 (32-bit), VMware 242MB/VirtualBox 167MB
 
@@ -123,6 +125,8 @@ For CentOS, the ISO path variables are:
 * CENTOS59_I386
 * CENTOS510_X86_64
 * CENTOS510_I386
+* CENTOS511_X86_64
+* CENTOS511_I386
 * CENTOS64_X86_64
 * CENTOS64_I386
 * CENTOS65_X86_64
