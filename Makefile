@@ -61,7 +61,7 @@ VMWARE_BUILDER := vmware-iso
 VIRTUALBOX_BUILDER := virtualbox-iso
 PARALLELS_BUILDER := parallels-iso
 CURRENT_DIR = $(shell pwd)
-SOURCES := script/fix-slow-dns.sh script/sshd.sh script/vagrant.sh script/vmtool.sh script/cmtool.sh script/cleanup.sh
+SOURCES := $(wildcard script/*.sh)
 
 .PHONY: list
 
