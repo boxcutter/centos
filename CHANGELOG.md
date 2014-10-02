@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.4 (2014-09-29)
+
+* Added templates for CentOS 5.11
+
 ## 1.0.3 (2014-09-21)
 
 * Upgraded VirtualBox Guest Additions to 4.3.16
