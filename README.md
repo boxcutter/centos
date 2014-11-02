@@ -10,30 +10,38 @@ using Packer.
 
 64-bit boxes:
 
-* [box-cutter/centos70](https://vagrantcloud.com/box-cutter/centos70) - CentOS 7.0 (64-bit), VMware 427MB/VirtualBox 362MB
-* [box-cutter/centos70-desktop](https://vagrantcloud.com/box-cutter/centos70-desktop) - CentOS 7.0 Desktop (64-bit), VMware 1.1GB/VirtualBox 1.0GB
-* [box-cutter/centos70-docker](https://vagrantcloud.com/box-cutter/centos70-docker) - CentOS 7.0 Core with Docker (64-bit), VMware 434MB/VirtualBox 369MB
-* [box-cutter/centos65](https://vagrantcloud.com/box-cutter/centos65) - CentOS 6.5 (64-bit), VMware 452MB/VirtualBox 383MB
-* [box-cutter/centos65-desktop](https://vagrantcloud.com/box-cutter/centos65-desktop) - CentOS 6.5 Desktop (64-bit), VMware 1.1GB/VirtualBox 1.1GB
-* [box-cutter/centos65-docker](https://vagrantcloud.com/box-cutter/centos65-docker) - CentOS 6.5 with Docker (64-bit), VMware 453MB/VirtualBox 389MB
-* [box-cutter/centos64](https://vagrantcloud.com/box-cutter/centos64) - CentOS 6.4 (64-bit), VMware 431MB/VirtualBox 347MB
-* [box-cutter/centos64-desktop](https://vagrantcloud.com/box-cutter/centos64-desktop) - CentOS 6.4 Desktop (64-bit), VMware 1.1GB/VirtualBox 998MB
-* [box-cutter/centos511](https://vagrantcloud.com/box-cutter/centos511) - CentOS 5.10 (64-bit), VMware 255MB/VirtualBox 180MB
-* [box-cutter/centos510](https://vagrantcloud.com/box-cutter/centos510) - CentOS 5.10 (64-bit), VMware 254MB/VirtualBox 179MB
-* [box-cutter/centos59](https://vagrantcloud.com/box-cutter/centos59) - CentOS 5.9 (64-bit), VMware 252MB/VirtualBox 177MB
+* [box-cutter/centos70](https://vagrantcloud.com/box-cutter/centos70) - CentOS 7.0 (64-bit), VMware 426MB/VirtualBox 361MB/Parallels 406MB
+* [box-cutter/centos70-desktop](https://vagrantcloud.com/box-cutter/centos70-desktop) - CentOS 7.0 Desktop (64-bit), VMware 1.1GB/VirtualBox 1.0GB/Parallels 1.1GB
+* [box-cutter/centos70-docker](https://vagrantcloud.com/box-cutter/centos70-docker) - CentOS 7.0 Core with Docker (64-bit), VMware 434MB/VirtualBox 369MB/Parallels 415MB
+* [box-cutter/centos66](https://vagrantcloud.com/box-cutter/centos66) - CentOS 6.6 (64-bit), VMware 488MB/VirtualBox 405MB/Parallels 493MB
+* [box-cutter/centos66-desktop](https://vagrantcloud.com/box-cutter/centos66-desktop) - CentOS 6.6 Desktop (64-bit), VMware 1.2GB/VirtualBox 1.2GB/Parallels 1.2GB
+* [box-cutter/centos66-docker](https://vagrantcloud.com/box-cutter/centos66-docker) - CentOS 6.6 with Docker (64-bit), VMware 481MB/VirtualBox 411MB/Parallels 494MB
+* [box-cutter/centos65](https://vagrantcloud.com/box-cutter/centos65) - CentOS 6.5 (64-bit), VMware 455MB/VirtualBox 389MB/Parallels 460MB
+* [box-cutter/centos65-desktop](https://vagrantcloud.com/box-cutter/centos65-desktop) - CentOS 6.5 Desktop (64-bit), VMware 1.1GB/VirtualBox 1.0GB/Parallels 1.2GB
+* [box-cutter/centos65-docker](https://vagrantcloud.com/box-cutter/centos65-docker) - CentOS 6.5 with Docker (64-bit), VMware 460MB/VirtualBox 396MB/Parallels 460MB
+* [box-cutter/centos64](https://vagrantcloud.com/box-cutter/centos64) - CentOS 6.4 (64-bit), VMware 432MB/VirtualBox 356MB/Parallels 427MB
+* [box-cutter/centos64-desktop](https://vagrantcloud.com/box-cutter/centos64-desktop) - CentOS 6.4 Desktop (64-bit), VMware 1.1GB/VirtualBox 1.1GB/Parallels 1.1GB
+* [box-cutter/centos511](https://vagrantcloud.com/box-cutter/centos511) - CentOS 5.10 (64-bit), VMware 256MB/VirtualBox 180MB/Parallels 236MB
+* [box-cutter/centos510](https://vagrantcloud.com/box-cutter/centos510) - CentOS 5.10 (64-bit), VMware 254MB/VirtualBox 179MB/Parallels 234MB
+* [box-cutter/centos59](https://vagrantcloud.com/box-cutter/centos59) - CentOS 5.9 (64-bit), VMware 253MB/VirtualBox 177MB/Parallels 232MB
 
 32-bit boxes:
 
-* [box-cutter/centos65-i386](https://vagrantcloud.com/box-cutter/centos65-i386) - CentOS 6.5 (32-bit), VMware 423MB/VirtualBox 343MB
-* [box-cutter/centos64-i386](https://vagrantcloud.com/box-cutter/centos64-i386) - CentOS 6.4 (32-bit), VMware 360MB/VirtualBox 314MB
-* [box-cutter/centos511-i386](https://vagrantcloud.com/box-cutter/centos511-i386) - CentOS 5.11 (32-bit), VMware 244MB/VirtualBox 168MB
-* [box-cutter/centos510-i386](https://vagrantcloud.com/box-cutter/centos510-i386) - CentOS 5.10 (32-bit), VMware 244MB/VirtualBox 168MB
-* [box-cutter/centos59-i386](https://vagrantcloud.com/box-cutter/centos59-i386) - CentOS 5.9 (32-bit), VMware 242MB/VirtualBox 167MB
+* [box-cutter/centos66-i386](https://vagrantcloud.com/box-cutter/centos66-i386) - CentOS 6.6 (32-bit), VMware 421MB/VirtualBox 355MB/Parallels 402MB
+* [box-cutter/centos65-i386](https://vagrantcloud.com/box-cutter/centos65-i386) - CentOS 6.5 (32-bit), VMware 407MB/VirtualBox 349MB/Parallels 403MB
+* [box-cutter/centos64-i386](https://vagrantcloud.com/box-cutter/centos64-i386) - CentOS 6.4 (32-bit), VMware 407MB/VirtualBox 324MB/Parallels 382MB
+* [box-cutter/centos511-i386](https://vagrantcloud.com/box-cutter/centos511-i386) - CentOS 5.11 (32-bit), VMware 244MB/VirtualBox 168MB/Parallels 224MB
+* [box-cutter/centos510-i386](https://vagrantcloud.com/box-cutter/centos510-i386) - CentOS 5.10 (32-bit), VMware 244MB/VirtualBox 168MB/Parallels 223MB
+* [box-cutter/centos59-i386](https://vagrantcloud.com/box-cutter/centos59-i386) - CentOS 5.9 (32-bit), VMware 242MB/VirtualBox 167MB/Parallels 222MB
 
 ## Building the Vagrant boxes
 
-To build all the boxes, you will need Packer and both VirtualBox, VMware
-Fusion, and Parallels Desktop for Mac installed.
+To build all the boxes, you will need Packer and the desktop virtualization
+software VirtualBox, VMware Fusion, and Parallels Desktop for Mac installed.
+
+Parallels requires that the
+[Parallels Virtualization SDK for Mac](http://ww.parallels.com/downloads/desktop)
+be installed as an additional preqrequisite.
 
 A GNU Make `Makefile` drives the process via the following targets:
 
@@ -64,14 +72,14 @@ The tests are written in [Serverspec](http://serverspec.org) and require the
 The `Makefile` has individual targets for each box type with the prefix
 `test-*` should you wish to run tests individually for each box.  For example:
 
-    make test-box/virtualbox/centos65-nocm.box
+    make test-box/virtualbox/centos66-nocm.box
 
 Similarly there are targets with the prefix `ssh-*` for registering a
 newly-built box with vagrant and for logging in using just one command to
 do exploratory testing.  For example, to do exploratory testing
 on the VirtualBox training environmnet, run the following command:
 
-    make ssh-box/virtualbox/centos65-nocm.box
+    make ssh-box/virtualbox/centos66-nocm.box
 
 Upon logout `make ssh-*` will automatically de-register the box as well.
 
@@ -131,12 +139,14 @@ For CentOS, the ISO path variables are:
 * CENTOS64_I386
 * CENTOS65_X86_64
 * CENTOS65_I386
+* CENTOS66_X86_64
+* CENTOS66_I386
 * CENTOS70_X86_64
 
 This override is commonly used to speed up Packer builds by
 pointing at pre-downloaded ISOs instead of using the default
 download Internet URLs:
-`CENTOS65_X86_64 := file:///Volumes/CentOS/CentOS-6.5-x86_64-bin-DVD1.iso`
+`CENTOS66_X86_64 := file:///Volumes/CentOS/CentOS-6.6-x86_64-bin-DVD1.iso`
 
 ## Contributing
 
