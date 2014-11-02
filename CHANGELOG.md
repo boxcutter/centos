@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.6 (2014-11-02)
+
+* Corrected commenting out of requiretty
+* Upgrade VMware Tools to 9.8.4 for VMware Fusion 7.0.1
+* Added Parallels 10.1.1 boxes to build
+
 ## 1.0.5 (2014-10-17)
 
 * Upgrade VirtualBox Guest Additions to 4.3.18
