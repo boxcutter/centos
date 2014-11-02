@@ -18,6 +18,8 @@ CENTOS64_X86_64 ?= http://mirror.symnds.com/distributions/CentOS-vault/6.4/isos/
 CENTOS64_I386 ?= http://mirror.symnds.com/distributions/CentOS-vault/6.4/isos/i386/CentOS-6.4-i386-bin-DVD1.iso
 CENTOS65_X86_64 ?= http://mirrors.kernel.org/centos/6.5/isos/x86_64/CentOS-6.5-x86_64-bin-DVD1.iso
 CENTOS65_I386 ?= http://mirrors.kernel.org/centos/6.5/isos/i386/CentOS-6.5-i386-bin-DVD1.iso
+CENTOS66_X86_64 ?= http://mirrors.kernel.org/centos/6.6/isos/x86_64/CentOS-6.6-x86_64-bin-DVD1.iso
+CENTOS66_I386 ?= http://mirrors.kernel.org/centos/6.6/isos/i386/CentOS-6.6-i386-bin-DVD1.iso
 CENTOS70_X86_64 ?= http://mirrors.sonic.net/centos/7.0.1406/isos/x86_64/CentOS-7.0-1406-x86_64-DVD.iso
 
 # Possible values for CM: (nocm | chef | chefdk | salt | puppet)
@@ -97,7 +99,7 @@ test-$(1): test-vmware/$(1) test-virtualbox/$(1) test-parallels/$(1)
 
 endef
 
-SHORTCUT_TARGETS := centos70 centos70-docker centos70-desktop centos65 centos65-docker centos65-desktop centos64 centos64-desktop centos511 centos510 centos59 centos65-i386 centos64-i386 centos511-i386 centos510-i386 centos59-i386
+SHORTCUT_TARGETS := centos70 centos70-docker centos70-desktop centos66 centos66-docker centos66-desktop centos65 centos65-docker centos65-desktop centos64 centos64-desktop centos511 centos510 centos59 centos66-i386 centos65-i386 centos64-i386 centos511-i386 centos510-i386 centos59-i386
 $(foreach i,$(SHORTCUT_TARGETS),$(eval $(call SHORTCUT,$(i))))
 ###############################################################################
 
@@ -122,6 +124,21 @@ $(VMWARE_BOX_DIR)/centos70-desktop$(BOX_SUFFIX): centos70-desktop.json $(SOURCES
 	rm -rf $(VMWARE_OUTPUT)
 	mkdir -p $(VMWARE_BOX_DIR)
 	$(PACKER) build -only=$(VMWARE_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS70_X86_64)" $<
+
+$(VMWARE_BOX_DIR)/centos66$(BOX_SUFFIX): centos66.json $(SOURCES) http/ks6.cfg
+	rm -rf $(VMWARE_OUTPUT)
+	mkdir -p $(VMWARE_BOX_DIR)
+	$(PACKER) build -only=$(VMWARE_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS66_X86_64)" $<
+
+$(VMWARE_BOX_DIR)/centos66-desktop$(BOX_SUFFIX): centos66-desktop.json $(SOURCES) script/desktop.sh http/ks6-desktop.cfg
+	rm -rf $(VMWARE_OUTPUT)
+	mkdir -p $(VMWARE_BOX_DIR)
+	$(PACKER) build -only=$(VMWARE_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS66_X86_64)" $<
+
+$(VMWARE_BOX_DIR)/centos66-docker$(BOX_SUFFIX): centos66-docker.json $(SOURCES) script/desktop.sh
+	rm -rf $(VMWARE_OUTPUT)
+	mkdir -p $(VMWARE_BOX_DIR)
+	$(PACKER) build -only=$(VMWARE_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS66_X86_64)" $<
 
 $(VMWARE_BOX_DIR)/centos65$(BOX_SUFFIX): centos65.json $(SOURCES) http/ks6.cfg
 	rm -rf $(VMWARE_OUTPUT)
@@ -162,6 +179,11 @@ $(VMWARE_BOX_DIR)/centos59$(BOX_SUFFIX): centos59.json $(SOURCES) http/ks5.cfg
 	rm -rf $(VMWARE_OUTPUT)
 	mkdir -p $(VMWARE_BOX_DIR)
 	$(PACKER) build -only=$(VMWARE_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS59_X86_64)" $<
+
+$(VMWARE_BOX_DIR)/centos66-i386$(BOX_SUFFIX): centos66-i386.json $(SOURCES) http/ks6.cfg
+	rm -rf $(VMWARE_OUTPUT)
+	mkdir -p $(VMWARE_BOX_DIR)
+	$(PACKER) build -only=$(VMWARE_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS66_I386)" $<
 
 $(VMWARE_BOX_DIR)/centos65-i386$(BOX_SUFFIX): centos65-i386.json $(SOURCES) http/ks6.cfg
 	rm -rf $(VMWARE_OUTPUT)
@@ -210,6 +232,21 @@ $(VIRTUALBOX_BOX_DIR)/centos70-desktop$(BOX_SUFFIX): centos70-desktop.json $(SOU
 	mkdir -p $(VIRTUALBOX_BOX_DIR)
 	$(PACKER) build -only=$(VIRTUALBOX_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS70_X86_64)" $<
 
+$(VIRTUALBOX_BOX_DIR)/centos66$(BOX_SUFFIX): centos66.json $(SOURCES) http/ks6.cfg
+	rm -rf $(VIRTUALBOX_OUTPUT)
+	mkdir -p $(VIRTUALBOX_BOX_DIR)
+	$(PACKER) build -only=$(VIRTUALBOX_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS66_X86_64)" $<
+
+$(VIRTUALBOX_BOX_DIR)/centos66-desktop$(BOX_SUFFIX): centos66-desktop.json $(SOURCES) script/desktop.sh http/ks6-desktop.cfg
+	rm -rf $(VIRTUALBOX_OUTPUT)
+	mkdir -p $(VIRTUALBOX_BOX_DIR)
+	$(PACKER) build -only=$(VIRTUALBOX_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS66_X86_64)" $<
+
+$(VIRTUALBOX_BOX_DIR)/centos66-docker$(BOX_SUFFIX): centos66-docker.json $(SOURCES)
+	rm -rf $(VIRTUALBOX_OUTPUT)
+	mkdir -p $(VIRTUALBOX_BOX_DIR)
+	$(PACKER) build -only=$(VIRTUALBOX_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS66_X86_64)" $<
+
 $(VIRTUALBOX_BOX_DIR)/centos65$(BOX_SUFFIX): centos65.json $(SOURCES) http/ks6.cfg
 	rm -rf $(VIRTUALBOX_OUTPUT)
 	mkdir -p $(VIRTUALBOX_BOX_DIR)
@@ -249,6 +286,11 @@ $(VIRTUALBOX_BOX_DIR)/centos59$(BOX_SUFFIX): centos59.json $(SOURCES) http/ks5.c
 	rm -rf $(VIRTUALBOX_OUTPUT)
 	mkdir -p $(VIRTUALBOX_BOX_DIR)
 	$(PACKER) build -only=$(VIRTUALBOX_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS59_X86_64)" $<
+
+$(VIRTUALBOX_BOX_DIR)/centos66-i386$(BOX_SUFFIX): centos66-i386.json $(SOURCES) http/ks6.cfg
+	rm -rf $(VIRTUALBOX_OUTPUT)
+	mkdir -p $(VIRTUALBOX_BOX_DIR)
+	$(PACKER) build -only=$(VIRTUALBOX_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS66_I386)" $<
 
 $(VIRTUALBOX_BOX_DIR)/centos65-i386$(BOX_SUFFIX): centos65-i386.json $(SOURCES) http/ks6.cfg
 	rm -rf $(VIRTUALBOX_OUTPUT)
@@ -297,6 +339,21 @@ $(PARALLELS_BOX_DIR)/centos70-desktop$(BOX_SUFFIX): centos70-desktop.json $(SOUR
 	mkdir -p $(PARALLELS_BOX_DIR)
 	$(PACKER) build -only=$(PARALLELS_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS70_X86_64)" $<
 
+$(PARALLELS_BOX_DIR)/centos66$(BOX_SUFFIX): centos66.json $(SOURCES) http/ks6.cfg
+	rm -rf $(PARALLELS_OUTPUT)
+	mkdir -p $(PARALLELS_BOX_DIR)
+	$(PACKER) build -only=$(PARALLELS_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS66_X86_64)" $<
+
+$(PARALLELS_BOX_DIR)/centos66-desktop$(BOX_SUFFIX): centos66-desktop.json $(SOURCES) script/desktop.sh http/ks6-desktop.cfg
+	rm -rf $(PARALLELS_OUTPUT)
+	mkdir -p $(PARALLELS_BOX_DIR)
+	$(PACKER) build -only=$(PARALLELS_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS66_X86_64)" $<
+
+$(PARALLELS_BOX_DIR)/centos66-docker$(BOX_SUFFIX): centos66-docker.json $(SOURCES)
+	rm -rf $(PARALLELS_OUTPUT)
+	mkdir -p $(PARALLELS_BOX_DIR)
+	$(PACKER) build -only=$(PARALLELS_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS66_X86_64)" $<
+
 $(PARALLELS_BOX_DIR)/centos65$(BOX_SUFFIX): centos65.json $(SOURCES) http/ks6.cfg
 	rm -rf $(PARALLELS_OUTPUT)
 	mkdir -p $(PARALLELS_BOX_DIR)
@@ -337,6 +394,11 @@ $(PARALLELS_BOX_DIR)/centos59$(BOX_SUFFIX): centos59.json $(SOURCES) http/ks5.cf
 	mkdir -p $(PARALLELS_BOX_DIR)
 	$(PACKER) build -only=$(PARALLELS_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS59_X86_64)" $<
 
+$(PARALLELS_BOX_DIR)/centos66-i386$(BOX_SUFFIX): centos66-i386.json $(SOURCES) http/ks6.cfg
+	rm -rf $(PARALLELS_OUTPUT)
+	mkdir -p $(PARALLELS_BOX_DIR)
+	$(PACKER) build -only=$(PARALLELS_BUILDER) $(PACKER_VARS) -var "iso_url=$(CENTOS66_I386)" $<
+
 $(PARALLELS_BOX_DIR)/centos65-i386$(BOX_SUFFIX): centos65-i386.json $(SOURCES) http/ks6.cfg
 	rm -rf $(PARALLELS_OUTPUT)
 	mkdir -p $(PARALLELS_BOX_DIR)
@@ -364,7 +426,7 @@ $(PARALLELS_BOX_DIR)/centos59-i386$(BOX_SUFFIX): centos59-i386.json $(SOURCES) h
 
 list:
 	@echo "Prepend 'vmware/', 'virtualbox/', or 'parallels/' to build only one target platform:"
-	@echo "  make vmware/centos65"
+	@echo "  make vmware/centos66"
 	@echo ""
 	@echo "Targets:"
 	@for shortcut_target in $(SHORTCUT_TARGETS) ; do \
