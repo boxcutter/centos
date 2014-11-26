@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.7 (2014-11-28)
+
+* Upgrade VirtualBox Guest Additions to 4.3.20
+* Upgrade Docker to 1.3.1 on CentOS 6
+* Upgrade Docker to 1.2.0 on CentOS 7
+
 ## 1.0.6 (2014-11-02)
 
 * Corrected commenting out of requiretty
