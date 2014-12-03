@@ -40,7 +40,7 @@ To build all the boxes, you will need Packer and the desktop virtualization
 software VirtualBox, VMware Fusion, and Parallels Desktop for Mac installed.
 
 Parallels requires that the
-[Parallels Virtualization SDK for Mac](http://ww.parallels.com/downloads/desktop)
+[Parallels Virtualization SDK for Mac](http://www.parallels.com/downloads/desktop)
 be installed as an additional preqrequisite.
 
 A GNU Make `Makefile` drives the process via the following targets:
