@@ -35,6 +35,9 @@ ifndef CM_VERSION
 		CM_VERSION = latest
 	endif
 endif
+SSH_USERNAME ?= vagrant
+SSH_PASSWORD ?= vagrant
+INSTALL_VAGRANT_KEY ?= true
 BOX_VERSION ?= $(shell cat VERSION)
 ifeq ($(CM),nocm)
 	BOX_SUFFIX := -$(CM)-$(BOX_VERSION).box
@@ -42,7 +45,7 @@ else
 	BOX_SUFFIX := -$(CM)$(CM_VERSION)-$(BOX_VERSION).box
 endif
 # Packer does not allow empty variables, so only pass variables that are defined
-PACKER_VARS_LIST = 'cm=$(CM)' 'headless=$(HEADLESS)' 'update=$(UPDATE)' 'version=$(BOX_VERSION)'
+PACKER_VARS_LIST = 'cm=$(CM)' 'headless=$(HEADLESS)' 'update=$(UPDATE)' 'version=$(BOX_VERSION)' 'ssh_username=$(SSH_USERNAME)' 'ssh_password=$(SSH_PASSWORD)' 'install_vagrant_key=$(INSTALL_VAGRANT_KEY)'
 ifdef CM_VERSION
 	PACKER_VARS_LIST += 'cm_version=$(CM_VERSION)'
 endif
