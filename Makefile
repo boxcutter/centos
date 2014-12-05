@@ -3,6 +3,10 @@ ifneq ("$(wildcard Makefile.local)", "")
 	include Makefile.local
 endif
 
+ifndef PACKER
+    PACKER := packer
+endif
+
 PACKER_VERSION = $(shell packer --version | sed 's/^.* //g' | sed 's/^.//')
 ifneq (0.5.0, $(word 1, $(sort 0.5.0 $(PACKER_VERSION))))
 $(error Packer version less than 0.5.x, please upgrade)
@@ -44,9 +48,7 @@ ifdef CM_VERSION
 endif
 PACKER_VARS := $(addprefix -var , $(PACKER_VARS_LIST))
 ifdef PACKER_DEBUG
-	PACKER := PACKER_LOG=1 packer --debug
-else
-	PACKER := packer
+	PACKER := PACKER_LOG=1 $(PACKER) --debug
 endif
 BUILDER_TYPES := vmware virtualbox parallels
 TEMPLATE_FILENAMES := $(wildcard *.json)

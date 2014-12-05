@@ -124,6 +124,9 @@ The variable `UPDATE` can be used to perform OS patch management.  The
 default is to not apply OS updates by default.  When `UPDATE := true`,
 the latest OS updates will be applied.
 
+The variable `PACKER` can be used to set the path to the packer binary.
+The default is `packer`.
+
 Another use for `Makefile.local` is to override the default locations
 for the ISO install files.
 
