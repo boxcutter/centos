@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.8 (2014-12-06)
+
+* Upgrade VMware Tools to 9.9.0 for VMware Fusion 7.1.0
+* Remove unnecessary iwl-firmware packages on CentOS 7
+
 ## 1.0.7 (2014-11-28)
 
 * Upgrade VirtualBox Guest Additions to 4.3.20
