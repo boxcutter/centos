@@ -1,5 +1,4 @@
 # Packer templates for CentOS
-[![Build Status](https://box-cutter.ci.cloudbees.com/buildStatus/icon?job=centos-vm)](https://box-cutter.ci.cloudbees.com/job/centos-vm/)
 
 ### Overview
 
@@ -10,29 +9,29 @@ using Packer.
 
 64-bit boxes:
 
-* [box-cutter/centos70](https://vagrantcloud.com/box-cutter/centos70) - CentOS 7.0 (64-bit), VMware 426MB/VirtualBox 361MB/Parallels 406MB
-* [box-cutter/centos70-desktop](https://vagrantcloud.com/box-cutter/centos70-desktop) - CentOS 7.0 Desktop (64-bit), VMware 1.1GB/VirtualBox 1.0GB/Parallels 1.1GB
-* [box-cutter/centos70-docker](https://vagrantcloud.com/box-cutter/centos70-docker) - CentOS 7.0 Core with Docker (64-bit), VMware 434MB/VirtualBox 369MB/Parallels 415MB
-* [box-cutter/centos66](https://vagrantcloud.com/box-cutter/centos66) - CentOS 6.6 (64-bit), VMware 488MB/VirtualBox 405MB/Parallels 493MB
-* [box-cutter/centos66-desktop](https://vagrantcloud.com/box-cutter/centos66-desktop) - CentOS 6.6 Desktop (64-bit), VMware 1.2GB/VirtualBox 1.2GB/Parallels 1.2GB
-* [box-cutter/centos66-docker](https://vagrantcloud.com/box-cutter/centos66-docker) - CentOS 6.6 with Docker (64-bit), VMware 481MB/VirtualBox 411MB/Parallels 494MB
-* [box-cutter/centos65](https://vagrantcloud.com/box-cutter/centos65) - CentOS 6.5 (64-bit), VMware 455MB/VirtualBox 389MB/Parallels 460MB
-* [box-cutter/centos65-desktop](https://vagrantcloud.com/box-cutter/centos65-desktop) - CentOS 6.5 Desktop (64-bit), VMware 1.1GB/VirtualBox 1.0GB/Parallels 1.2GB
-* [box-cutter/centos65-docker](https://vagrantcloud.com/box-cutter/centos65-docker) - CentOS 6.5 with Docker (64-bit), VMware 460MB/VirtualBox 396MB/Parallels 460MB
-* [box-cutter/centos64](https://vagrantcloud.com/box-cutter/centos64) - CentOS 6.4 (64-bit), VMware 432MB/VirtualBox 356MB/Parallels 427MB
-* [box-cutter/centos64-desktop](https://vagrantcloud.com/box-cutter/centos64-desktop) - CentOS 6.4 Desktop (64-bit), VMware 1.1GB/VirtualBox 1.1GB/Parallels 1.1GB
-* [box-cutter/centos511](https://vagrantcloud.com/box-cutter/centos511) - CentOS 5.10 (64-bit), VMware 256MB/VirtualBox 180MB/Parallels 236MB
-* [box-cutter/centos510](https://vagrantcloud.com/box-cutter/centos510) - CentOS 5.10 (64-bit), VMware 254MB/VirtualBox 179MB/Parallels 234MB
-* [box-cutter/centos59](https://vagrantcloud.com/box-cutter/centos59) - CentOS 5.9 (64-bit), VMware 253MB/VirtualBox 177MB/Parallels 232MB
+* CentOS 7.0 (64-bit), VMware 426MB/VirtualBox 361MB/Parallels 406MB
+* CentOS 7.0 Desktop (64-bit), VMware 1.1GB/VirtualBox 1.0GB/Parallels 1.1GB
+* CentOS 7.0 Core with Docker (64-bit), VMware 434MB/VirtualBox 369MB/Parallels 415MB
+* CentOS 6.6 (64-bit), VMware 488MB/VirtualBox 405MB/Parallels 493MB
+* CentOS 6.6 Desktop (64-bit), VMware 1.2GB/VirtualBox 1.2GB/Parallels 1.2GB
+* CentOS 6.6 with Docker (64-bit), VMware 481MB/VirtualBox 411MB/Parallels 494MB
+* CentOS 6.5 (64-bit), VMware 455MB/VirtualBox 389MB/Parallels 460MB
+* CentOS 6.5 Desktop (64-bit), VMware 1.1GB/VirtualBox 1.0GB/Parallels 1.2GB
+* CentOS 6.5 with Docker (64-bit), VMware 460MB/VirtualBox 396MB/Parallels 460MB
+* CentOS 6.4 (64-bit), VMware 432MB/VirtualBox 356MB/Parallels 427MB
+* CentOS 6.4 Desktop (64-bit), VMware 1.1GB/VirtualBox 1.1GB/Parallels 1.1GB
+* CentOS 5.10 (64-bit), VMware 256MB/VirtualBox 180MB/Parallels 236MB
+* CentOS 5.10 (64-bit), VMware 254MB/VirtualBox 179MB/Parallels 234MB
+* CentOS 5.9 (64-bit), VMware 253MB/VirtualBox 177MB/Parallels 232MB
 
 32-bit boxes:
 
-* [box-cutter/centos66-i386](https://vagrantcloud.com/box-cutter/centos66-i386) - CentOS 6.6 (32-bit), VMware 421MB/VirtualBox 355MB/Parallels 402MB
-* [box-cutter/centos65-i386](https://vagrantcloud.com/box-cutter/centos65-i386) - CentOS 6.5 (32-bit), VMware 407MB/VirtualBox 349MB/Parallels 403MB
-* [box-cutter/centos64-i386](https://vagrantcloud.com/box-cutter/centos64-i386) - CentOS 6.4 (32-bit), VMware 407MB/VirtualBox 324MB/Parallels 382MB
-* [box-cutter/centos511-i386](https://vagrantcloud.com/box-cutter/centos511-i386) - CentOS 5.11 (32-bit), VMware 244MB/VirtualBox 168MB/Parallels 224MB
-* [box-cutter/centos510-i386](https://vagrantcloud.com/box-cutter/centos510-i386) - CentOS 5.10 (32-bit), VMware 244MB/VirtualBox 168MB/Parallels 223MB
-* [box-cutter/centos59-i386](https://vagrantcloud.com/box-cutter/centos59-i386) - CentOS 5.9 (32-bit), VMware 242MB/VirtualBox 167MB/Parallels 222MB
+* CentOS 6.6 (32-bit), VMware 421MB/VirtualBox 355MB/Parallels 402MB
+* CentOS 6.5 (32-bit), VMware 407MB/VirtualBox 349MB/Parallels 403MB
+* CentOS 6.4 (32-bit), VMware 407MB/VirtualBox 324MB/Parallels 382MB
+* CentOS 5.11 (32-bit), VMware 244MB/VirtualBox 168MB/Parallels 224MB
+* CentOS 5.10 (32-bit), VMware 244MB/VirtualBox 168MB/Parallels 223MB
+* CentOS 5.9 (32-bit), VMware 242MB/VirtualBox 167MB/Parallels 222MB
 
 ## Building the Vagrant boxes
 
@@ -163,9 +162,3 @@ download Internet URLs:
 7. If you have a large change in mind, it is still preferred that you split them into small commits.  Good commit messages are important.  The git documentatproject has some nice guidelines on [writing descriptive commit messages](http://git-scm.com/book/ch5-2.html#Commit-Guidelines).
 8. Push to your fork and submit a pull request.
 9. Once submitted, a full `make test` run will be performed against your change in the build farm.  You will be notified if the test suite fails.
-
-## Acknowledgments
-
-[CloudBees](http://www.cloudbees.com) is providing a hosted [Jenkins master](http://box-cutter.ci.cloudbees.com/) through their CloudBees FOSS program. Their [On-Premise Executor](https://developer.cloudbees.com/bin/view/DEV/On-Premise+Executors) feature is used to connect physical machines as build slaves running VirtualBox, VMware Fusion, VMware Workstation, VMware ESXi/vSphere and Hyper-V.
-
-![Powered By CloudBees](http://www.cloudbees.com/sites/default/files/Button-Powered-by-CB.png "Powered By CloudBees")![Built On DEV@Cloud](http://www.cloudbees.com/sites/default/files/Button-Built-on-CB-1.png "Built On DEV@Cloud")
