@@ -162,3 +162,9 @@ download Internet URLs:
 7. If you have a large change in mind, it is still preferred that you split them into small commits.  Good commit messages are important.  The git documentatproject has some nice guidelines on [writing descriptive commit messages](http://git-scm.com/book/ch5-2.html#Commit-Guidelines).
 8. Push to your fork and submit a pull request.
 9. Once submitted, a full `make test` run will be performed against your change in the build farm.  You will be notified if the test suite fails.
+
+### Acknowledgments
+
+[SmartyStreets](http://www.smartystreets.com) is providing basebox hosting for the box-cutter project.
+
+![Powered By SmartyStreets](https://smartystreets.com/resources/images/smartystreets-flat.png)
