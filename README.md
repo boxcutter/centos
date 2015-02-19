@@ -19,7 +19,7 @@ using Packer.
 * [CentOS 6.5 Desktop (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos65-desktop), VMware 1.1GB/VirtualBox 1.1GB
 * [CentOS 6.5 with Docker (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos65-docker/), VMware 461MB/VirtualBox 388MB
 * [CentOS 6.4 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos64), VMware 432MB/VirtualBox 356MB
-* CentOS 6.4 Desktop (64-bit), VMware 1.1GB/VirtualBox 1.1GB/Parallels 1.1GB
+* [CentOS 6.4 Desktop (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos64-desktop), VMware 1.1GB/VirtualBox 1.1GB/Parallels 1.1GB
 * [CentOS 5.11 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos511), VMware 256MB/VirtualBox 180MB/Parallels 236MB
 * [CentOS 5.10 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos510), VMware 255MB/VirtualBox 179MB/Parallels 234MB
 * [CentOS 5.9 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos59), VMware 253MB/VirtualBox 177MB
@@ -27,7 +27,7 @@ using Packer.
 32-bit boxes:
 
 * [CentOS 6.6 (32-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos66-i386), VMware 432MB/VirtualBox 357MB
-* CentOS 6.5 (32-bit), VMware 417MB/VirtualBox 328MB
+* [CentOS 6.5 (32-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos65-i386), VMware 417MB/VirtualBox 328MB
 * [CentOS 6.4 (32-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos64-i386), VMware 402MB/VirtualBox 313MB
 * [CentOS 5.11 (32-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos511-i386), VMware 244MB/VirtualBox 169MB/Parallels 222MB
 * [CentOS 5.10 (32-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos510-i386), VMware 244MB/VirtualBox 169MB/Parallels 223MB
