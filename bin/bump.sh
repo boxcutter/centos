@@ -45,7 +45,7 @@ current() {
 tag() {
     echo "tagged: ${CURRENT_VERSION}"
     git fetch --all > /dev/null
-    git tag -a -m "Version ${NEXT_VERSION}" ${NEXT_VERSION}
+    git tag -a -m "Version ${CURRENT_VERSION} pushed to Atlas" ${CURRENT_VERSION}
     git push --tags || true
 }
 
