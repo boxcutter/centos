@@ -134,3 +134,4 @@ active)
 *)
   abort "cannot publish version with status '$status'"
 esac
+rm -rf ${COMM_FILE_DIR}
