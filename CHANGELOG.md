@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.11 (2015-02-22)
+
+* Upgrade VirtualBox Guest Additions to 4.3.22
+* Upgrade VMware Tools to 9.9.2 for VMware Fusion 7.1.1
+* Upgrade Parallels Tools to 10.1.4
+
 ## 1.0.9 (2014-12-29)
 
 * Upgrade Parallels Tools to 10.1.2
