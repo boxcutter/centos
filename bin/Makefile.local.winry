@@ -11,20 +11,3 @@ VIRTUALBOX_S3_BUCKET := s3://smartystreets-boxcutter/centos/virtualbox$(VIRTUALB
 PARALLELS_S3_BUCKET := s3://smartystreets-boxcutter/centos/parallels$(PARALLELS_VERSION)/
 S3_GRANT_ID := id=120985f7542bdcc1f07bb3e2fc74f0e53a03f9a05e4267a3c8d38d27933c7a94
 AWS_PROFILE = smartystreets
-
-#test-vagrantcloud: test-vagrantcloud-vmware test-vagrantcloud-virtualbox test-vagrantcloud-parallels
-#
-#test-vagrantcloud-vmware:
-#	@for shortcut_target in $(SHORTCUT_TARGETS) ; do \
-#		bin/test-vagrantcloud-box.sh box-cutter/$$shortcut_target vmware_fusion vmware_desktop $(CURRENT_DIR)/test/*_spec.rb || exit; \
-#	done
-#
-#test-vagrantcloud-virtualbox:
-#	@for shortcut_target in $(SHORTCUT_TARGETS) ; do \
-#		bin/test-vagrantcloud-box.sh box-cutter/$$shortcut_target virtualbox virtualbox $(CURRENT_DIR)/test/*_spec.rb || exit; \
-#	done
-#
-#test-vagrantcloud-parallels:
-#	@for shortcut_target in $(SHORTCUT_TARGETS) ; do \
-#		bin/test-vagrantcloud-box.sh box-cutter/$$shortcut_target parallels parallels $(CURRENT_DIR)/test/*_spec.rb || exit; \
-#	done
