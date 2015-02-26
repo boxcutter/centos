@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.12 (2015-02-26)
+
+* Use the SATA HDD controller for faster disk IO speeds on VirtualBox
+* Rely on the vendor-supplied ca-bundle.crt that comes with the openssl package
+
 ## 1.0.11 (2015-02-22)
 
 * Upgrade VirtualBox Guest Additions to 4.3.22
