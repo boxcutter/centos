@@ -1,6 +1,7 @@
 require 'serverspec'
-require 'pathname'
 require 'net/ssh'
 
-include SpecInfra::Helper::Ssh
-include SpecInfra::Helper::DetectOS
+set :backend, :ssh
+
+# Set PATH (OEL 5 does not include /sbin by default)
+set :path, '/sbin:/usr/local/sbin:$PATH'
