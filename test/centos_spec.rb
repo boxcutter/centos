@@ -12,4 +12,8 @@ describe 'box' do
   it 'should not have a .vbox_version file' do
     expect(file '/home/vagrant/.vbox_version').to_not be_file
   end
+
+  it 'should disable SELinux' do
+    expect(selinux).to be_disabled
+  end
 end
