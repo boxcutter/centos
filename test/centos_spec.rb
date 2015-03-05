@@ -16,4 +16,12 @@ describe 'box' do
   it 'should disable SELinux' do
     expect(selinux).to be_disabled
   end
+
+  vbox_string = command("dmesg | grep VirtualBox").stdout
+  has_vbox = vbox_string.include? 'VirtualBox'
+  it 'should have single-request-reopen on virtualbox', :if => has_vbox do
+    if file('/redhat/release').content.scan(/(release 5) | (release 6)/)
+      expect(file('/etc/resolv.conf').content).to match /single-request-reopen/
+    end
+  end
 end
