@@ -165,6 +165,10 @@ clean-packer-cache:
 	echo Deleting packer_cache
 	rm -rf packer_cache
 
+test-vmware: $(addprefix test-,$(VMWARE_BOX_FILES))
+test-virtualbox: $(addprefix test-,$(VIRTUALBOX_BOX_FILES))
+test-parallels: $(addprefix test-,$(PARALLELS_BOX_FILES))
+
 test-$(VMWARE_BOX_DIR)/%$(BOX_SUFFIX): $(VMWARE_BOX_DIR)/%$(BOX_SUFFIX)
 	bin/test-box.sh $< vmware_desktop vmware_fusion $(CURRENT_DIR)/test/*_spec.rb || exit
 
