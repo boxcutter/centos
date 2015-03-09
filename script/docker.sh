@@ -12,6 +12,13 @@ elif grep -q -i "release 6" /etc/redhat-release ; then
     yum install -y docker-io
 fi
 
+# Add the docker group if it doesn't already exist
+groupadd docker
+
+# Add the connected "${USER}" to the docker group.
+gpasswd -a ${USER} docker
+gpasswd -a ${SSH_USERNAME} docker
+
 echo "==> Starting docker"
 service docker start
 echo "==> Enabling docker to start on reboot"
