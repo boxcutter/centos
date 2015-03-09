@@ -211,6 +211,7 @@ s3cp-parallels: $(addprefix s3cp-,$(PARALLELS_BOX_FILES))
 
 ATLAS_NAME ?= boxcutter
 
+test-atlas: test-atlas-vmware test-atlas-virtualbox test-atlas-parallels
 test-atlas-vmware: $(addprefix test-atlas-,$(VMWARE_BOX_FILES))
 test-atlas-virtualbox: $(addprefix test-atlas-,$(VIRTUALBOX_BOX_FILES))
 test-atlas-parallels: $(addprefix test-atlas-,$(PARALLELS_BOX_FILES))
