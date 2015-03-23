@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.14 (2015-03-22)
+
+* Upgrade VirtualBox Guest Additions to 4.3.26
+
 ## 1.0.13 (2015-03-09)
 
 * Upgrade VirtualBox Guest Additions to 4.3.24
