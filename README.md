@@ -9,6 +9,9 @@ using Packer.
 
 64-bit boxes:
 
+* [CentOS 7.1 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos71)
+* [CentOS 7.1 Desktop (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos71-desktop)
+* [CentOS 7.1 Core with Docker (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos71-docker)
 * [CentOS 7.0 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos70)
 * [CentOS 7.0 Desktop (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos70-desktop)
 * [CentOS 7.0 Core with Docker (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos70-docker)
@@ -155,6 +158,6 @@ is true.
 
 ### Acknowledgments
 
-[SmartyStreets](http://www.smartystreets.com) is providing basebox hosting for the box-cutter project.
+[SmartyStreets](http://www.smartystreets.com) is providing basebox hosting for the boxcutter project.
 
 ![Powered By SmartyStreets](https://smartystreets.com/resources/images/smartystreets-flat.png)
