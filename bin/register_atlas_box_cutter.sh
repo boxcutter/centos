@@ -35,6 +35,31 @@ args() {
     VERSION=$3
 }
 
+get_short_description() {
+    if [[ "${BOX_NAME}" =~ i386 ]]; then
+        BIT_STRING="32-bit"
+    else
+        BIT_STRING="64-bit"
+    fi
+    DOCKER_STRING=
+    if [[ "${BOX_NAME}" =~ docker ]]; then
+        DOCKER_STRING=" with Docker preinstalled"
+    fi
+    DESKTOP_STRING=
+    if [[ "${BOX_NAME}" =~ desktop ]]; then
+        DESKTOP_STRING=" Desktop"
+    fi
+    RAW_VERSION=${BOX_NAME#centos}
+    RAW_VERSION=${RAW_VERSION%-i386}
+    RAW_VERSION=${RAW_VERSION%-docker}
+    RAW_VERSION=${RAW_VERSION%-desktop}
+    PRETTY_VERSION=${RAW_VERSION:0:1}.${RAW_VERSION:1}
+
+    VIRTUALBOX_VERSION=$(virtualbox --help | head -n 1 | awk '{print $NF}')
+    PARALLELS_VERSION=$(prlctl --version | awk '{print $3}')
+    VMWARE_VERSION=9.9.2
+    SHORT_DESCRIPTION="CentOS ${PRETTY_VERSION}${DESKTOP_STRING} (${BIT_STRING})${DOCKER_STRING}"
+}
 create_description() {
     if [[ "${BOX_NAME}" =~ i386 ]]; then
         BIT_STRING="32-bit"
@@ -126,7 +151,10 @@ main() {
     # Retrieve box
     HTTP_STATUS=$(curl -s -f -o /dev/nul -w "%{http_code}" -i "${ATLAS_API_URL}/box/${BOX_CUTTER_ATLAS_USERNAME}/${BOX_NAME}"?access_token="${BOX_CUTTER_ATLAS_ACCESS_TOKEN}" || true)
     if [ 404 -eq ${HTTP_STATUS} ]; then
-        echo "${BOX_NAME} does not exist!" && exit 1
+        echo "${BOX_NAME} does not exist, creating"
+        get_short_description
+
+        curl -X POST "${ATLAS_API_URL}/boxes" -d box[name]="${BOX_NAME}" -d box[short_description]="${SHORT_DESCRIPTION}" -d box[is_private]=false -d "access_token=${BOX_CUTTER_ATLAS_ACCESS_TOKEN}"
     elif [ 200 -ne ${HTTP_STATUS} ]; then
         echo "Unknown status ${HTTP_STATUS} from box/get" && exit 1
     fi
