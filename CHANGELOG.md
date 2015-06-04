@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.16 (2015-06-04)
+
+* Upgrade VirtualBox guest additions to 4.3.28
+* Upgrade Parallels tools to 10.2.1
+
 ## 1.0.15 (2015-04-09)
 
 * Add CentOS 7.1 templates
