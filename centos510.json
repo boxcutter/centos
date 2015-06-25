@@ -145,7 +145,7 @@
     "headless": "",
     "http_proxy": "{{env `http_proxy`}}",
     "https_proxy": "{{env `https_proxy`}}",
-    "install_vagrant_key": true,
+    "install_vagrant_key": "true",
     "iso_checksum": "d8403b3fe4972eda3e147ee76d682a4a3beae1e1",
     "iso_name": "CentOS-5.10-x86_64-bin-DVD-1of2.iso",
     "iso_path": "iso",

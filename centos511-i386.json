@@ -145,7 +145,7 @@
     "headless": "",
     "http_proxy": "{{env `http_proxy`}}",
     "https_proxy": "{{env `https_proxy`}}",
-    "install_vagrant_key": true,
+    "install_vagrant_key": "true",
     "iso_checksum": "ec3a89b4edc8e391d13c1ecce4e6ce3917719e39",
     "iso_name": "CentOS-5.11-i386-bin-DVD-1of2.iso",
     "iso_path": "iso",
