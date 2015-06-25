@@ -150,7 +150,7 @@
     "headless": "",
     "http_proxy": "{{env `http_proxy`}}",
     "https_proxy": "{{env `https_proxy`}}",
-    "install_vagrant_key": true,
+    "install_vagrant_key": "true",
     "iso_checksum": "154ba47b7a37e52e0100310c3aeb8f9d9daf4806",
     "iso_name": "CentOS-7.0-1406-x86_64-DVD.iso",
     "iso_path": "iso",

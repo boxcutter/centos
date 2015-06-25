@@ -147,7 +147,7 @@
     "headless": "",
     "http_proxy": "{{env `http_proxy`}}",
     "https_proxy": "{{env `https_proxy`}}",
-    "install_vagrant_key": true,
+    "install_vagrant_key": "true",
     "iso_checksum": "32c7695b97f7dcd1f59a77a71f64f2957dddf738",
     "iso_name": "CentOS-6.5-x86_64-bin-DVD1.iso",
     "iso_path": "iso",
