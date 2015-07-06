@@ -1,10 +1,13 @@
 #!/bin/bash -eux
 
+SSH_USER=${SSH_USERNAME:-vagrant}
+SSH_USER_HOME=${SSH_USER_HOME:-/home/${SSH_USER}}
+
 install_vmware_tools_centos_70()
 {
     cd /tmp
     mkdir -p /mnt/cdrom
-    mount -o loop /home/vagrant/linux.iso /mnt/cdrom
+    mount -o loop $SSH_USER_HOME/linux.iso /mnt/cdrom
     tar zxf /mnt/cdrom/VMwareTools-*.tar.gz -C /tmp/
 
     mkdir -p /mnt/floppy
@@ -31,7 +34,7 @@ install_vmware_tools_centos_70()
     fi
 
     /tmp/vmware-tools-distrib/vmware-install.pl --default
-    rm /home/vagrant/linux.iso
+    rm $SSH_USER_HOME/linux.iso
     umount /mnt/cdrom
     rmdir /mnt/cdrom
     rm -rf /tmp/VMwareTools-*
@@ -60,15 +63,15 @@ if [[ $PACKER_BUILDER_TYPE =~ vmware ]]; then
     # On RHEL 5, add /sbin to PATH because vagrant does a probe for
     # vmhgfs with lsmod sans PATH
     if grep -q -i "release 5" /etc/redhat-release ; then
-        echo "export PATH=$PATH:/usr/sbin:/sbin" >> /home/vagrant/.bashrc
+        echo "export PATH=$PATH:/usr/sbin:/sbin" >> $SSH_USER_HOME/.bashrc
     fi
 
     cd /tmp
     mkdir -p /mnt/cdrom
-    mount -o loop /home/vagrant/linux.iso /mnt/cdrom
+    mount -o loop $SSH_USER_HOME/linux.iso /mnt/cdrom
     tar zxf /mnt/cdrom/VMwareTools-*.tar.gz -C /tmp/
     /tmp/vmware-tools-distrib/vmware-install.pl --default
-    rm /home/vagrant/linux.iso
+    rm $SSH_USER_HOME/linux.iso
     umount /mnt/cdrom
     rmdir /mnt/cdrom
     rm -rf /tmp/VMwareTools-*
@@ -80,12 +83,12 @@ if [[ $PACKER_BUILDER_TYPE =~ virtualbox ]]; then
     # kernel-headers-$(uname -r) kernel-devel-$(uname -r) gcc make perl
     # from the install media via ks.cfg
 
-    VBOX_VERSION=$(cat /home/vagrant/.vbox_version)
-    mount -o loop /home/vagrant/VBoxGuestAdditions_$VBOX_VERSION.iso /mnt
+    VBOX_VERSION=$(cat $SSH_USER_HOME/.vbox_version)
+    mount -o loop $SSH_USER_HOME/VBoxGuestAdditions_$VBOX_VERSION.iso /mnt
     sh /mnt/VBoxLinuxAdditions.run --nox11
     umount /mnt
-    rm -rf /home/vagrant/VBoxGuestAdditions_$VBOX_VERSION.iso
-    rm -f /home/vagrant/.vbox_version
+    rm -rf $SSH_USER_HOME/VBoxGuestAdditions_$VBOX_VERSION.iso
+    rm -f $SSH_USER_HOME/.vbox_version
 
     if [[ $VBOX_VERSION = "4.3.10" ]]; then
         ln -s /opt/VBoxGuestAdditions-4.3.10/lib/VBoxGuestAdditions /usr/lib/VBoxGuestAdditions
@@ -95,11 +98,11 @@ fi
 if [[ $PACKER_BUILDER_TYPE =~ parallels ]]; then
     echo "==> Installing Parallels tools"
 
-    mount -o loop /home/vagrant/prl-tools-lin.iso /mnt
+    mount -o loop $SSH_USER_HOME/prl-tools-lin.iso /mnt
     sh /mnt/install --install-unattended-with-deps
     umount /mnt
-    rm -rf /home/vagrant/prl-tools-lin.iso
-    rm -f /home/vagrant/.prlctl_version
+    rm -rf $SSH_USER_HOME/prl-tools-lin.iso
+    rm -f $SSH_USER_HOME/.prlctl_version
 fi
 
 echo "==> Removing packages needed for building guest tools"

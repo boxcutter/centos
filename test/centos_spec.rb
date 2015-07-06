@@ -14,7 +14,7 @@ describe 'box' do
   end
 
   it 'should disable SELinux' do
-    expect(selinux).to be_disabled
+    expect(selinux).to be_permissive
   end
 
   # https://www.chef.io/blog/2015/02/26/bento-box-update-for-centos-and-fedora/

@@ -4,7 +4,7 @@
       "boot_command": [
         "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/ks6.cfg<enter>"
       ],
-      "disk_size": 10140,
+      "disk_size": 65536,
       "guest_os_type": "centos",
       "headless": "{{ user `headless` }}",
       "http_directory": "http",
@@ -31,7 +31,7 @@
       "boot_command": [
         "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/ks6.cfg<enter>"
       ],
-      "disk_size": 10140,
+      "disk_size": 65536,
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
       "guest_os_type": "RedHat",
       "hard_drive_interface": "sata",
@@ -69,7 +69,7 @@
       "boot_command": [
         "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/ks6.cfg<enter>"
       ],
-      "disk_size": 10140,
+      "disk_size": 65536,
       "guest_os_type": "centos",
       "http_directory": "http",
       "iso_checksum": "{{ user `iso_checksum` }}",
@@ -145,7 +145,7 @@
     "headless": "",
     "http_proxy": "{{env `http_proxy`}}",
     "https_proxy": "{{env `https_proxy`}}",
-    "install_vagrant_key": true,
+    "install_vagrant_key": "true",
     "iso_checksum": "4bd3a1de6f6dfcd7a2199487abf5a9304d696cae",
     "iso_name": "CentOS-6.4-i386-bin-DVD1.iso",
     "iso_path": "iso",

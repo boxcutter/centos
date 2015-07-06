@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.0.17 (2015-06-20)
+
+* Make selinux permissive by default
+* Upgrade VMware tools to 9.9.3 for VMware Fusion 7.1.2
+* Increase lazy-allocated disk size for server images to 64GB
+* Increase lazy-allocated disk size for desktop images to 127GB
+
+## 1.0.16 (2015-06-04)
+
+* Upgrade VirtualBox guest additions to 4.3.28
+* Upgrade Parallels tools to 10.2.1
+
 ## 1.0.15 (2015-04-09)
 
 * Add CentOS 7.1 templates
