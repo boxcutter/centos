@@ -149,7 +149,7 @@
     "iso_checksum": "32c7695b97f7dcd1f59a77a71f64f2957dddf738",
     "iso_name": "CentOS-6.5-x86_64-bin-DVD1.iso",
     "iso_path": "iso",
-    "iso_url": "http://mirrors.kernel.org/centos/6.5/isos/x86_64/CentOS-6.5-x86_64-bin-DVD1.iso",
+    "iso_url": "http://archive.kernel.org/centos-vault/6.5/isos/x86_64//CentOS-6.5-x86_64-bin-DVD1.iso",
     "no_proxy": "{{env `no_proxy`}}",
     "rsync_proxy": "{{env `rsync_proxy`}}",
     "ssh_password": "vagrant",
