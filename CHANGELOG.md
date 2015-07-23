@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.0 (2015-07-22)
+
+* Upgrade VirtualBox guest additions to 5.0.0
+
 ## 1.0.17 (2015-06-20)
 
 * Make selinux permissive by default
