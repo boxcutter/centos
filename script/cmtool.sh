@@ -3,10 +3,11 @@
 # CM and CM_VERSION variables should be set inside of Packer's template:
 #
 # Values for CM can be:
-#   'nocm'            -- build a box without a configuration management tool
-#   'chef'            -- build a box with the Chef
-#   'chefdk'          -- build a box with the Chef Development Kit
-#   'puppet'          -- build a box with the Puppet
+#   'nocm'               -- build a box without a configuration management tool
+#   'chef'               -- build a box with the Chef
+#   'chefdk'             -- build a box with the Chef Development Kit
+#   'puppet'             -- build a box with the Puppet
+#   'puppet_collections' -- build a box with Puppet Collections
 #
 # Values for CM_VERSION can be (when CM is chef|salt|puppet):
 #   'x.y.z'           -- build a box with version x.y.z of Chef
@@ -78,6 +79,23 @@ install_puppet()
     fi
 }
 
+install_puppet_collections()
+{
+    echo "==> Installing Puppet Collections ${CM_PC_VERSION}"
+    REDHAT_MAJOR_VERSION=$(egrep -Eo 'release ([0-9][0-9.]*)' /etc/redhat-release | cut -f2 -d' ' | cut -f1 -d.)
+
+    echo "==> Installing Puppet Labs repositories"
+    rpm -ipv "http://yum.puppetlabs.com/puppetlabs-release-${CM_PC_VERSION}-el-${REDHAT_MAJOR_VERSION}.noarch.rpm"
+
+    if [[ ${CM_VERSION:-} == 'latest' ]]; then
+        echo "Installing latest puppet-agent version"
+        yum -y install puppet-agent
+    else
+        echo "==> Installing puppet-agent version ${CM_VERSION}"
+        yum -y install "puppet-agent-${CM_VERSION}"
+    fi
+}
+
 #
 # Main script
 #
@@ -97,6 +115,10 @@ case "${CM}" in
 
   'puppet')
     install_puppet
+    ;;
+
+  'puppet_collections')
+    install_puppet_collections
     ;;
 
   *)
