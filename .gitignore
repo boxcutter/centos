@@ -2,7 +2,7 @@ packer_cache/
 output-*
 *.box
 *.tar.gz
-iso
+iso/*
 crash.log
 tmp
 .vagrant/
@@ -10,5 +10,5 @@ tmp
 Makefile.local
 box/
 .tmpatlas/
-
 .DS_Store
+.idea
