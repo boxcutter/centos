@@ -149,7 +149,7 @@
     "iso_checksum": "d16aa4a8e6f71fb01fcc26d8ae0e3443ed514c8e",
     "iso_name": "CentOS-6.6-i386-bin-DVD1.iso",
     "iso_path": "iso",
-    "iso_url": "http://mirrors.kernel.org/centos/6.6/isos/i386/CentOS-6.6-i386-bin-DVD1.iso",
+    "iso_url": "http://archive.kernel.org/centos-vault/6.6/isos/i386/CentOS-6.6-i386-bin-DVD1.iso",
     "no_proxy": "{{env `no_proxy`}}",
     "rsync_proxy": "{{env `rsync_proxy`}}",
     "ssh_password": "vagrant",
