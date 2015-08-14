@@ -146,7 +146,7 @@
     "http_proxy": "{{env `http_proxy`}}",
     "https_proxy": "{{env `https_proxy`}}",
     "install_vagrant_key": "true",
-    "iso_checksum": "2841ff2b6b88df62c7201712d6158bd5",
+    "iso_checksum": "f3aa74fd6ddc7b14ed4cf81db8135aee57814791",
     "iso_name": "CentOS-6.7-i386-bin-DVD1.iso",
     "iso_path": "iso",
     "iso_url": "http://mirrors.kernel.org/centos/6.7/isos/i386/CentOS-6.7-i386-bin-DVD1.iso",
