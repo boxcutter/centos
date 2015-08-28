@@ -33,7 +33,7 @@ install_vmware_tools_centos_70()
         popd        
     fi
 
-    /tmp/vmware-tools-distrib/vmware-install.pl --default
+    /tmp/vmware-tools-distrib/vmware-install.pl --default --force
     rm $SSH_USER_HOME/linux.iso
     umount /mnt/cdrom
     rmdir /mnt/cdrom
