@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.3 (2015-08-27)
+
+* Upgrade VMware tools to 10.0.0 for VMware Fusion 8
+* Upgrae Parallels tools to 11.0.0
+
 ## 2.0.2 (2015-08-15)
 
 * Add CentOS 6.7 templates
