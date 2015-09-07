@@ -67,41 +67,6 @@
       ],
       "virtualbox_version_file": ".vbox_version",
       "vm_name": "centos71-desktop"
-    },
-    {
-      "boot_command": [
-        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/ks7-desktop.cfg<enter>"
-      ],
-      "disk_size": 130048,
-      "guest_os_type": "centos",
-      "http_directory": "http",
-      "iso_checksum": "{{ user `iso_checksum` }}",
-      "iso_checksum_type": "sha1",
-      "iso_urls": [
-        "{{ user `iso_path` }}/{{ user `iso_name` }}",
-        "{{ user `iso_url` }}"
-      ],
-      "parallels_tools_flavor": "lin",
-      "prlctl": [
-        [
-          "set",
-          "{{.Name}}",
-          "--memsize",
-          "1024"
-        ],
-        [
-          "set",
-          "{{.Name}}",
-          "--cpus",
-          "1"
-        ]
-      ],
-      "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
-      "ssh_password": "{{ user `ssh_password` }}",
-      "ssh_username": "{{ user `ssh_username` }}",
-      "ssh_wait_timeout": "10000s",
-      "type": "parallels-iso",
-      "vm_name": "centos71-desktop"
     }
   ],
   "post-processors": [

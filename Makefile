@@ -35,25 +35,19 @@ ifdef PACKER_DEBUG
 else
 	PACKER_CMD := $(PACKER)
 endif
-BUILDER_TYPES := vmware virtualbox parallels
+BUILDER_TYPES := vmware virtualbox
 TEMPLATE_FILENAMES := $(wildcard *.json)
 BOX_FILENAMES := $(TEMPLATE_FILENAMES:.json=$(BOX_SUFFIX))
 TEST_BOX_FILES := $(foreach builder, $(BUILDER_TYPES), $(foreach box_filename, $(BOX_FILENAMES), test-box/$(builder)/$(box_filename)))
 VMWARE_BOX_DIR := box/vmware
 VIRTUALBOX_BOX_DIR := box/virtualbox
-PARALLELS_BOX_DIR := box/parallels
 VMWARE_BOX_FILES := $(foreach box_filename, $(BOX_FILENAMES), $(VMWARE_BOX_DIR)/$(box_filename))
 VIRTUALBOX_BOX_FILES := $(foreach box_filename, $(BOX_FILENAMES), $(VIRTUALBOX_BOX_DIR)/$(box_filename))
-PARALLELS_TEMPLATE_FILENAMES := $(TEMPLATE_FILENAMES)
-PARALLELS_BOX_FILENAMES := $(PARALLELS_TEMPLATE_FILENAMES:.json=$(BOX_SUFFIX))
-PARALLELS_BOX_FILES := $(foreach box_filename, $(PARALLELS_BOX_FILENAMES), box/parallels/$(box_filename))
-BOX_FILES := $(VMWARE_BOX_FILES) $(VIRTUALBOX_BOX_FILES) $(PARALLELS_BOX_FILES)
+BOX_FILES := $(VMWARE_BOX_FILES) $(VIRTUALBOX_BOX_FILES)
 VMWARE_OUTPUT := output-vmware-iso
 VIRTUALBOX_OUTPUT := output-virtualbox-iso
-PARALLELS_OUTPUT := output-parallels-iso
 VMWARE_BUILDER := vmware-iso
 VIRTUALBOX_BUILDER := virtualbox-iso
-PARALLELS_BUILDER := parallels-iso
 CURRENT_DIR = $(shell pwd)
 SOURCES := $(wildcard script/*.sh)
 
@@ -79,33 +73,23 @@ test-virtualbox/$(1): test-$(VIRTUALBOX_BOX_DIR)/$(1)$(BOX_SUFFIX)
 
 ssh-virtualbox/$(1): ssh-$(VIRTUALBOX_BOX_DIR)/$(1)$(BOX_SUFFIX)
 
-parallels/$(1): $(PARALLELS_BOX_DIR)/$(1)$(BOX_SUFFIX)
+$(1): vmware/$(1) virtualbox/$(1)
 
-test-parallels/$(1): test-$(PARALLELS_BOX_DIR)/$(1)$(BOX_SUFFIX)
+test-$(1): test-vmware/$(1) test-virtualbox/$(1)
 
-ssh-parallels/$(1): ssh-$(PARALLELS_BOX_DIR)/$(1)$(BOX_SUFFIX)
-
-$(1): vmware/$(1) virtualbox/$(1) parallels/$(1)
-
-test-$(1): test-vmware/$(1) test-virtualbox/$(1) test-parallels/$(1)
-
-s3cp-$(1): s3cp-$(VMWARE_BOX_DIR)/$(1)$(BOX_SUFFIX) s3cp-$(VIRTUALBOX_BOX_DIR)/$(1)$(BOX_SUFFIX) s3cp-$(PARALLELS_BOX_DIR)/$(1)$(BOX_SUFFIX)
+s3cp-$(1): s3cp-$(VMWARE_BOX_DIR)/$(1)$(BOX_SUFFIX) s3cp-$(VIRTUALBOX_BOX_DIR)/$(1)$(BOX_SUFFIX)
 
 s3cp-vmware/$(1): s3cp-$(VMWARE_BOX_DIR)/$(1)$(BOX_SUFFIX)
 
 s3cp-virtualbox/$(1): s3cp-$(VIRTUALBOX_BOX_DIR)/$(1)$(BOX_SUFFIX)
 
-s3cp-parallels/$(1): s3cp-$(PARALLELS_BOX_DIR)/$(1)$(BOX_SUFFIX)
-
-test-atlas-$(1): test-atlas-$(VMWARE_BOX_DIR)/$(1)$(BOX_SUFFIX) test-atlas-$(VIRTUALBOX_BOX_DIR)/$(1)$(BOX_SUFFIX) test-atlas-$(PARALLELS_BOX_DIR)/$(1)$(BOX_SUFFIX)
+test-atlas-$(1): test-atlas-$(VMWARE_BOX_DIR)/$(1)$(BOX_SUFFIX) test-atlas-$(VIRTUALBOX_BOX_DIR)/$(1)$(BOX_SUFFIX)
 
 test-atlas-vmware/$(1): test-atlas-$(VMWARE_BOX_DIR)/$(1)$(BOX_SUFFIX)
 
 test-atlas-virtualbox/$(1): test-atlas-$(VIRTUALBOX_BOX_DIR)/$(1)$(BOX_SUFFIX)
 
-test-atlas-parallels/$(1): test-atlas-$(PARALLELS_BOX_DIR)/$(1)$(BOX_SUFFIX)
-
-s3cp-$(1): s3cp-$(VMWARE_BOX_DIR)/$(1)$(BOX_SUFFIX) s3cp-$(VIRTUALBOX_BOX_DIR)/$(1)$(BOX_SUFFIX) s3cp-$(PARALLELS_BOX_DIR)/$(1)$(BOX_SUFFIX)
+s3cp-$(1): s3cp-$(VMWARE_BOX_DIR)/$(1)$(BOX_SUFFIX) s3cp-$(VIRTUALBOX_BOX_DIR)/$(1)$(BOX_SUFFIX)
 
 register-atlas-$(1): register-atlas/$(1)$(BOX_SUFFIX)
 
@@ -125,13 +109,8 @@ $(VIRTUALBOX_BOX_DIR)/%$(BOX_SUFFIX): %.json $(SOURCES)
 	mkdir -p $(VIRTUALBOX_BOX_DIR)
 	$(PACKER_CMD) build -only=$(VIRTUALBOX_BUILDER) $(PACKER_VARS) $<
 
-$(PARALLELS_BOX_DIR)/%$(BOX_SUFFIX): %.json $(SOURCES)
-	rm -rf $(PARALLELS_OUTPUT)
-	mkdir -p $(PARALLELS_BOX_DIR)
-	$(PACKER_CMD) build -only=$(PARALLELS_BUILDER) $(PACKER_VARS) $<
-
 list:
-	@echo "Prepend 'vmware/', 'virtualbox/', or 'parallels/' to build only one target platform:"
+	@echo "Prepend 'vmware/' or 'virtualbox/' to build only one target platform:"
 	@echo "  make vmware/centos66"
 	@echo ""
 	@echo "Targets:"
@@ -167,7 +146,6 @@ clean-packer-cache:
 
 test-vmware: $(addprefix test-,$(VMWARE_BOX_FILES))
 test-virtualbox: $(addprefix test-,$(VIRTUALBOX_BOX_FILES))
-test-parallels: $(addprefix test-,$(PARALLELS_BOX_FILES))
 
 test-$(VMWARE_BOX_DIR)/%$(BOX_SUFFIX): $(VMWARE_BOX_DIR)/%$(BOX_SUFFIX)
 	bin/test-box.sh $< vmware_desktop vmware_fusion $(CURRENT_DIR)/test/*_spec.rb || exit
@@ -175,17 +153,11 @@ test-$(VMWARE_BOX_DIR)/%$(BOX_SUFFIX): $(VMWARE_BOX_DIR)/%$(BOX_SUFFIX)
 test-$(VIRTUALBOX_BOX_DIR)/%$(BOX_SUFFIX): $(VIRTUALBOX_BOX_DIR)/%$(BOX_SUFFIX)
 	bin/test-box.sh $< virtualbox virtualbox $(CURRENT_DIR)/test/*_spec.rb || exit
 
-test-$(PARALLELS_BOX_DIR)/%$(BOX_SUFFIX): $(PARALLELS_BOX_DIR)/%$(BOX_SUFFIX)
-	bin/test-box.sh $< parallels parallels $(CURRENT_DIR)/test/*_spec.rb || exit
-
 ssh-$(VMWARE_BOX_DIR)/%$(BOX_SUFFIX): $(VMWARE_BOX_DIR)/%$(BOX_SUFFIX)
 	bin/ssh-box.sh $< vmware_desktop vmware_fusion $(CURRENT_DIR)/test/*_spec.rb
 
 ssh-$(VIRTUALBOX_BOX_DIR)/%$(BOX_SUFFIX): $(VIRTUALBOX_BOX_DIR)/%$(BOX_SUFFIX)
 	bin/ssh-box.sh $< virtualbox virtualbox $(CURRENT_DIR)/test/*_spec.rb
-
-ssh-$(PARALLELS_BOX_DIR)/%$(BOX_SUFFIX): $(PARALLELS_BOX_DIR)/%$(BOX_SUFFIX)
-	bin/ssh-box.sh $< parallels parallels $(CURRENT_DIR)/test/*_spec.rb
 
 S3_STORAGE_CLASS ?= REDUCED_REDUNDANCY
 S3_ALLUSERS_ID ?= uri=http://acs.amazonaws.com/groups/global/AllUsers
@@ -200,21 +172,14 @@ s3cp-$(VIRTUALBOX_BOX_DIR)/%$(BOX_SUFFIX): $(VIRTUALBOX_BOX_DIR)/%$(BOX_SUFFIX)
 		aws --profile $(AWS_PROFILE) s3 cp $< $(VIRTUALBOX_S3_BUCKET) --storage-class $(S3_STORAGE_CLASS) --grants full=$(S3_GRANT_ID) read=$(S3_ALLUSERS_ID) && break || sleep 62; \
 	done
 
-s3cp-$(PARALLELS_BOX_DIR)/%$(BOX_SUFFIX): $(PARALLELS_BOX_DIR)/%$(BOX_SUFFIX)
-	@for i in {1..20}; do \
-		aws --profile $(AWS_PROFILE) s3 cp $< $(PARALLELS_S3_BUCKET) --storage-class $(S3_STORAGE_CLASS) --grants full=$(S3_GRANT_ID) read=$(S3_ALLUSERS_ID) && break || sleep 62; \
-	done
-
 s3cp-vmware: $(addprefix s3cp-,$(VMWARE_BOX_FILES))
 s3cp-virtualbox: $(addprefix s3cp-,$(VIRTUALBOX_BOX_FILES))
-s3cp-parallels: $(addprefix s3cp-,$(PARALLELS_BOX_FILES))
 
 ATLAS_NAME ?= boxcutter
 
-test-atlas: test-atlas-vmware test-atlas-virtualbox test-atlas-parallels
+test-atlas: test-atlas-vmware test-atlas-virtualbox
 test-atlas-vmware: $(addprefix test-atlas-,$(VMWARE_BOX_FILES))
 test-atlas-virtualbox: $(addprefix test-atlas-,$(VIRTUALBOX_BOX_FILES))
-test-atlas-parallels: $(addprefix test-atlas-,$(PARALLELS_BOX_FILES))
 
 test-atlas-$(VMWARE_BOX_DIR)%$(BOX_SUFFIX):
 	bin/test-vagrantcloud-box.sh boxcutter$* vmware_fusion vmware_desktop $(CURRENT_DIR)/test/*_spec.rb
@@ -223,10 +188,6 @@ test-atlas-$(VMWARE_BOX_DIR)%$(BOX_SUFFIX):
 test-atlas-$(VIRTUALBOX_BOX_DIR)%$(BOX_SUFFIX):
 	bin/test-vagrantcloud-box.sh boxcutter$* virtualbox virtualbox $(CURRENT_DIR)/test/*_spec.rb
 	bin/test-vagrantcloud-box.sh box-cutter$* virtualbox virtualbox $(CURRENT_DIR)/test/*_spec.rb
-
-test-atlas-$(PARALLELS_BOX_DIR)%$(BOX_SUFFIX):
-	bin/test-vagrantcloud-box.sh boxcutter$* parallels parallels $(CURRENT_DIR)/test/*_spec.rb
-	bin/test-vagrantcloud-box.sh box-cutter$* parallels parallels $(CURRENT_DIR)/test/*_spec.rb
 
 register-atlas: $(addprefix register-atlas-,$(basename $(TEMPLATE_FILENAMES)))
 

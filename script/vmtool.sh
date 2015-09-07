@@ -95,15 +95,5 @@ if [[ $PACKER_BUILDER_TYPE =~ virtualbox ]]; then
     fi
 fi
 
-if [[ $PACKER_BUILDER_TYPE =~ parallels ]]; then
-    echo "==> Installing Parallels tools"
-
-    mount -o loop $SSH_USER_HOME/prl-tools-lin.iso /mnt
-    sh /mnt/install --install-unattended-with-deps
-    umount /mnt
-    rm -rf $SSH_USER_HOME/prl-tools-lin.iso
-    rm -f $SSH_USER_HOME/.prlctl_version
-fi
-
 echo "==> Removing packages needed for building guest tools"
 yum -y remove gcc cpp libmpc mpfr kernel-devel kernel-headers perl
