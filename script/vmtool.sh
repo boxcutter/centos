@@ -33,7 +33,14 @@ install_vmware_tools_centos_70()
         popd        
     fi
 
-    /tmp/vmware-tools-distrib/vmware-install.pl --default --force
+    if [[ -f /mnt/cdrom/VMwareTools-10.0.0-2977863.tar.gz ]]
+    then
+      yum install -y open-vm-tools
+      /tmp/vmware-tools-distrib/vmware-install.pl --default
+    else
+      /tmp/vmware-tools-distrib/vmware-install.pl --default --force
+    fi
+
     rm $SSH_USER_HOME/linux.iso
     umount /mnt/cdrom
     rmdir /mnt/cdrom
