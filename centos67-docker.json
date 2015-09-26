@@ -95,7 +95,8 @@
         "script/sshd.sh",
         "script/update.sh",
         "script/vagrant.sh",
-        "script/vmtool.sh",
+        "script/vmware.sh",
+        "script/virtualbox.sh",
         "script/cmtool.sh",
         "script/docker.sh",
         "script/cleanup.sh"
