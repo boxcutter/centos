@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.4 (2015-09-30)
+
+* Upgrade VirtualBox guest additions to 5.0.4
+* Install Docker from the official get.docker.com package repo
+* Remove Parallels provider
+
 ## 2.0.3 (2015-08-27)
 
 * Upgrade VMware tools to 10.0.0 for VMware Fusion 8
