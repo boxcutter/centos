@@ -103,6 +103,7 @@
         "script/vmware.sh",
         "script/virtualbox.sh",
         "script/cmtool.sh",
+        "script/motd.sh",
         "script/cleanup.sh"
       ],
       "type": "shell"

@@ -26,9 +26,3 @@ if [ "$INSTALL_VAGRANT_KEY" = "true" ] || [ "$INSTALL_VAGRANT_KEY" = "1" ]; then
   chmod 0600 ${SSH_USER_HOME}/.ssh/authorized_keys
   chown -R ${SSH_USER}:${SSH_USER} ${SSH_USER_HOME}/.ssh
 fi
-
-echo '==> Recording box config date'
-date > /etc/box_build_time
-
-echo '==> Customizing message of the day'
-echo 'Welcome to your Packer-built virtual machine.' > /etc/motd
