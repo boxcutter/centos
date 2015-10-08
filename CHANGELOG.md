@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.5 (2015-10-07)
+
+* Upgrade VirtualBox guest additions to version 5.0.6
+* Add an motd banner
+
 ## 2.0.4 (2015-09-30)
 
 * Upgrade VirtualBox guest additions to 5.0.4
