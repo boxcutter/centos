@@ -2,8 +2,7 @@
 
 ### Overview
 
-This repository contains templates for CentOS that can create Vagrant boxes
-using Packer.
+This repository contains Packer templates for creating CentOS Vagrant boxes.
 
 ## Current Boxes
 
