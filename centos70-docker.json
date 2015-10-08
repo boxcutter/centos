@@ -21,6 +21,7 @@
       "ssh_password": "{{ user `ssh_password` }}",
       "ssh_username": "{{ user `ssh_username` }}",
       "ssh_wait_timeout": "10000s",
+      "ssh_pty": true,
       "tools_upload_flavor": "linux",
       "type": "vmware-iso",
       "vm_name": "centos70-docker",
@@ -50,6 +51,7 @@
       "ssh_password": "{{ user `ssh_password` }}",
       "ssh_username": "{{ user `ssh_username` }}",
       "ssh_wait_timeout": "10000s",
+      "ssh_pty": true,
       "type": "virtualbox-iso",
       "vboxmanage": [
         [
