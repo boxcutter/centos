@@ -5,7 +5,7 @@ endif
 
 PACKER ?= packer
 
-# Possible values for CM: (nocm | chef | chefdk | salt | puppet)
+# Possible values for CM: (nocm | chef | chefdk | salt | puppet | puppet_collections)
 CM ?= nocm
 # Possible values for CM_VERSION: (latest | x.y.z | x.y)
 CM_VERSION ?=
@@ -28,6 +28,9 @@ endif
 PACKER_VARS_LIST = 'cm=$(CM)' 'headless=$(HEADLESS)' 'update=$(UPDATE)' 'version=$(BOX_VERSION)' 'ssh_username=$(SSH_USERNAME)' 'ssh_password=$(SSH_PASSWORD)' 'install_vagrant_key=$(INSTALL_VAGRANT_KEY)' 'iso_path=$(ISO_PATH)'
 ifdef CM_VERSION
 	PACKER_VARS_LIST += 'cm_version=$(CM_VERSION)'
+endif
+ifdef CM_PC_VERSION
+	PACKER_VARS_LIST += 'cm_pc_version=$(CM_PC_VERSION)'
 endif
 PACKER_VARS := $(addprefix -var , $(PACKER_VARS_LIST))
 ifdef PACKER_DEBUG
