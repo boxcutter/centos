@@ -8,5 +8,6 @@
   "iso_name": "CentOS-7.0-1406-x86_64-DVD.iso",
   "iso_url": "http://archive.kernel.org/centos-vault/7.0.1406/isos/x86_64/CentOS-7.0-1406-x86_64-DVD.iso",
   "kickstart": "ks7.cfg",
-  "memory": "512"
+  "memory": "512",
+  "parallels_guest_os_type": "centos7"
 }

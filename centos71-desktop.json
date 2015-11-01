@@ -9,5 +9,6 @@
   "iso_name": "CentOS-7-x86_64-DVD-1503-01.iso",
   "iso_url": "http://mirrors.sonic.net/centos/7.1.1503/isos/x86_64/CentOS-7-x86_64-DVD-1503-01.iso",
   "kickstart": "ks7-desktop.cfg",
-  "memory": "1024"
+  "memory": "1024",
+  "paralles_guest_os_type": "centos7"
 }
