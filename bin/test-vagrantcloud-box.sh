@@ -23,7 +23,6 @@ box_name=${box_filename%.*}
 tmp_path=/tmp/vagrantcloudtest
 
 rm -rf ${tmp_path}
-rm -f ~/.ssh/known_hosts
 
 vagrant box remove ${box_path} --provider ${vagrant_provider} 2>/dev/null || true
 vagrant box add ${box_path} --provider=${vagrant_provider}
