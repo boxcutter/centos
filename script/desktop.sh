@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [[ ! "$DESKTOP" =~ ^(true|yes|on|1|TRUE|YES|ON])$ ]]; then
+  exit
+fi
+
 USERNAME=vagrant
 
 cat /etc/redhat-release

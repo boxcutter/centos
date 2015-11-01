@@ -142,6 +142,13 @@ of the default insecure vagrant key when the image is being used
 outside of vagrant.  Set `INSTALL_VAGRANT_KEY := false`, the default
 is true.
 
+## VMware Tools corresponding to VMware releases
+
+                              | VMware Tools Version |
+------------------------------|----------------------|
+VMware Fusion 8.0.1 (3094680) | 10.0.0-???                  
+VMware Fusion 8.0.2 (3164312) | 10.0.1-3160059       |
+
 ## Contributing
 
 

@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [[ ! "$DOCKER" =~ ^(true|yes|on|1|TRUE|YES|ON])$ ]]; then
+  exit
+fi
+
 echo "==> Run the Docker installation script"
 curl -sSL https://get.docker.com | sh
 
