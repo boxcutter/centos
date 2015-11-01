@@ -9,5 +9,6 @@
   "iso_name": "CentOS-6.4-x86_64-bin-DVD1.iso",
   "iso_url": "http://mirror.symnds.com/distributions/CentOS-vault/6.4/isos/x86_64/CentOS-6.4-x86_64-bin-DVD1.iso",
   "kickstart": "ks6-desktop.cfg",
-  "memory": "1024"
+  "memory": "1024",
+  "vagrantfile_template": "tpl/vagrantfile-centos64-desktop.tpl"
 }
