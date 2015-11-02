@@ -27,7 +27,6 @@ This repository contains Packer templates for creating CentOS Vagrant boxes.
 * [CentOS 6.4 Desktop (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos64-desktop)
 * [CentOS 5.11 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos511)
 * [CentOS 5.10 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos510)
-* [CentOS 5.9 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos59)
 
 32-bit boxes:
 
@@ -37,19 +36,63 @@ This repository contains Packer templates for creating CentOS Vagrant boxes.
 * [CentOS 6.4 (32-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos64-i386)
 * [CentOS 5.11 (32-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos511-i386)
 * [CentOS 5.10 (32-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos510-i386)
-* [CentOS 5.9 (32-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos59-i386)
 
-## Building the Vagrant boxes
+## Building the Vagrant boxes with Packer
 
-To build all the boxes, you will need Packer and the desktop virtualization
-software VirtualBox and VMware Fusion for Mac installed.
+To build all the boxes, you will need [VirtualBox](https://www.virtualbox.org/wiki/Downloads), 
+[VMware Fusion](https://www.vmware.com/products/fusion)/[VMware Workstation](https://www.vmware.com/products/workstation) and
+[Parallels](http://www.parallels.com/products/desktop/whats-new/) installed.
 
-A GNU Make `Makefile` drives the process via the following targets:
+Parallels requires that the
+[Parallels Virtualization SDK for Mac](http://www.parallels.com/downloads/desktop)
+be installed as an additional preqrequisite.
 
-    make        # Build all the box types (VirtualBox and VMware)
-    make test   # Run tests against all the boxes
-    make list   # Print out individual targets
-    make clean  # Clean up build detritus
+We make use of JSON files containing user variables to build specific versions of Ubuntu.
+You tell `packer` to use a specific user variable file via the `-var-file=` command line
+option.  This will override the default options on the core `centos.json` packer template,
+which builds CentOS 6.7 by default.
+
+For example, to build CentOS 7.1, use the following:
+
+    $ packer build -var-file=centos71 ubuntu.json
+    
+If you want to make boxes for a specific desktop virtualization platform, use the `-only`
+parameter.  For example, to build CentOS 7.1 for VirtualBox:
+
+    $ packer build -only=virtualbox-iso -var-file=centos71.json ubuntu.json
+
+The boxcutter templates currently support the following desktop virtualization strings:
+
+* `parallels-iso` - [Parallels](http://www.parallels.com/products/desktop/whats-new/) desktop virtualization (Requires the Pro Edition - Desktop edition won't work)
+* `virtualbox-iso` - [VirtualBox](https://www.virtualbox.org/wiki/Downloads) desktop virtualization
+* `vmware-iso` - [VMware Fusion](https://www.vmware.com/products/fusion) or [VMware Workstation](https://www.vmware.com/products/workstation) desktop virtualization
+
+## Building the Vagrant boxes with the box script
+
+We've also provided a wrapper script `bin/box` for ease of use, so alternatively, you can use
+the following to build CentOS 7.1 for all providers:
+
+    $ bin/box build centos71
+
+Or if you just want to build CentOS 7.1 for VirtualBox:
+
+    $ bin/box build centos71 virtualbox
+
+## Building the Vagrant boxes with the Makefile
+
+A GNU Make `Makefile` drives a complete basebox creation pipeline with the following stages:
+
+* `build` - Create basebox `*.box` files
+* `assure` - Verify that the basebox `*.box` files produced function correctly
+* `deliver` - Upload `*.box` files to [Artifactory](https://www.jfrog.com/confluence/display/RTF/Vagrant+Repositories), [Atlas](https://atlas.hashicorp.com/) or an [S3 bucket](https://aws.amazon.com/s3/)
+
+The pipeline is driven via the following targets, making it easy for you to include them
+in your favourite CI tool:
+
+    make build   # Build all available box types
+    make assure  # Run tests against all the boxes
+    make deliver # Upload box artifacts to a repository
+    make clean   # Clean up build detritus
 
 ### Proxy Settings
 
@@ -162,7 +205,16 @@ VMware Fusion 8.0.2 (3164312) | 10.0.1-3160059       |
 8. Push to your fork and submit a pull request.
 9. Once submitted, a full `make test` run will be performed against your change in the build farm.  You will be notified if the test suite fails.
 
+### Would you like to help out more?
+
+Contact moujan@annawake.com 
+
 ### Acknowledgments
+
+[Parallels](http://www.parallels.com/) provides a Business Edition license of
+their software to run on the basebox build farm.
+
+<img src="http://www.parallels.com/fileadmin/images/corporate/brand-assets/images/logo-knockout-on-red.jpg" width="80">
 
 [SmartyStreets](http://www.smartystreets.com) is providing basebox hosting for the boxcutter project.
 
