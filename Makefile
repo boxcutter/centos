@@ -37,7 +37,7 @@ box/vmware/%$(BOX_SUFFIX) box/virtualbox/%$(BOX_SUFFIX) box/parallels/%$(BOX_SUF
 
 .PHONY: all clean assure deliver
 
-all: build assure deliver
+all: build assure deliver assure_atlas assure_atlas_vmware assure_atlas_virtualbox assure_atlas_parallels
 
 build: $(BOX_FILES)
 
@@ -59,6 +59,29 @@ assure_parallels: $(PARALLELS_BOX_FILES)
 	@for parallels_box_file in $(PARALLELS_BOX_FILES) ; do \
 		echo Checking $$parallels_box_file ; \
 		bin/box test $$parallels_box_file parallels ; \
+	done
+
+assure_atlas: assure_atlas_vmware assure_atlas_virtualbox assure_atlas_parallels
+
+assure_atlas_vmware:
+	@for box_name in $(BOX_NAMES) ; do \
+		echo Checking $$box_name ; \
+		bin/test-vagrantcloud-box box-cutter/$$box_name vmware ; \
+		bin/test-vagrantcloud-box boxcutter/$$box_name vmware ; \
+	done
+
+assure_atlas_virtualbox:
+	@for box_name in $(BOX_NAMES) ; do \
+		echo Checking $$box_name ; \
+		bin/test-vagrantcloud-box box-cutter/$$box_name virtualbox ; \
+		bin/test-vagrantcloud-box boxcutter/$$box_name virtualbox ; \
+	done
+
+assure_atlas_parallels:
+	@for box_name in $(BOX_NAME) ; do \
+		echo Checking $$box_name ; \
+		bin/test-vagrantcloud-box box-cutter/$$box_name parallels ; \
+		bin/test-vagrantcloud-box boxcutter/$$box_name parallels ; \
 	done
 
 deliver:
