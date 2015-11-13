@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.7 (2015-11-12)
+
+* Upgrade VirtualBox guest additions to version 5.0.10
+
 ## 2.0.6 (2015-11-01)
 
 * Upgrade VMware tools to 10.0.1 for VMware Fusion 8.0.2
