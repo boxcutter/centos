@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.8 (2015-11-19)
+
+* Upgrade Parallels tools to 11.1.0
+* Upgrade Docker to 1.9.0
+
 ## 2.0.7 (2015-11-12)
 
 * Upgrade VirtualBox guest additions to version 5.0.10
