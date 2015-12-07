@@ -91,22 +91,14 @@ deliver:
 		bin/register_atlas.sh $$box_name $(BOX_SUFFIX) $(BOX_VERSION) ; \
 	done
 
-clean: clean-builders clean-output clean-packer-cache
-
-clean-builders:
+clean:
+	@for builder in $(BUILDER_TYPES) ; do \
+		echo Deleting output-*-$$builder-iso ; \
+		echo rm -rf output-*-$$builder-iso ; \
+	done
 	@for builder in $(BUILDER_TYPES) ; do \
 		if test -d box/$$builder ; then \
 			echo Deleting box/$$builder/*.box ; \
 			find box/$$builder -maxdepth 1 -type f -name "*.box" ! -name .gitignore -exec rm '{}' \; ; \
 		fi ; \
 	done
-
-clean-output:
-	@for builder in $(BUILDER_TYPES) ; do \
-		echo Deleting output-*-$$builder-iso ; \
-		echo rm -rf output-*-$$builder-iso ; \
-	done
-
-clean-packer-cache:
-	echo Deleting packer_cache
-	rm -rf packer_cache
