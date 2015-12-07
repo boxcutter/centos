@@ -54,12 +54,12 @@ which builds CentOS 6.7 by default.
 
 For example, to build CentOS 7.1, use the following:
 
-    $ packer build -var-file=centos71 ubuntu.json
+    $ packer build -var-file=centos71.json centos.json
     
 If you want to make boxes for a specific desktop virtualization platform, use the `-only`
 parameter.  For example, to build CentOS 7.1 for VirtualBox:
 
-    $ packer build -only=virtualbox-iso -var-file=centos71.json ubuntu.json
+    $ packer build -only=virtualbox-iso -var-file=centos71.json centos.json
 
 The boxcutter templates currently support the following desktop virtualization strings:
 
