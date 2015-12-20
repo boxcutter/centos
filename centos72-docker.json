@@ -1,0 +1,14 @@
+{
+  "_comment": "Build with `packer build -var-file=centos72-docker.json centos.json`",
+  "vm_name": "centos72-docker",
+  "cpus": "1",
+  "disk_size": "65536",
+  "docker": "true",
+  "iso_checksum": "4c6c65b5a70a1142dadb3c65238e9e97253c0d3a",
+  "iso_checksum_type": "sha1",
+  "iso_name": "CentOS-7-x86_64-DVD-1511.iso",
+  "iso_url": "http://mirrors.sonic.net/centos/7.2.1511/isos/x86_64/CentOS-7-x86_64-DVD-1511.iso",
+  "kickstart": "ks7.cfg",
+  "memory": "1024",
+  "parallels_guest_os_type": "centos7"
+}

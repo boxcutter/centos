@@ -8,6 +8,9 @@ This repository contains Packer templates for creating CentOS Vagrant boxes.
 
 64-bit boxes:
 
+* [CentOS 7.2 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos72)
+* [CentOS 7.2 Desktop (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos72-desktop)
+* [CentOS 7.2 Core with Docker (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos72-docker)
 * [CentOS 7.1 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos71)
 * [CentOS 7.1 Desktop (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos71-desktop)
 * [CentOS 7.1 Core with Docker (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos71-docker)
@@ -39,7 +42,7 @@ This repository contains Packer templates for creating CentOS Vagrant boxes.
 
 ## Building the Vagrant boxes with Packer
 
-To build all the boxes, you will need [VirtualBox](https://www.virtualbox.org/wiki/Downloads), 
+To build all the boxes, you will need [VirtualBox](https://www.virtualbox.org/wiki/Downloads),
 [VMware Fusion](https://www.vmware.com/products/fusion)/[VMware Workstation](https://www.vmware.com/products/workstation) and
 [Parallels](http://www.parallels.com/products/desktop/whats-new/) installed.
 
@@ -55,7 +58,7 @@ which builds CentOS 6.7 by default.
 For example, to build CentOS 7.1, use the following:
 
     $ packer build -var-file=centos71.json centos.json
-    
+
 If you want to make boxes for a specific desktop virtualization platform, use the `-only`
 parameter.  For example, to build CentOS 7.1 for VirtualBox:
 
@@ -207,7 +210,7 @@ VMware Fusion 8.0.2 (3164312) | 10.0.1-3160059       |
 
 ### Would you like to help out more?
 
-Contact moujan@annawake.com 
+Contact moujan@annawake.com
 
 ### Acknowledgments
 
