@@ -1,0 +1,15 @@
+{
+  "_comment": "Build with `packer build -var-file=centos72-desktop.json centos.json`",
+  "vm_name": "centos72-desktop",
+  "cpus": "1",
+  "desktop": "true",
+  "disk_size": "130048",
+  "iso_checksum": "4c6c65b5a70a1142dadb3c65238e9e97253c0d3a",
+  "iso_checksum_type": "sha1",
+  "iso_name": "CentOS-7-x86_64-DVD-1511.iso",
+  "iso_url": "http://mirrors.sonic.net/centos/7.2.1511/isos/x86_64/CentOS-7-x86_64-DVD-1511.iso",
+  "kickstart": "ks7-desktop.cfg",
+  "memory": "1024",
+  "paralles_guest_os_type": "centos7",
+  "vagrantfile_template": "tpl/vagrantfile-centos72-desktop.tpl"
+}
