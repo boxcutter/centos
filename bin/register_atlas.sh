@@ -196,17 +196,17 @@ atlas_publish() {
     if [[ -e ${VMWARE_BOX_FILE} ]]; then
         PROVIDER=vmware_desktop
         PROVIDER_URL=${BOXCUTTER_BASE_URL}/vmware${VMWARE_VERSION}/${BOX_NAME}${BOX_SUFFIX}
-        publish_provider
+        publish_provider ${atlas_username} ${atlas_access_token}
     fi
     if [[ -e ${VIRTUALBOX_BOX_FILE} ]]; then
         PROVIDER=virtualbox
         PROVIDER_URL=${BOXCUTTER_BASE_URL}/virtualbox${VIRTUALBOX_VERSION}/${BOX_NAME}${BOX_SUFFIX}
-        publish_provider
+        publish_provider ${atlas_username} ${atlas_access_token}
     fi
     if [[ -e ${PARALLELS_BOX_FILE} ]]; then
         PROVIDER=parallels
         PROVIDER_URL=${BOXCUTTER_BASE_URL}/parallels${PARALLELS_VERSION}/${BOX_NAME}${BOX_SUFFIX}
-        publish_provider
+        publish_provider ${atlas_username} ${atlas_access_token}
     fi
 
     echo
