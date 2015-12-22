@@ -129,6 +129,7 @@
         "script/virtualbox.sh",
         "script/parallels.sh",
         "script/cmtool.sh",
+        "script/docker.sh",
         "script/motd.sh",
         "script/cleanup.sh"
       ],
