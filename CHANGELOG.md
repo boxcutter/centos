@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.0.9 (2015-11-21)
+
+* Add CentOS 7.2 templates
+* Upgrade Docker to 1.9.1
+* Upgrade VMware tools to 10.0.5 for VMware Fusion 8.1.0
+* Upgrade Parallels tools to 11.1.1
+
 ## 2.0.8 (2015-11-19)
 
 * Upgrade Parallels tools to 11.1.0
