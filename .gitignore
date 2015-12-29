@@ -12,3 +12,4 @@ box/
 .tmpatlas/
 
 .DS_Store
+.bundle
