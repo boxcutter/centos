@@ -10,4 +10,9 @@
   "kickstart": "ks7.cfg",
   "memory": "512",
   "parallels_guest_os_type": "centos7"
+  "remote_type": "esx5"
+  "remote_host": "jaxf-vc101.fanatics.corp"
+  "remote_datastore": "jax-vs-prod-ds01"
+  "remote_username": "centos"
+  "remote_password": "template"
 }
