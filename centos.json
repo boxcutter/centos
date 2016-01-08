@@ -120,9 +120,9 @@
       "keep_input_artifact": false,
       "password": "oeB1PsOXW08V",
       "type": "vsphere",
-      "username": "FANATICS/svcvmware",
+      "username": "FANATICS\\svcvmware",
       "vm_folder": "Templates-by-Packer",
-      "vm_name": "centos7-template",
+      "vm_name": "centos7-template-{{user `date`}}",
       "vm_network": "vlan214-JaxInfrastructure"
     }
   ],
