@@ -11,6 +11,10 @@ if [[ $PACKER_BUILDER_TYPE =~ vmware ]]; then
         # enable the VMware blocking filesystem
         yum erase -y fuse
     fi
+    if rpm -qa | grep -q open-vm-tools; then
+      echo "open-vm-tools already installed";
+      exit 0;
+    fi
     # Assume that we've installed all the prerequisites:
     # kernel-headers-$(uname -r) kernel-devel-$(uname -r) gcc make perl
     # from the install media via ks.cfg
