@@ -9,5 +9,13 @@
   "iso_url": "/Users/bcorner//OneDrive/iso/CentOS-7-x86_64-Everything-1511.iso",
   "kickstart": "ks7.cfg",
   "memory": "512",
-  "parallels_guest_os_type": "centos7"
+  "datacenter": "JAX",
+  "cluster": "JAX-Prod-Datacenter",
+  "host": "jaxf-vc101.fanatics.corp",
+  "datastore": "CML-SC8000-JAX",
+  "username": "FOOTBALLFANATICS\\p10ladmin",
+  "password": "P10Support",
+  "vm_name": "centos7-template",
+  "vm_folder": "Templates - JAX",
+  "vm_network": "vlan214-JaxInfrastructure"
 }
