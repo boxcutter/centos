@@ -110,7 +110,8 @@
       "keep_input_artifact": true,
       "output": "box/{{.Provider}}/{{user `vm_name`}}-{{user `cm`}}{{user `cm_version`}}-{{user `version`}}.box",
       "type": "vagrant",
-      "vagrantfile_template": "{{ user `vagrantfile_template` }}"
+      "vagrantfile_template": "{{ user `vagrantfile_template` }}",
+      "only": ["virtualbox-iso"]
     },
     {
       "cluster": "JAX-Prod-Datacenter",
@@ -122,8 +123,14 @@
       "type": "vsphere",
       "username": "FANATICS\\svcvmware",
       "vm_folder": "Templates-by-Packer",
-      "vm_name": "centos7-template-{{user `date`}}",
-      "vm_network": "vlan214-JaxInfrastructure"
+      "vm_name": "centos7-Packer",
+      "vm_network": "vlan214-JaxInfrastructure",
+      "only": ["vmware-iso"]
+    },
+    {
+      "type": "vagrant-vmware-ovf",
+      "provider": "vcenter",
+      "only": ["vmware-iso"]
     }
   ],
   "provisioners": [
