@@ -1,5 +1,4 @@
 {
-<<<<<<< 0c4e7d080523dee321c50441bfcf3fe5008e616a
   "_comment": "Build with `packer build -var-file=centos64.json centos.json`",
   "vm_name": "centos64",
   "cpus": "1",
@@ -10,81 +9,4 @@
   "iso_url": "http://mirror.symnds.com/distributions/CentOS-vault/6.4/isos/x86_64/CentOS-6.4-x86_64-bin-DVD1.iso",
   "kickstart": "ks6.cfg",
   "memory": "512"
-=======
-  "variables": {
-    "cm": "nocm",
-    "cm_version": "",
-    "cm_set_path": "",
-    "iso_url": "http://mirror.symnds.com/distributions/CentOS-vault/6.4/isos/x86_64/CentOS-6.4-x86_64-bin-DVD1.iso",
-    "iso_checksum": "8672dc087f1b0eda60b9efaa41b82f034f185e24"
-  },
-  "builders": [{
-    "vm_name": "centos64",
-    "type": "vmware-iso",
-    "guest_os_type": "centos-64",
-    "http_directory": "http",
-    "iso_url": "{{ user `iso_url` }}",
-    "iso_checksum": "{{ user `iso_checksum` }}",
-    "iso_checksum_type": "sha1",
-    "ssh_username": "vagrant",
-    "ssh_password": "vagrant",
-    "ssh_wait_timeout": "10000s",
-    "tools_upload_flavor": "linux",
-    "boot_command": [
-      "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/ks6.cfg<enter>"
-    ],
-    "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
-    "disk_size": 10140,
-    "vmx_data": {
-      "memsize": "512",
-      "numvcpus": "1",
-      "cpuid.coresPerSocket": "1"
-    }
-  },
-  {
-    "vm_name": "centos64",
-    "type": "virtualbox-iso",
-    "http_directory": "http",
-    "iso_url": "{{ user `iso_url` }}",
-    "iso_checksum": "{{ user `iso_checksum` }}",
-    "iso_checksum_type": "sha1",
-    "guest_os_type": "RedHat_64",
-    "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
-    "virtualbox_version_file": ".vbox_version",
-    "ssh_username": "vagrant",
-    "ssh_password": "vagrant",
-    "ssh_wait_timeout": "10000s",
-    "boot_command": [
-      "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/ks6.cfg<enter>"
-    ],
-    "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
-    "disk_size": 10140,
-    "vboxmanage": [
-      ["modifyvm", "{{.Name}}", "--memory", "512"],
-      ["modifyvm", "{{.Name}}", "--cpus", "1"]
-    ]
-  }],
-  "provisioners": [{
-    "type": "shell",
-    "environment_vars": [
-      "CM={{user `cm`}}",
-      "CM_VERSION={{user `cm_version`}}",
-      "CM_SET_PATH={{user `cm_set_path`}}"
-    ],
-    "execute_command": "echo 'vagrant' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
-    "scripts": [
-      "script/fix-slow-dns.sh",
-      "script/sshd.sh",
-      "script/vagrant.sh",
-      "script/vmtool.sh",
-      "script/cmtool.sh",
-      "script/cleanup.sh"
-    ]
-  }],
-  "post-processors": [{
-    "type": "vagrant",
-    "keep_input_artifact": false,
-    "output": "box/{{.Provider}}/centos64-{{user `cm`}}{{user `cm_version`}}.box"
-  }]
->>>>>>> Transforming templates migrated from https://github.com/misheska/basebox-packer to new form
 }

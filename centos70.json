@@ -1,80 +1,13 @@
 {
-  "variables": {
-    "cm": "nocm",
-    "cm_version": "",
-    "cm_set_path": "",
-    "cleanup_pause": "",
-    "iso_url": "http://mirrors.sonic.net/centos/7.0.1406/isos/x86_64/CentOS-7.0-1406-x86_64-DVD.iso",
-    "iso_checksum": "154ba47b7a37e52e0100310c3aeb8f9d9daf4806"
-  },
-  "builders": [{
-    "vm_name": "centos70",
-    "type": "vmware-iso",
-    "guest_os_type": "centos-64",
-    "http_directory": "http",
-    "iso_url": "{{ user `iso_url` }}",
-    "iso_checksum": "{{ user `iso_checksum` }}",
-    "iso_checksum_type": "sha1",
-    "ssh_username": "vagrant",
-    "ssh_password": "vagrant",
-    "ssh_wait_timeout": "10000s",
-    "floppy_files": ["floppy/vmware9.compat_dcache.h.patch"],
-    "tools_upload_flavor": "linux",
-    "boot_command": [
-      "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/ks7.cfg<enter>"
-    ],
-    "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
-    "disk_size": 10140,
-    "vmx_data": {
-      "memsize": "512",
-      "numvcpus": "1",
-      "cpuid.coresPerSocket": "1"
-    }
-  },
-  {
-    "vm_name": "centos70",
-    "type": "virtualbox-iso",
-    "http_directory": "http",
-    "iso_url": "{{ user `iso_url` }}",
-    "iso_checksum": "{{ user `iso_checksum` }}",
-    "iso_checksum_type": "sha1",
-    "guest_os_type": "RedHat_64",
-    "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
-    "virtualbox_version_file": ".vbox_version",
-    "ssh_username": "vagrant",
-    "ssh_password": "vagrant",
-    "ssh_wait_timeout": "10000s",
-    "boot_command": [
-      "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/ks7.cfg<enter>"
-    ],
-    "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
-    "disk_size": 10140,
-    "vboxmanage": [
-      ["modifyvm", "{{.Name}}", "--memory", "512"],
-      ["modifyvm", "{{.Name}}", "--cpus", "1"]
-    ]
-  }],
-  "provisioners": [{
-    "type": "shell",
-    "environment_vars": [
-      "CM={{user `cm`}}",
-      "CM_VERSION={{user `cm_version`}}",
-      "CM_SET_PATH={{user `cm_set_path`}}",
-      "CLEANUP_PAUSE={{user `cleanup_pause`}}"
-    ],
-    "execute_command": "echo 'vagrant' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
-    "scripts": [
-      "script/fix-slow-dns.sh",
-      "script/sshd.sh",
-      "script/vagrant.sh",
-      "script/vmtool.sh",
-      "script/cmtool.sh",
-      "script/cleanup.sh"
-    ]
-  }],
-  "post-processors": [{
-    "type": "vagrant",
-    "keep_input_artifact": false,
-    "output": "box/{{.Provider}}/centos70-{{user `cm`}}{{user `cm_version`}}.box"
-  }]
+  "_comment": "Build with `packer build -var-file=centos70.json centos.json`",
+  "vm_name": "centos70",
+  "cpus": "1",
+  "disk_size": "65536",
+  "iso_checksum": "154ba47b7a37e52e0100310c3aeb8f9d9daf4806",
+  "iso_checksum_type": "sha1",
+  "iso_name": "CentOS-7.0-1406-x86_64-DVD.iso",
+  "iso_url": "http://archive.kernel.org/centos-vault/7.0.1406/isos/x86_64/CentOS-7.0-1406-x86_64-DVD.iso",
+  "kickstart": "ks7.cfg",
+  "memory": "512",
+  "parallels_guest_os_type": "centos7"
 }

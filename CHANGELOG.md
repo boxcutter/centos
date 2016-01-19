@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.11 (2015-01-09)
+
+* Upgrade Parallels tools to 11.1.2
+
+## 2.0.10 (2015-12-30)
+
+* Add SELinux dependencies for 5.x & 6.x
+
 ## 2.0.9 (2015-11-21)
 
 * Add CentOS 7.2 templates
