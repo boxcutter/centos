@@ -3,10 +3,10 @@
   "vm_name": "centos72",
   "cpus": "1",
   "disk_size": "65536",
-  "iso_checksum": "02632a84db790a7683b69ac5028ba023b5da9aee",
+  "iso_checksum": "783eef50e1fb91c78901d0421d8114a29b998478",
   "iso_checksum_type": "sha1",
-  "iso_name": "CentOS-7.0-1406-x86_64-DVD.iso",
-  "iso_url": "/Users/bcorner//OneDrive/iso/CentOS-7-x86_64-Everything-1511.iso",
+  "iso_name": "CentOS-7-x86_64-Minimal-1511.iso",
+  "iso_url": "/Users/bcorner//OneDrive/iso/CentOS-7-x86_64-Minimal-1511.iso",
   "kickstart": "ks7.cfg",
   "memory": "512",
   "parallels_guest_os_type": "centos7"
