@@ -42,7 +42,7 @@ args() {
     only=parallels-iso
   fi
   if [ -n "${only}" ]; then
-    only="-only=${only}"      
+    only="-only=${only}"
   fi
   packer_template=${3:-centos.json}
 }
@@ -51,4 +51,5 @@ args() {
 args "$@"
 
 version=$(cat VERSION)
-packer build ${only} -var-file=${var_file} -var "version=${version}" ${packer_template}
+date=$(date "+%H%M%S");
+packer build ${only} -var-file=${var_file} -var "date=${date}" -var "version=${version}" ${packer_template}
