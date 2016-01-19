@@ -1,4 +1,3 @@
-# Cache objects
 packer_cache/
 output-*
 *.box
@@ -12,5 +11,6 @@ Makefile.local
 box/
 .tmpatlas/
 
-# For built boxes
-*.box
+.DS_Store
+.bundle
+*.orig
