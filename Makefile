@@ -1,4 +1,4 @@
-# Possible values for CM: (nocm | chef | chefdk | salt | puppet)
+# Possible values for CM: (nocm | ansible | chef | chefdk | salt | puppet)
 CM ?= nocm
 # Possible values for CM_VERSION: (latest | x.y.z | x.y)
 CM_VERSION ?=
