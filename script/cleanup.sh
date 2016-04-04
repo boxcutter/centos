@@ -1,5 +1,8 @@
 #!/bin/bash -eux
 
+echo "==> Clear out machine id"
+rm -f /etc/machine-id
+
 echo "==> Cleaning up temporary network addresses"
 # Make sure udev doesn't block our network
 if grep -q -i "release 6" /etc/redhat-release ; then
