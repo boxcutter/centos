@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.13 (2015-03-16)
+
+* Upgrade VirtualBox Guest Additions to 5.0.16
+
 ## 2.0.12 (2015-02-22)
 
 * Upgrade Docker to 1.10.1
