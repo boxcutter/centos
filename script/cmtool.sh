@@ -66,7 +66,7 @@ install_puppet()
     REDHAT_MAJOR_VERSION=$(egrep -Eo 'release ([0-9][0-9.]*)' /etc/redhat-release | cut -f2 -d' ' | cut -f1 -d.)
 
     case ${CM_VERSION:-} in
-        4.* ) CM_PC_VERSION="PC1"
+        4.* ) CM_PC_VERSION="pc1"
               RPM_URL="https://yum.puppetlabs.com/puppetlabs-release-${CM_PC_VERSION}-el-${REDHAT_MAJOR_VERSION}.noarch.rpm"
               PUPPET_PACKAGE="puppet-agent"
               ;;
