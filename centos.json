@@ -152,7 +152,7 @@
     "iso_checksum": "7bb8c1c23a4fdef93e6f0a6347d570e5764d0b38",
     "iso_checksum_type": "sha1",
     "iso_name": "CentOS-6.7-x86_64-bin-DVD1.iso",
-    "iso_path": "/Volumes/Thunder/software/centos",
+    "iso_path": "/Volumes/Storage/software/centos",
     "iso_url": "http://mirrors.kernel.org/centos/6.7/isos/x86_64/CentOS-6.7-x86_64-bin-DVD1.iso",
     "kickstart": "ks6.cfg",
     "memory": "512",
