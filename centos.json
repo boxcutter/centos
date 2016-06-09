@@ -131,6 +131,7 @@
         "script/cmtool.sh",
         "script/docker.sh",
         "script/motd.sh",
+        "custom-script.sh",
         "script/cleanup.sh"
       ],
       "type": "shell"
@@ -170,4 +171,3 @@
     "vmware_guest_os_type": "centos-64"
   }
 }
-
