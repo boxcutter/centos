@@ -9,13 +9,22 @@
 #   'puppet'          -- build a box with the Puppet
 #
 # Values for CM_VERSION can be (when CM is chef|salt|puppet):
-#   'x.y.z'           -- build a box with version x.y.z of Chef
+#   'x.y.z'           -- build a box with version x.y.z of Chef or Puppet
 #   'x.y'             -- build a box with version x.y of Salt
+#   'x' (x >=4)       -- build a box with the latest version x.y.z of Puppet
 #   'latest'          -- build a box with the latest version
 #
 # Set CM_VERSION to 'latest' if unset because it can be problematic
 # to set variables in pairs with Packer (and Packer does not support
 # multi-value variables).
+#
+# Note that for versions of puppet >=4.0.0, not only does the name of 
+# package used to install Puppet change, but the version of that package
+# no longer reflects the actual version of Puppet.
+# See https://docs.puppet.com/puppet/latest/reference/about_agent.html
+# Specifying cm_version=4.x.y should work, where this script has been 
+# updated with the details of that release.
+# Specifying cm_version=4 will install the latest version of Puppet >= 4.0.0.
 CM_VERSION=${CM_VERSION:-latest}
 
 #
@@ -63,18 +72,43 @@ install_salt()
 
 install_puppet()
 {
-    echo "==> Installing Puppet"
     REDHAT_MAJOR_VERSION=$(egrep -Eo 'release ([0-9][0-9.]*)' /etc/redhat-release | cut -f2 -d' ' | cut -f1 -d.)
 
+    case ${CM_VERSION:-} in
+        4* ) CM_PC_VERSION="pc1"
+              RPM_URL="https://yum.puppetlabs.com/puppetlabs-release-${CM_PC_VERSION}-el-${REDHAT_MAJOR_VERSION}.noarch.rpm"
+              PUPPET_PACKAGE="puppet-agent"
+              case ${CM_VERSION} in
+                      4) CM_VERSION="latest" ;;
+                  4.4.2) CM_VERSION="1.4.2" ;;
+                  4.4.1) CM_VERSION="1.4.1" ;;
+                  4.4.0) CM_VERSION="1.4.0" ;;
+                  4.3.2) CM_VERSION="1.3.6" ;;
+                  4.3.1) CM_VERSION="1.3.2" ;;
+                  4.3.0) CM_VERSION="1.3.0" ;;
+                  4.2.3) CM_VERSION="1.2.7" ;;
+                  4.2.2) CM_VERSION="1.2.6" ;;
+                  4.2.1) CM_VERSION="1.2.2" ;;
+                  4.2.0) CM_VERSION="1.2.1" ;;
+                  4.1.0) CM_VERSION="1.1.1" ;;
+                  4.0.0) CM_VERSION="1.0.1" ;;
+              esac
+              ;;
+        * )   RPM_URL="https://yum.puppetlabs.com/puppetlabs-release-el-${REDHAT_MAJOR_VERSION}.noarch.rpm" 
+              PUPPET_PACKAGE="puppet"
+              ;;
+    esac
+    
+    echo "==> Installing Puppet"
     echo "==> Installing Puppet Labs repositories"
-    rpm -ipv "http://yum.puppetlabs.com/puppetlabs-release-el-${REDHAT_MAJOR_VERSION}.noarch.rpm"
+    rpm -ipv $RPM_URL
 
     if [[ ${CM_VERSION:-} == 'latest' ]]; then
         echo "==> Installing latest Puppet version"
-        yum -y install puppet
+        yum -y install "${PUPPET_PACKAGE}"
     else
         echo "==> Installing Puppet version ${CM_VERSION}"
-        yum -y install "puppet-${CM_VERSION}"
+        yum -y install "${PUPPET_PACKAGE}-${CM_VERSION}"
     fi
 }
 

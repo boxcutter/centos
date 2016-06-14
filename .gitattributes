@@ -1,0 +1,5 @@
+# Checking out this repo on a windows machine and 
+# trying to run scripts in a booting vm with shared folders can lead to line-ending madness.
+# Stop git converting line-endings with:
+*.sh text eol=lf
+*.cfg text eol=lf
