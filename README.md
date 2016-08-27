@@ -10,35 +10,17 @@ This repository contains Packer templates for creating CentOS Vagrant boxes.
 
 * [CentOS 7.2 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos72)
 * [CentOS 7.2 Desktop (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos72-desktop)
-* [CentOS 7.2 Core with Docker (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos72-docker)
-* [CentOS 7.1 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos71)
-* [CentOS 7.1 Desktop (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos71-desktop)
-* [CentOS 7.1 Core with Docker (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos71-docker)
-* [CentOS 7.0 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos70)
-* [CentOS 7.0 Desktop (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos70-desktop)
-* [CentOS 7.0 Core with Docker (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos70-docker)
+* [CentOS 6.8 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos68)
+* [CentOS 6.8 Desktop (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos68-desktop)
 * [CentOS 6.7 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos67)
 * [CentOS 6.7 Desktop (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos67-desktop)
-* [CentOS 6.7 with Docker (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos67-docker/)
-* [CentOS 6.6 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos66)
-* [CentOS 6.6 Desktop (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos66-desktop)
-* [CentOS 6.6 with Docker (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos66-docker/)
-* [CentOS 6.5 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos65/)
-* [CentOS 6.5 Desktop (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos65-desktop)
-* [CentOS 6.5 with Docker (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos65-docker/)
-* [CentOS 6.4 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos64)
-* [CentOS 6.4 Desktop (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos64-desktop)
 * [CentOS 5.11 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos511)
-* [CentOS 5.10 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos510)
 
 32-bit boxes:
 
+* [CentOS 6.8 (32-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos68-i386)
 * [CentOS 6.7 (32-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos67-i386)
-* [CentOS 6.6 (32-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos66-i386)
-* [CentOS 6.5 (32-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos65-i386)
-* [CentOS 6.4 (32-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos64-i386)
 * [CentOS 5.11 (32-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos511-i386)
-* [CentOS 5.10 (32-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos510-i386)
 
 ## Building the Vagrant boxes with Packer
 
@@ -129,71 +111,6 @@ on the VirtualBox training environmnet, run the following command:
     make ssh-virtualbox/centos66-nocm.box
 
 Upon logout `make ssh-*` will automatically de-register the box as well.
-
-### Makefile.local override
-
-You can create a `Makefile.local` file alongside the `Makefile` to override
-some of the default settings.  The variables can that can be currently
-used are:
-
-* CM
-* CM_VERSION
-* HEADLESS
-* \<iso_path\>
-* UPDATE
-
-`Makefile.local` is most commonly used to override the default configuration
-management tool, for example with Chef:
-
-    # Makefile.local
-    CM := chef
-
-Changing the value of the `CM` variable changes the target suffixes for
-the output of `make list` accordingly.
-
-Possible values for the CM variable are:
-
-* `nocm` - No configuration management tool
-* `chef` - Install Chef
-* `chefdk` - Install Chef Development Kit
-* `puppet` - Install Puppet
-* `salt`  - Install Salt
-
-You can also specify a variable `CM_VERSION`, if supported by the
-configuration management tool, to override the default of `latest`.
-The value of `CM_VERSION` should have the form `x.y` or `x.y.z`,
-such as `CM_VERSION := 11.12.4`
-
-The variable `HEADLESS` can be set to run Packer in headless mode.
-Set `HEADLESS := true`, the default is false.
-
-The variable `UPDATE` can be used to perform OS patch management.  The
-default is to not apply OS updates by default.  When `UPDATE := true`,
-the latest OS updates will be applied.
-
-The variable `PACKER` can be used to set the path to the packer binary.
-The default is `packer`.
-
-The variable `ISO_PATH` can be used to set the path to a directory with
-OS install images.  This override is commonly used to speed up Packer
-builds by pointing at pre-downloaded ISOs instead of using the default
-download Internet URLs.
-
-The variables `SSH_USERNAME` and `SSH_PASSWORD` can be used to change
-the default name & password from the default `vagrant`/`vagrant`
-respectively.
-
-The variable `INSTALL_VAGRANT_KEY` can be set to turn off installation
-of the default insecure vagrant key when the image is being used
-outside of vagrant.  Set `INSTALL_VAGRANT_KEY := false`, the default
-is true.
-
-## VMware Tools corresponding to VMware releases
-
-                              | VMware Tools Version |
-------------------------------|----------------------|
-VMware Fusion 8.0.1 (3094680) | 10.0.0-???                  
-VMware Fusion 8.0.2 (3164312) | 10.0.1-3160059       |
 
 ## Contributing
 
