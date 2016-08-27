@@ -128,8 +128,6 @@
         "script/vmware.sh",
         "script/virtualbox.sh",
         "script/parallels.sh",
-        "script/cmtool.sh",
-        "script/docker.sh",
         "script/motd.sh",
         "custom-script.sh",
         "script/cleanup.sh"
