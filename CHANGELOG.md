@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.15 (2016-09-26)
+
+* Upgrade to Parallels 12
+* Upgrade Parallels tools to 12.0.2
+* Upgrade VMware tools to 10.0.10 for VMware Fusion 8.5.0
+
 ## 2.0.14 (2016-08-27)
 
 * Upgrade VirtualBox Guest Additions to 5.0.26
