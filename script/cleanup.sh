@@ -2,6 +2,7 @@
 
 echo "==> Clear out machine id"
 rm -f /etc/machine-id
+touch /etc/machine-id
 
 echo "==> Cleaning up temporary network addresses"
 # Make sure udev doesn't block our network
