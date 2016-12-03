@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.18 (2016-12-03)
+
+* Machine-id is now emptied not removed
+* Upgrade VirtualBox Guest Additions to 5.1.10
+* Upgrade Parallels tools to 12.1.1
+
 ## 2.0.17 (2016-11-12)
 
 * Fix issue with Parallels tools install
