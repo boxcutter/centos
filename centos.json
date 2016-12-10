@@ -57,6 +57,9 @@
         ],
         [
           "modifyvm", "{{.Name}}", "--cpus", "{{ user `cpus` }}"
+        ],
+        [
+          "modifyvm", "{{.Name}}", "--paravirtprovider", "{{ user `virtualbox_paravirtprovider` }}"
         ]
       ],
       "virtualbox_version_file": ".vbox_version",
@@ -163,6 +166,7 @@
     "vagrantfile_template": "",
     "version": "0.1.0",
     "virtualbox_guest_os_type": "RedHat_64",
+    "virtualbox_paravirtprovider": "default",
     "vm_name": "centos67",
     "vmware_guest_os_type": "centos-64"
   }

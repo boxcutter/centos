@@ -9,5 +9,6 @@
   "iso_url": "http://mirrors.kernel.org/centos/5.11/isos/x86_64/CentOS-5.11-x86_64-bin-DVD-1of2.iso",
   "kickstart": "ks5.cfg",
   "memory": "512",
-  "shutdown_command": "echo 'vagrant'|sudo -S /sbin/shutdown -h now"
+  "shutdown_command": "echo 'vagrant'|sudo -S /sbin/shutdown -h now",
+  "virtualbox_paravirtprovider": "none"
 }
