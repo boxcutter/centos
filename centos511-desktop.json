@@ -11,5 +11,7 @@
   "kickstart": "ks5-desktop.cfg",
   "memory": "1024",
   "vagrantfile_template": "tpl/vagrantfile-centos511-desktop.tpl",
-  "shutdown_command": "echo 'vagrant'|sudo -S /sbin/shutdown -h now"
+  "shutdown_command": "echo 'vagrant'|sudo -S /sbin/shutdown -h now",
+  "virtualbox_paravirtprovider": "none",
+  "virtualbox_nictype": "Am79C973"
 }
