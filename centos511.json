@@ -10,5 +10,6 @@
   "kickstart": "ks5.cfg",
   "memory": "512",
   "shutdown_command": "echo 'vagrant'|sudo -S /sbin/shutdown -h now",
-  "virtualbox_paravirtprovider": "none"
+  "virtualbox_paravirtprovider": "none",
+  "virtualbox_nictype": "Am79C973"
 }

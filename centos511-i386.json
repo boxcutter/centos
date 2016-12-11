@@ -11,7 +11,8 @@
   "memory": "512",
   "parallels_guest_os_type": "centos",
   "virtualbox_guest_os_type": "RedHat",
-  "virtualbox_paravirtprovider": "none"
+  "virtualbox_paravirtprovider": "none",
+  "virtualbox_nictype": "Am79C973",
   "vmware_guest_os_type": "centos",
   "shutdown_command": "echo 'vagrant'|sudo -S /sbin/shutdown -h now"
 }
