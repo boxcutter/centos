@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.19 (2016-12-11)
+
+* Use virtio for better network performance
+* Workaround for gurumediatation error w/CentOS 5.x on VirtualBox 5.1.x
+* Add CentOS 5.11 desktop template
+
 ## 2.0.18 (2016-12-03)
 
 * Machine-id is now emptied not removed
