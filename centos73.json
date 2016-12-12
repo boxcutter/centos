@@ -1,0 +1,13 @@
+{
+  "_comment": "Build with `packer build -var-file=centos72.json centos.json`",
+  "vm_name": "centos73",
+  "cpus": "1",
+  "disk_size": "65536",
+  "iso_checksum": "c018577c75b2434fbb2c324789dee0ba887d9c32",
+  "iso_checksum_type": "sha1",
+  "iso_name": "CentOS-7-x86_64-DVD-1611.iso",
+  "iso_url": "http://mirrors.sonic.net/centos/7.3.1611/isos/x86_64/CentOS-7-x86_64-DVD-1611.iso",
+  "kickstart": "ks7.cfg",
+  "memory": "512",
+  "parallels_guest_os_type": "centos7"
+}
