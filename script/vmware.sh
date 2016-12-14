@@ -63,7 +63,12 @@ if [[ $PACKER_BUILDER_TYPE =~ vmware ]]; then
         echo "export PATH=$PATH:/usr/sbin:/sbin" >> $SSH_USER_HOME/.bashrc
     fi
 
-    if [ "${MAJOR_VERSION}" -ge "4" ] && [ "${MINOR_VERSION}" -ge "1" ]; then
+    KERNEL_VERSION="$(uname -r)"
+    KERNEL_MAJOR_VERSION="${KERNEL_VERSION%%.*}"
+    KERNEL_MINOR_VERSION_START="${KERNEL_VERSION#*.}"
+    KERNEL_MINOR_VERSION="${KERNEL_MINOR_VERSION_START%%.*}"
+    echo "Kernel version ${KERNEL_MAJOR_VERSION}.${KERNEL_MINOR_VERSION}"
+    if [ "${KERNEL_MAJOR_VERSION}" -ge "4" ] && [ "${KERNEL_MINOR_VERSION}" -ge "1" ]; then
       install_open_vm_tools
     else
       install_vmware_tools
