@@ -8,6 +8,7 @@ This repository contains Packer templates for creating CentOS Vagrant boxes.
 
 64-bit boxes:
 
+* [CentOS 7.3 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos73)
 * [CentOS 7.2 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos72)
 * [CentOS 7.2 Desktop (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos72-desktop)
 * [CentOS 6.8 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos68)
