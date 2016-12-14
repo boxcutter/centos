@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.20 (2016-12-14)
+
+* Add CentOS 7.3 template
+* Remove network workaround that was needed for CentOS 7.x in older versions
+  of vagrant to avoid race condition
+
 ## 2.0.19 (2016-12-11)
 
 * Use virtio for better network performance
