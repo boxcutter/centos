@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.21 (2016-12-15)
+
+* Port private_network workaround from upstream CentOS box
+* Fix centos511-desktop build on paralllels
+
 ## 2.0.20 (2016-12-14)
 
 * Add CentOS 7.3 template
