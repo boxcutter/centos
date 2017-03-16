@@ -32,9 +32,9 @@ To build all the boxes, you will need [VirtualBox](https://www.virtualbox.org/wi
 
 Parallels requires that the
 [Parallels Virtualization SDK for Mac](http://www.parallels.com/downloads/desktop)
-be installed as an additional preqrequisite.
+be installed as an additional prerequisite.
 
-We make use of JSON files containing user variables to build specific versions of Ubuntu.
+We make use of JSON files containing user variables to build specific versions of CentOS.
 You tell `packer` to use a specific user variable file via the `-var-file=` command line
 option.  This will override the default options on the core `centos.json` packer template,
 which builds CentOS 6.7 by default.
@@ -123,7 +123,7 @@ Upon logout `make ssh-*` will automatically de-register the box as well.
 4. Fix stuff.  Use `make ssh` to interactively test your box (like `make ssh-virtualbox/centos65`).
 5. Run `make test` on a relevant template (like `make test-virtualbox/centos65`) to see if the tests pass.  Repeat steps 3-5 until done.
 6. Update `README.md` and `AUTHORS` to reflect any changes.
-7. If you have a large change in mind, it is still preferred that you split them into small commits.  Good commit messages are important.  The git documentatproject has some nice guidelines on [writing descriptive commit messages](http://git-scm.com/book/ch5-2.html#Commit-Guidelines).
+7. If you have a large change in mind, it is still preferred that you split them into small commits.  Good commit messages are important.  The git documentation project has some nice guidelines on [writing descriptive commit messages](http://git-scm.com/book/ch5-2.html#Commit-Guidelines).
 8. Push to your fork and submit a pull request.
 9. Once submitted, a full `make test` run will be performed against your change in the build farm.  You will be notified if the test suite fails.
 
