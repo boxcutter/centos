@@ -19,6 +19,9 @@ if [[ $PACKER_BUILDER_TYPE =~ virtualbox ]]; then
     if [[ $VBOX_VERSION = "4.3.10" ]]; then
         ln -s /opt/VBoxGuestAdditions-4.3.10/lib/VBoxGuestAdditions /usr/lib/VBoxGuestAdditions
     fi
+    if [[ $VBOX_VERSION = "5.1.20" ]]; then
+        ln -s --force /opt/VBoxGuestAdditions-5.1.20/lib/VBoxGuestAdditions/mount.vboxsf /sbin/
+    fi
 
     echo "==> Removing packages needed for building guest tools"
     yum -y remove gcc libmpc mpfr kernel-devel kernel-headers
