@@ -1,5 +1,5 @@
 {
-  "_comment": "Build with `packer build -var-file=centos72.json centos.json`",
+  "_comment": "Build with `packer build -var-file=centos73.json centos.json`",
   "vm_name": "centos73",
   "cpus": "1",
   "disk_size": "65536",
