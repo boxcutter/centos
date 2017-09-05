@@ -1,5 +1,13 @@
 # Changelog
 
+## 17.0904.1 (2017-09-14)
+
+* Upgrade CentOS 6 image to version 6.9
+* Added `cleanup_build_tools` variable to control removal of build tools
+* Use consistent device naming on CentOS 7 now that it is supported by vagrant
+* Drop minor version from box names
+* Remove CentOS 5.x - EOL
+
 ## 2.0.21 (2016-12-15)
 
 * Port private_network workaround from upstream CentOS box

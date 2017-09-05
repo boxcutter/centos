@@ -19,10 +19,4 @@ if [[ $PACKER_BUILDER_TYPE =~ virtualbox ]]; then
     if [[ $VBOX_VERSION = "4.3.10" ]]; then
         ln -s /opt/VBoxGuestAdditions-4.3.10/lib/VBoxGuestAdditions /usr/lib/VBoxGuestAdditions
     fi
-
-    echo "==> Removing packages needed for building guest tools"
-    yum -y remove gcc libmpc mpfr kernel-devel kernel-headers
-    if grep -v -q -i "release 5" /etc/redhat-release ; then
-        yum -y remove cpp perl
-    fi
 fi

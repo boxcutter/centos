@@ -3,12 +3,12 @@
   "builders": [
     {
       "boot_command": [
-        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/{{ user `kickstart` }}<enter>"
+        "<up><wait><tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/{{ user `kickstart` }}<enter>"
       ],
       "disk_size": "{{ user `disk_size` }}",
       "guest_os_type": "{{ user `vmware_guest_os_type` }}",
       "headless": "{{ user `headless` }}",
-      "http_directory": "http",
+      "http_directory": "{{ user `http_directory` }}",
       "iso_checksum": "{{ user `iso_checksum` }}",
       "iso_checksum_type": "{{ user `iso_checksum_type` }}",
       "iso_urls": [
@@ -27,18 +27,19 @@
         "cpuid.coresPerSocket": "1",
         "memsize": "{{ user `memory` }}",
         "numvcpus": "{{ user `cpus` }}"
-      }
+      },
+      "vmx_remove_ethernet_interfaces": true
     },
     {
       "boot_command": [
-        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/{{ user `kickstart` }}<enter>"
+        "<up><wait><tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/{{ user `kickstart` }}<enter>"
       ],
       "disk_size": "{{ user `disk_size` }}",
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
       "guest_os_type": "{{ user `virtualbox_guest_os_type` }}",
       "hard_drive_interface": "sata",
       "headless": "{{ user `headless` }}",
-      "http_directory": "http",
+      "http_directory": "{{ user `http_directory` }}",
       "iso_checksum": "{{ user `iso_checksum` }}",
       "iso_checksum_type": "{{ user `iso_checksum_type` }}",
       "iso_urls": [
@@ -70,11 +71,11 @@
     },
     {
       "boot_command": [
-        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/{{ user `kickstart` }}<enter>"
+        "<up><wait><tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/{{ user `kickstart` }}<enter>"
       ],
       "disk_size": "{{ user `disk_size` }}",
       "guest_os_type": "{{ user `parallels_guest_os_type` }}",
-      "http_directory": "http",
+      "http_directory": "{{ user `http_directory` }}",
       "iso_checksum": "{{ user `iso_checksum` }}",
       "iso_checksum_type": "{{ user `iso_checksum_type` }}",
       "iso_urls": [
@@ -110,10 +111,8 @@
   "provisioners": [
     {
       "environment_vars": [
-        "CM={{user `cm`}}",
-        "CM_VERSION={{user `cm_version`}}",
+        "CLEANUP_BUILD_TOOLS={{user `cleanup_build_tools`}}",
         "DESKTOP={{user `desktop`}}",
-        "DOCKER={{user `docker`}}",
         "UPDATE={{user `update`}}",
         "INSTALL_VAGRANT_KEY={{user `install_vagrant_key`}}",
         "SSH_USERNAME={{user `ssh_username`}}",
@@ -142,22 +141,22 @@
     }
   ],
   "variables": {
+    "cleanup_build_tools": "false",
     "cpus": "1",
-    "cutom_script": ".",
     "desktop": "false",
     "disk_size": "65536",
-    "docker": "false",
     "ftp_proxy": "{{env `ftp_proxy`}}",
     "headless": "",
+    "http_directory": "kickstart/centos7",
     "http_proxy": "{{env `http_proxy`}}",
     "https_proxy": "{{env `https_proxy`}}",
     "install_vagrant_key": "true",
-    "iso_checksum": "7bb8c1c23a4fdef93e6f0a6347d570e5764d0b38",
+    "iso_checksum": "c018577c75b2434fbb2c324789dee0ba887d9c32",
     "iso_checksum_type": "sha1",
-    "iso_name": "CentOS-6.7-x86_64-bin-DVD1.iso",
-    "iso_path": "/Volumes/Storage/software/centos",
-    "iso_url": "http://mirrors.kernel.org/centos/6.7/isos/x86_64/CentOS-6.7-x86_64-bin-DVD1.iso",
-    "kickstart": "ks6.cfg",
+    "iso_name": "CentOS-7-x86_64-DVD-1611.iso",
+    "iso_path": "iso",
+    "iso_url": "http://mirrors.kernel.org/centos/7.3.1611/isos/x86_64/CentOS-7-x86_64-DVD-1611.iso",
+    "kickstart": "ks.cfg",
     "memory": "512",
     "no_proxy": "{{env `no_proxy`}}",
     "parallels_guest_os_type": "centos",
@@ -167,11 +166,11 @@
     "ssh_username": "vagrant",
     "update": "false",
     "vagrantfile_template": "",
-    "version": "0.1.0",
+    "version": "0.0.99",
     "virtualbox_guest_os_type": "RedHat_64",
     "virtualbox_paravirtprovider": "default",
     "virtualbox_nictype": "virtio",
-    "vm_name": "centos67",
+    "vm_name": "centos7",
     "vmware_guest_os_type": "centos-64"
   }
 }

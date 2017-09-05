@@ -2,8 +2,8 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-   config.vm.define "vagrant-centos72-desktop"
-   config.vm.box = "centos72-desktop"
+   config.vm.define "vagrant-centos7-desktop"
+   config.vm.box = "centos7-desktop"
 
    config.vm.provider :virtualbox do |v, override|
      v.gui = true

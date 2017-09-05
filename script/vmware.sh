@@ -57,12 +57,6 @@ if [[ $PACKER_BUILDER_TYPE =~ vmware ]]; then
     # kernel-headers-$(uname -r) kernel-devel-$(uname -r) gcc make perl
     # from the install media via ks.cfg
 
-    # On RHEL 5, add /sbin to PATH because vagrant does a probe for
-    # vmhgfs with lsmod sans PATH
-    if grep -q -i "release 5" /etc/redhat-release ; then
-        echo "export PATH=$PATH:/usr/sbin:/sbin" >> $SSH_USER_HOME/.bashrc
-    fi
-
     KERNEL_VERSION="$(uname -r)"
     KERNEL_MAJOR_VERSION="${KERNEL_VERSION%%.*}"
     KERNEL_MINOR_VERSION_START="${KERNEL_VERSION#*.}"
@@ -74,6 +68,6 @@ if [[ $PACKER_BUILDER_TYPE =~ vmware ]]; then
       install_vmware_tools
     fi
 
-    echo "==> Removing packages needed for building guest tools"
-    yum -y remove gcc cpp libmpc mpfr kernel-devel kernel-headers
+    # echo "==> Removing packages needed for building guest tools"
+    # yum -y remove gcc cpp libmpc mpfr kernel-devel kernel-headers
 fi
