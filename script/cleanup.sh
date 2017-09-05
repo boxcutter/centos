@@ -18,10 +18,6 @@ if grep -q -i "release 6" /etc/redhat-release ; then
     done
 fi
 rm -rf /dev/.udev/
-# if [ -f /etc/sysconfig/network-scripts/ifcfg-eth0 ] ; then
-#     sed -i "/^HWADDR/d" /etc/sysconfig/network-scripts/ifcfg-eth0
-#     sed -i "/^UUID/d" /etc/sysconfig/network-scripts/ifcfg-eth0
-# fi
 
 DISK_USAGE_BEFORE_CLEANUP=$(df -h)
 
