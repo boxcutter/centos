@@ -13,10 +13,6 @@ This repository contains Packer templates for creating CentOS Vagrant boxes.
 * [CentOS 6.9 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos6)
 * [CentOS 6.9 Desktop (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos6-desktop)
 
-32-bit boxes:
-
-* [CentOS 6.9 (32-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos6-i386)
-
 ## Building the Vagrant boxes with Packer
 
 To build all the boxes, you will need [VirtualBox](https://www.virtualbox.org/wiki/Downloads),
