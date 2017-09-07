@@ -1,0 +1,16 @@
+packer_cache/
+output-*
+*.box
+*.tar.gz
+iso
+crash.log
+tmp
+.vagrant/
+*.swp
+Makefile.local
+box/
+.tmpatlas/
+iso/
+
+.DS_Store
+.bundle

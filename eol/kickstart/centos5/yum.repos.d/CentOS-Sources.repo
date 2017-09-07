@@ -1,0 +1,34 @@
+# CentOS-Sources.repo
+#
+#
+
+[base-source]
+name=CentOS-$releasever - Base Sources
+baseurl=http://archive.kernel.org/centos-vault/5.11/os/Source/
+gpgcheck=1
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+
+#released udpates
+[updates-source]
+name=CentOS-$releasever - Updates Sources
+baseurl=http://archive.kernel.org/centos-vault/5.11/updates/Source/
+gpgcheck=1
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+
+#additional packages that may be useful
+[extras-source]
+name=CentOS-$releasever - Extras Sources
+baseurl=http://archive.kernel.org/centos-vault/5.11/extras/Source/
+gpgcheck=1
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+
+#additional packages that extend functionality of existing packages
+[centosplus-source]
+name=CentOS-$releasever - Plus Sources
+baseurl=http://archive.kernel.org/centos-vault/5.11/centosplus/Source/
+gpgcheck=1
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5

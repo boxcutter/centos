@@ -1,0 +1,322 @@
+# CentOS-Vault.repo
+#
+#
+
+#---- Packages previously released as 5.10, and its updates
+[C5.10-base]
+name=CentOS-5.10 - Base
+baseurl=http://archive.kernel.org/centos-vault/5.10/os/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+[C5.10-updates]
+name=CentOS-5.10 - Updates
+baseurl=http://archive.kernel.org/centos-vault/5.10/updates/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+[C5.10-extras]
+name=CentOS-5.10 - Extras
+baseurl=http://archive.kernel.org/centos-vault/5.10/extras/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+[C5.10-centosplus]
+name=CentOS-5.10 - Plus
+baseurl=http://archive.kernel.org/centos-vault/5.10/centosplus/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+#---- Packages previously released as 5.9, and its updates
+[C5.9-base]
+name=CentOS-5.9 - Base
+baseurl=http://archive.kernel.org/centos-vault/5.9/os/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+[C5.9-updates]
+name=CentOS-5.9 - Updates
+baseurl=http://archive.kernel.org/centos-vault/5.9/updates/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+[C5.9-extras]
+name=CentOS-5.9 - Extras
+baseurl=http://archive.kernel.org/centos-vault/5.9/extras/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+[C5.9-centosplus]
+name=CentOS-5.9 - Plus
+baseurl=http://archive.kernel.org/centos-vault/5.9/centosplus/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+#---- Packages previously released as 5.8, and its updates
+[C5.8-base]
+name=CentOS-5.8 - Base
+baseurl=http://archive.kernel.org/centos-vault/5.8/os/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+[C5.8-updates]
+name=CentOS-5.8 - Updates
+baseurl=http://archive.kernel.org/centos-vault/5.8/updates/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+[C5.8-extras]
+name=CentOS-5.8 - Extras
+baseurl=http://archive.kernel.org/centos-vault/5.8/extras/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+[C5.8-centosplus]
+name=CentOS-5.8 - Plus
+baseurl=http://archive.kernel.org/centos-vault/5.8/centosplus/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+#---- Packages previously released as 5.7, and its updates
+[C5.7-base]
+name=CentOS-5.7 - Base
+baseurl=http://archive.kernel.org/centos-vault/5.7/os/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+[C5.7-updates]
+name=CentOS-5.7 - Updates
+baseurl=http://archive.kernel.org/centos-vault/5.7/updates/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+[C5.7-extras]
+name=CentOS-5.7 - Extras
+baseurl=http://archive.kernel.org/centos-vault/5.7/extras/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+[C5.7-centosplus]
+name=CentOS-5.7 - Plus
+baseurl=http://archive.kernel.org/centos-vault/5.7/centosplus/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+#---- Packages previously released as 5.6, and its updates
+[C5.6-base]
+name=CentOS-5.6 - Base
+baseurl=http://archive.kernel.org/centos-vault/5.6/os/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+[C5.6-updates]
+name=CentOS-5.6 - Updates
+baseurl=http://archive.kernel.org/centos-vault/5.6/updates/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+[C5.6-extras]
+name=CentOS-5.6 - Extras
+baseurl=http://archive.kernel.org/centos-vault/5.6/extras/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+[C5.6-centosplus]
+name=CentOS-5.6 - Plus
+baseurl=http://archive.kernel.org/centos-vault/5.6/centosplus/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+#---- Packages previously released as 5.5, and its updates
+[C5.5-base]
+name=CentOS-5.5 - Base
+baseurl=http://archive.kernel.org/centos-vault/5.5/os/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+[C5.5-updates]
+name=CentOS-5.5 - Updates
+baseurl=http://archive.kernel.org/centos-vault/5.5/updates/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+[C5.5-extras]
+name=CentOS-5.5 - Extras
+baseurl=http://archive.kernel.org/centos-vault/5.5/extras/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+[C5.5-centosplus]
+name=CentOS-5.5 - Plus
+baseurl=http://archive.kernel.org/centos-vault/5.5/centosplus/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+#---- Packages previously released as 5.4, and its updates
+[C5.4-base]
+name=CentOS-5.4 - Base
+baseurl=http://archive.kernel.org/centos-vault/5.4/os/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+[C5.4-updates]
+name=CentOS-5.4 - Updates
+baseurl=http://archive.kernel.org/centos-vault/5.4/updates/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+[C5.4-extras]
+name=CentOS-5.4 - Extras
+baseurl=http://archive.kernel.org/centos-vault/5.4/extras/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+[C5.4-centosplus]
+name=CentOS-5.4 - Plus
+baseurl=http://archive.kernel.org/centos-vault/5.4/centosplus/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+#---- Packages previously released as 5.3, and its updates
+[C5.3-base]
+name=CentOS-5.3 - Base
+baseurl=http://archive.kernel.org/centos-vault/5.3/os/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+[C5.3-updates]
+name=CentOS-5.3 - Updates
+baseurl=http://archive.kernel.org/centos-vault/5.3/updates/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+[C5.3-extras]
+name=CentOS-5.3 - Extras
+baseurl=http://archive.kernel.org/centos-vault/5.3/extras/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+[C5.3-centosplus]
+name=CentOS-5.3 - Plus
+baseurl=http://archive.kernel.org/centos-vault/5.3/centosplus/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+#---- Packages previously released as 5.2, and its updates
+[C5.2-base]
+name=CentOS-5.2 - Base
+baseurl=http://archive.kernel.org/centos-vault/5.2/os/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+[C5.2-updates]
+name=CentOS-5.2 - Updates
+baseurl=http://archive.kernel.org/centos-vault/5.2/updates/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+[C5.2-extras]
+name=CentOS-5.2 - Extras
+baseurl=http://archive.kernel.org/centos-vault/5.2/extras/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+[C5.2-centosplus]
+name=CentOS-5.2 - Plus
+baseurl=http://archive.kernel.org/centos-vault/5.2/centosplus/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+#---- Packages previously released as 5.1, and its updates
+[C5.1-base]
+name=CentOS-5.1 - Base
+baseurl=http://archive.kernel.org/centos-vault/5.1/os/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+[C5.1-updates]
+name=CentOS-5.1 - Updates
+baseurl=http://archive.kernel.org/centos-vault/5.1/updates/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+[C5.1-extras]
+name=CentOS-5.1 - Extras
+baseurl=http://archive.kernel.org/centos-vault/5.1/extras/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+[C5.1-centosplus]
+name=CentOS-5.1 - Plus
+baseurl=http://archive.kernel.org/centos-vault/5.1/centosplus/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+#---- Packages previously released as 5.0, and its updates
+[C5.0-base]
+name=CentOS-5.0 - Base
+baseurl=http://archive.kernel.org/centos-vault/5.0/os/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+[C5.0-updates]
+name=CentOS-5.0 - Updates
+baseurl=http://archive.kernel.org/centos-vault/5.0/updates/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+[C5.0-extras]
+name=CentOS-5.0 - Extras
+baseurl=http://archive.kernel.org/centos-vault/5.0/extras/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
+
+[C5.0-centosplus]
+name=CentOS-5.0 - Plus
+baseurl=http://archive.kernel.org/centos-vault/5.0/centosplus/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+enabled=0
