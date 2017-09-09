@@ -1,6 +1,10 @@
 # Changelog
 
-## 17.0904.1 (2017-09-14)
+## 17.0909.1 (2017-09-9)
+
+* Revert back to BIOS naming on CentOS 7, does not work with Parallels
+
+## 17.0904.1 (2017-09-4)
 
 * Upgrade CentOS 6 image to version 6.9
 * Added `cleanup_build_tools` variable to control removal of build tools
