@@ -12,8 +12,6 @@ usage() {
     echo "Requires the following environment variables to be set:"
     echo "  ATLAS_USERNAME"
     echo "  ATLAS_ACCESS_TOKEN"
-    echo "  BOX_CUTTER_ATLAS_USERNAME"
-    echo "  BOX_CUTTER_ATLAS_ACCESS_TOKEN"
 }
 
 args() {
@@ -28,14 +26,6 @@ args() {
         exit 1
     elif [ -z ${ATLAS_ACCESS_TOKEN+x} ]; then
         echo "ATLAS_ACCESS_TOKEN environment variable not set!"
-        usage
-        exit 1
-    elif [ -z ${BOX_CUTTER_ATLAS_USERNAME+x} ]; then
-        echo "BOX_CUTTER_ATLAS_USERNAME environment variable not set!"
-        usage
-        exit 1
-    elif [ -z ${BOX_CUTTER_ATLAS_ACCESS_TOKEN+x} ]; then
-        echo "BOX_CUTTER_ATLAS_ACCESS_TOKEN environment variable not set!"
         usage
         exit 1
     fi
@@ -161,7 +151,7 @@ atlas_publish() {
     atlas_username=$1
     atlas_access_token=$2
 
-    ATLAS_API_URL=https://atlas.hashicorp.com/api/v1
+    ATLAS_API_URL=https://app.vagrantup.com/api/v1
 
     echo "==> Checking for existing box ${BOX_NAME} on ${atlas_username}"
     # Retrieve box
@@ -227,8 +217,7 @@ atlas_publish() {
 main() {
     args "$@"
 
-    ATLAS_API_URL=https://atlas.hashicorp.com/api/v1
-    atlas_publish ${BOX_CUTTER_ATLAS_USERNAME} ${BOX_CUTTER_ATLAS_ACCESS_TOKEN}
+    ATLAS_API_URL=https://app.vagrantup.com/api/v1
     atlas_publish ${ATLAS_USERNAME} ${ATLAS_ACCESS_TOKEN}
 }
 
