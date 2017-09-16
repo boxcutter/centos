@@ -5,7 +5,7 @@
   "disk_size": "65536",
   "http_directory": "kickstart/centos7",
   "iso_checksum": "ec7500d4b006702af6af023b1f8f1b890b6c7ee54400bb98cef968b883cd6546",
-  "iso_checksum_type": "sha1",
+  "iso_checksum_type": "sha256",
   "iso_name": "CentOS-7-x86_64-DVD-1708.iso",
   "iso_url": "http://mirrors.sonic.net/centos/7.4.1708/isos/x86_64/CentOS-7-x86_64-DVD-1708.iso",
   "memory": "512",
