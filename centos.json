@@ -125,9 +125,29 @@
       ],
       "execute_command": "echo 'vagrant' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
       "scripts": [
+        "script/update.sh"
+      ],
+      "type": "shell",
+      "expect_disconnect": "true"
+    },
+    {
+      "environment_vars": [
+        "CLEANUP_BUILD_TOOLS={{user `cleanup_build_tools`}}",
+        "DESKTOP={{user `desktop`}}",
+        "UPDATE={{user `update`}}",
+        "INSTALL_VAGRANT_KEY={{user `install_vagrant_key`}}",
+        "SSH_USERNAME={{user `ssh_username`}}",
+        "SSH_PASSWORD={{user `ssh_password`}}",
+        "http_proxy={{user `http_proxy`}}",
+        "https_proxy={{user `https_proxy`}}",
+        "ftp_proxy={{user `ftp_proxy`}}",
+        "rsync_proxy={{user `rsync_proxy`}}",
+        "no_proxy={{user `no_proxy`}}"
+      ],
+      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "scripts": [
         "script/fix-slow-dns.sh",
         "script/sshd.sh",
-        "script/update.sh",
         "script/vagrant.sh",
         "script/desktop.sh",
         "script/vmware.sh",
@@ -137,7 +157,8 @@
         "custom-script.sh",
         "script/cleanup.sh"
       ],
-      "type": "shell"
+      "type": "shell",
+      "pause_before": "10s"
     }
   ],
   "variables": {
