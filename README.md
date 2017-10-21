@@ -6,13 +6,7 @@ This repository contains Packer templates for creating CentOS Vagrant boxes.
 
 ## Current Boxes
 
-64-bit boxes:
-
-* [CentOS 7.4 (64-bit)](https://app.vagrantup.com/boxcutter/boxes/centos7)
-* [CentOS 7.4 Desktop (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos7-desktop)
-* [CentOS 6.9 (64-bit)](https://app.vagrantup.com/boxcutter/boxes/centos6)
-* [CentOS 6.9 Desktop (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/centos6-desktop)
-* [CentOS 5.11 (64-bit)](https://app.vagrantup.com/boxcutter/boxes/centos5)
+We no longer provide pre-built binaries for these templates.
 
 ## Building the Vagrant boxes with Packer
 
@@ -123,11 +117,11 @@ Contact moujan@annawake.com
 
 ### Acknowledgments
 
-[Parallels](http://www.parallels.com/) provides a Business Edition license of
+[Parallels](http://www.parallels.com/) provided a Business Edition license of
 their software to run on the basebox build farm.
 
 <img src="http://www.parallels.com/fileadmin/images/corporate/brand-assets/images/logo-knockout-on-red.jpg" width="80">
 
-[SmartyStreets](http://www.smartystreets.com) is providing basebox hosting for the boxcutter project.
+[SmartyStreets](http://www.smartystreets.com) provided basebox hosting for the boxcutter project since 2015 - thank you for your support!
 
 <img src="https://d79i1fxsrar4t.cloudfront.net/images/brand/smartystreets.65887aa3.png" width="320">
