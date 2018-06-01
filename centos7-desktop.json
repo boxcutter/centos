@@ -5,10 +5,10 @@
   "desktop": "true",
   "disk_size": "130048",
   "http_directory": "kickstart/centos7-desktop",
-  "iso_checksum": "ec7500d4b006702af6af023b1f8f1b890b6c7ee54400bb98cef968b883cd6546",
+  "iso_checksum": "506e4e06abf778c3435b4e5745df13e79ebfc86565d7ea1e128067ef6b5a6345",
   "iso_checksum_type": "sha256",
-  "iso_name": "CentOS-7-x86_64-DVD-1708.iso",
-  "iso_url": "http://mirrors.sonic.net/centos/7.4.1708/isos/x86_64/CentOS-7-x86_64-DVD-1708.iso",
+  "iso_name": "CentOS-7-x86_64-DVD-1804.iso",
+  "iso_url": "http://mirrors.sonic.net/centos/7.5.1804/isos/x86_64/CentOS-7-x86_64-DVD-1804.iso",
   "memory": "1024",
   "paralles_guest_os_type": "centos7",
   "vagrantfile_template": "tpl/vagrantfile-centos7-desktop.tpl"
