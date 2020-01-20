@@ -1,6 +1,6 @@
 {
-  "_comment": "Build with `packer build -var-file=centos7.json centos.json`",
-  "vm_name": "centos7",
+  "_comment": "Build with `packer build -var-file=centos8.json centos.json`",
+  "vm_name": "centos8",
   "cpus": "1",
   "disk_size": "65536",
   "http_directory": "kickstart/centos8",
