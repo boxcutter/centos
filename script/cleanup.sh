@@ -1,7 +1,6 @@
 #!/bin/bash -eux
 echo "==> Clear out machine id"
-rm -f /etc/machine-id
-touch /etc/machine-id
+> /etc/machine-id
 
 echo "==> Cleaning up temporary network addresses"
 # Make sure udev doesn't block our network
@@ -10,26 +9,28 @@ if grep -q -i "release 6" /etc/redhat-release ; then
     rm -f /etc/udev/rules.d/70-persistent-net.rules
     mkdir /etc/udev/rules.d/70-persistent-net.rules
 
-    for ndev in `ls -1 /etc/sysconfig/network-scripts/ifcfg-*`; do
-    if [ "`basename $ndev`" != "ifcfg-lo" ]; then
-        sed -i '/^HWADDR/d' "$ndev";
-        sed -i '/^UUID/d' "$ndev";
-    fi
+    for ndev in $(ls -1 /etc/sysconfig/network-scripts/ifcfg-*); do
+      if [[ "$(basename ${ndev})" != "ifcfg-lo" ]]; then
+        sed -i '/^HWADDR/d' "${ndev}";
+        sed -i '/^UUID/d' "${ndev}";
+      fi
     done
 fi
 # Better fix that persists package updates: http://serverfault.com/a/485689
 touch /etc/udev/rules.d/75-persistent-net-generator.rules
-for ndev in `ls -1 /etc/sysconfig/network-scripts/ifcfg-*`; do
-    if [ "`basename $ndev`" != "ifcfg-lo" ]; then
-        sed -i '/^HWADDR/d' "$ndev";
-        sed -i '/^UUID/d' "$ndev";
+for ndev in $(ls -1 /etc/sysconfig/network-scripts/ifcfg-*); do
+  if [[ "$(basename ${ndev})" != "ifcfg-lo" ]]; then
+        sed -i '/^HWADDR/d' "${ndev}";
+        sed -i '/^UUID/d' "${ndev}";
     fi
 done
 rm -rf /dev/.udev/
 
 DISK_USAGE_BEFORE_CLEANUP=$(df -h)
 
-if [[ $CLEANUP_BUILD_TOOLS  =~ true || $CLEANUP_BUILD_TOOLS =~ 1 || $CLEANUP_BUILD_TOOLS =~ yes ]]; then
+if [[ "${CLEANUP_BUILD_TOOLS}"  =~ true \
+  || "${CLEANUP_BUILD_TOOLS}" =~ 1 \
+  || "${CLEANUP_BUILD_TOOLS}" =~ yes ]]; then
     echo "==> Removing tools used to build virtual machine drivers"
     yum -y remove gcc libmpc mpfr cpp kernel-devel kernel-headers
 fi
@@ -45,7 +46,7 @@ rpmdb --rebuilddb
 rm -f /var/lib/rpm/__db*
 
 # delete any logs that have built up during the install
-find /var/log/ -name *.log -exec rm -f {} \;
+find /var/log/ -name "*.log" -delete
 
 echo '==> Clear out swap and disable until reboot'
 set +e
@@ -58,7 +59,7 @@ set -e
 if [ "x${swapuuid}" != "x" ]; then
     # Whiteout the swap partition to reduce box size
     # Swap is disabled till reboot
-    swappart=$(readlink -f /dev/disk/by-uuid/$swapuuid)
+    swappart=$(readlink -f /dev/disk/by-uuid/${swapuuid})
     /sbin/swapoff "${swappart}"
     dd if=/dev/zero of="${swappart}" bs=1M || echo "dd exit code $? is suppressed"
     /sbin/mkswap -U "${swapuuid}" "${swappart}"
