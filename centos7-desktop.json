@@ -8,8 +8,8 @@
   "iso_checksum": "6d44331cc4f6c506c7bbe9feb8468fad6c51a88ca1393ca6b8b486ea04bec3c1",
   "iso_checksum_type": "sha256",
   "iso_name": "CentOS-7-x86_64-DVD-1810.iso",
-  "iso_url": "https://mirrors.edge.kernel.org/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso",
   "memory": "1024",
+  "iso_url": "http://archive.kernel.org/centos-vault/7.6.1810/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso",
   "paralles_guest_os_type": "centos7",
   "vagrantfile_template": "tpl/vagrantfile-centos7-desktop.tpl"
 }
