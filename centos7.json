@@ -7,7 +7,7 @@
   "iso_checksum": "9bba3da2876cb9fcf6c28fb636bcbd01832fe6d84cd7445fa58e44e569b3b4fe",
   "iso_checksum_type": "sha256",
   "iso_name": "CentOS-7-x86_64-DVD-1908.iso",
-  "iso_url": "https://mirrors.edge.kernel.org/centos/7.7.1908/isos/x86_64/CentOS-7-x86_64-DVD-1908.iso",
+  "iso_url": "http://archive.kernel.org/centos-vault/7.7.1908/isos/x86_64/CentOS-7-x86_64-DVD-1908.iso",
   "memory": "512",
   "parallels_guest_os_type": "centos7"
 }
