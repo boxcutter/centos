@@ -1,8 +1,8 @@
-# Packer templates for CentOS
+# Packer templates for CentOS written in legacy JSON
 
 ### Overview
 
-This repository contains Packer templates for creating CentOS Vagrant boxes.
+This repository contains Packer templates for creating CentOS Vagrant boxes written in legacy JSON.
 
 ## Current Boxes
 
