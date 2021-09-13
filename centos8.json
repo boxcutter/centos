@@ -1,0 +1,13 @@
+{
+  "_comment": "Build with `packer build -var-file=centos8.json centos.json`",
+  "vm_name": "centos8",
+  "cpus": "1",
+  "disk_size": "65536",
+  "http_directory": "kickstart/centos8",
+  "iso_checksum": "aaf9d4b3071c16dbbda01dfe06085e5d0fdac76df323e3bbe87cce4318052247",
+  "iso_checksum_type": "sha256",
+  "iso_name": "CentOS-8.3.2011-x86_64-dvd1.iso",
+  "iso_url": "https://mirrors.edge.kernel.org/centos/8.3.2011/isos/x86_64/CentOS-8.3.2011-x86_64-dvd1.iso",
+  "memory": "1024",
+  "parallels_guest_os_type": "centos8"
+}
